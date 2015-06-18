@@ -34,9 +34,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 ### CUSTOM ###
-gem 'haml'
-gem 'mysql2'
-
+gem 'haml', '~> 4.0.6'
+gem 'mysql2', '~> 0.3.18'
+gem 'bcrypt', '~> 3.1.10'
 
 
 ### DEV ####

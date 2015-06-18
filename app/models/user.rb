@@ -6,5 +6,7 @@ class User < ActiveRecord::Base
     presence: true, 
     format: {with: EMAIL_RGX},
     uniqueness: { case_sensitive: false }
+  
+  has_secure_password
 end
 
