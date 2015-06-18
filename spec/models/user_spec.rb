@@ -6,7 +6,14 @@ describe User do
   end
   
   it 'should be valid from the factory' do
-    @user.should be_valid
+    expect(@user).to be_valid
+  end
+  
+  it "should have a unique email" do
+    duplicate_user = @user.dup
+    duplicate_user.email = @user.email.upcase
+    @user.save
+    assert !duplicate_user.valid?
   end
 end
-    
+
