@@ -4,7 +4,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+#gem 'sqlite3'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -34,6 +35,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 ### CUSTOM ###
 gem 'haml'
+gem 'mysql2'
 
 
 
@@ -49,5 +51,7 @@ group :development, :test do
   gem 'spring'
   
   gem 'haml-rails'
+  gem 'factory_girl_rails', '~> 4.5'
+  gem 'rspec-rails', '~> 3.0'
 end
 
