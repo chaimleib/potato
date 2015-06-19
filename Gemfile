@@ -38,6 +38,10 @@ gem 'haml', '~> 4.0.6'
 gem 'mysql2', '~> 0.3.18'
 gem 'bcrypt', '~> 3.1.10'
 
+group :production do
+  gem 'rails_12factor', '~> 0.0.2'
+end
+
 
 ### DEV ####
 group :development, :test do
