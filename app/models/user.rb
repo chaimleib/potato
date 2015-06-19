@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  EMAIL_RGX = /\A[a-z0-9][-_\.a-z0-9]*@[a-z0-9][-_a-z0-9]*\.[a-z0-9][a-z0-9]*\z/i
+  EMAIL_RGX = /\A[a-z0-9][-_\.a-z0-9]*@[a-z0-9][-_a-z0-9]*(\.[a-z0-9][a-z0-9]*)*\z/i
   before_save { self.email = email.downcase }
   has_secure_password
   
