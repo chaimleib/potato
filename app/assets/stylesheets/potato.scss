@@ -1,0 +1,45 @@
+// Place all the styles related to the potato controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'theme';
+
+$overview_width : 50%;
+#selection_form_container {
+    width: $overview_width;
+    max-width: $overview_width;
+    margin-left:auto;
+    margin-right:auto;
+}
+    
+#overview {
+    width: $overview_width;
+    max-width: $overview_width;
+    margin-left:auto;
+    margin-right:auto;
+    border: 1px solid $color-border;
+    background-color: $color-background-shade;
+}
+
+#overview table {
+    width: 100%;
+    margin: 0;
+}
+#overview tr{
+    border-bottom: 1px solid $color-border;
+}
+#overview thead {
+    border-bottom: 1px solid $color-border;
+}
+#overview tr:last-child {
+    border-bottom: none;
+}
+
+#overview th {
+    text-align: left;
+}
+#overview th ~ th {
+    text-align: center;
+}
+#overview td ~ td {
+    text-align: center;
+}

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'potato/overview'
+  get 'potato/index', to: 'potato#overview'
+  get 'potato', to: 'potato#overview'
+
   get 'users/new'
 
   get 'welcome/index'

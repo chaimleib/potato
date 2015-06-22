@@ -1,5 +1,8 @@
+/*
+    *= require_self
+*/
 @import 'partials/reset';
-@import 'colors/potato-colors';
+@import 'theme';
 
 body {
    font: 100% Helvetica, sans-serif;
@@ -9,6 +12,10 @@ body {
 a           {color: $color-text-link;}
 a:visited   {color: $color-text-link-visited;}
 a:hover     {color: $color-text-link-hover;}
+
+table {
+    border-collapse: collapse;
+}
 
 .header {
     margin: 0px;
