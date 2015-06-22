@@ -1,0 +1,58 @@
+@import 'partials/reset';
+@import 'colors/potato-colors';
+
+body {
+   font: 100% Helvetica, sans-serif;
+   background-color: $white;
+}
+
+a           {color: $color-text-link;}
+a:visited   {color: $color-text-link-visited;}
+a:hover     {color: $color-text-link-hover;}
+
+.header {
+    margin: 0px;
+    background-color: $color-navbar-background;
+}
+
+.header .container {
+    margin-top: 0;
+    background-color: transparent;
+}
+
+.header h1 {
+    margin: 0px;
+}
+
+.article .container {
+    border: 1px solid $color-border;
+}
+
+.footer * {
+    color: $color-text-weak;
+}
+
+.footer p {
+    font-size: 80%;
+    text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: $color-text-heading;
+}
+
+.container {
+    background-color: $color-background;
+    color: $color-text;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    padding: 0.5em;
+}
+
