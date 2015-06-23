@@ -19,5 +19,10 @@
         %tr{class: (['strong', 'red'] if version == 'Unversioned')}
           %td= version
           %td= @context[:overview_table_data][version][:tasks].to_s
-          %td= @context[:overview_table_data][version][:time] || 'N/A'
-                
+          %td
+            - t = @context[:overview_table_data][version][:time]
+            - if t.nil?
+              N/A
+            - else
+              = timeago_tag(t)
+

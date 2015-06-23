@@ -38,6 +38,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'haml', '~> 4.0.6'
 gem 'mysql2', '~> 0.3.18'
 gem 'bcrypt', '~> 3.1.10'
+gem 'rails-timeago', '~> 2.0'
 
 group :production do
   gem 'rails_12factor', '~> 0.0.2'

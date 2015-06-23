@@ -1,7 +1,6 @@
-require 'date'
-
 class PotatoController < ApplicationController
   def overview
+    n = Time.now
     data = {
       'Unversioned' => {
         :tasks => 3,
@@ -9,11 +8,11 @@ class PotatoController < ApplicationController
       },
       'v13.0.0.1' => {
         :tasks => 6,
-        :time => '4 days'
+        :time => n + 6.days
       },
       'v12.0.1' => {
         :tasks => 1,
-        :time => '2 days'
+        :time => n + 4.days
       }
     }
     sorted_keys = data.keys.sort
