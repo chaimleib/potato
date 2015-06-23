@@ -16,6 +16,7 @@
 !/log/.keep
 /tmp
 *.swp
+.DS_Store
 
 /config/potato.yml
 /config/secrets.yml
