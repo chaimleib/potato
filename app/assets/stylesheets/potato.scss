@@ -4,25 +4,26 @@
 @import 'theme';
 
 $overview_width : 50%;
+$overview_min_width : 220px;
 #selection_form_container {
     width: $overview_width;
-    max-width: $overview_width;
+    min-width: $overview_min_width;
     margin-left:auto;
     margin-right:auto;
 }
     
 #overview {
     width: $overview_width;
-    max-width: $overview_width;
+    min-width: $overview_min_width;
     margin-left:auto;
     margin-right:auto;
-    border: 1px solid $color-border;
-    background-color: $color-background-shade;
 }
 
 #overview table {
     width: 100%;
     margin: 0;
+    border: 1px solid $color-border;
+    background-color: $color-background-shade;
 }
 #overview tr{
     border-bottom: 1px solid $color-border;
