@@ -17,6 +17,18 @@ table {
     border-collapse: collapse;
 }
 
+.strong {
+    font-weight: bold;
+}
+
+.red {
+   color: $color-text-strong;
+}
+
+tr.red {
+    background-color: $color-background-strong;
+}
+
 .header {
     margin: 0px;
     background-color: $color-navbar-background;

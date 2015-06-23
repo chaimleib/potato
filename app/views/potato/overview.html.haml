@@ -15,13 +15,9 @@
         %th Tasks
         %th Due
     %tbody
-      %tr
-        %td Unversioned
-        %td 3
-        %td N/A
-      %tr
-        %td v13.0.1
-        %td 5
-        %td 4 days
-      
+      - @context[:overview_table_rows].each do |version|
+        %tr{class: (['strong', 'red'] if version == 'Unversioned')}
+          %td= version
+          %td= @context[:overview_table_data][version][:tasks].to_s
+          %td= @context[:overview_table_data][version][:time] || 'N/A'
                 
