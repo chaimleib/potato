@@ -36,9 +36,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 ### CUSTOM ###
 gem 'haml', '~> 4.0.6'
+gem 'haml-rails'
 gem 'mysql2', '~> 0.3.18'
 gem 'bcrypt', '~> 3.1.10'
 gem 'rails-timeago', '~> 2.0'
+gem 'jira-ruby'
 
 group :production do
   gem 'rails_12factor', '~> 0.0.2'
@@ -49,7 +51,6 @@ end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  gem 'better_errors'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
@@ -57,8 +58,11 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   
-  gem 'haml-rails'
+  ### CUSTOM ###
+  gem 'better_errors'
   gem 'factory_girl_rails', '~> 4.5'
   gem 'rspec-rails', '~> 3.0'
+  gem 'awesome_print'
+  gem 'pry'
 end
 

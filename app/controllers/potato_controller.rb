@@ -12,7 +12,7 @@ class PotatoController < ApplicationController
       },
       'v12.0.1' => {
         :tasks => 1,
-        :time => n + 4.days
+        :time => n + 4.minutes
       }
     }
     sorted_keys = data.keys.sort
