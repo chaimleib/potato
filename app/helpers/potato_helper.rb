@@ -16,8 +16,8 @@ module PotatoHelper
     pj = JiraAdapter.new
   end
   
-  def format_task_list_by_version(user, session, pj)
-    data = pj.get_task_list_by_version user
+  def format_task_tallies_by_version(user, session, pj)
+    data = pj.get_task_tallies_by_version user
     # order the data
     sorted_keys = data.keys.sort
     sorted_keys.delete('Unversioned')
@@ -30,3 +30,4 @@ module PotatoHelper
     }
   end
 end
+

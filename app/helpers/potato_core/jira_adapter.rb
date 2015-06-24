@@ -1,4 +1,5 @@
 require 'potato_core/jira_connection'
+require 'potato_core/version_scraper'
 
 class JiraAdapter
   attr_reader :connection, :jira
@@ -8,8 +9,10 @@ class JiraAdapter
     @jira = @connection.client
   end
   
-  def get_task_list_by_version(user)
-    issues = overview user
+  ### CALLED BY PotatoHelper ###
+  
+  def get_task_tallies_by_version(user)
+    issues = get_task_list_by_version user
     n = Time.now
     data = {}
     
@@ -19,14 +22,18 @@ class JiraAdapter
     end
     
     # assign due dates
+    freezes = fetch_code_freeze_dates
     data.each do |ver, row|
-      row[:time] = n + 5.minutes
+      row[:time] = get_code_freeze_date_for_version freezes, ver
     end
     data
   end
   
-  def overview(username=@connection.username)
-    issues = get_issues username
+  
+  ### INTERNAL ###
+  
+  def get_task_list_by_version(user)
+    issues = get_issues user
     issues.delete_if &:has_parent?
       
     sorted = sort_issues_by_version_category issues
@@ -34,6 +41,18 @@ class JiraAdapter
       sorted[ver] = issues.map &:key
     }
     sorted
+  end
+  
+  def fetch_code_freeze_dates
+    host_path = '/wiki/display/CP/CD+Maintenance+Releases'
+    html = @connection.submit_get host_path
+    freezes = VersionScraper.scrape_freeze_dates html
+  end
+  
+  def get_code_freeze_date_for_version(code_freezes, version)
+    version = version[1..-1] if %w(v V).include? version[0]
+    return code_freezes[version] if code_freezes[version].present?
+    nil
   end
   
   def sort_issues_by_version_category(issues)
@@ -56,7 +75,8 @@ class JiraAdapter
   def issue_version_category(issue)
     target = issue.target_version
     return target['name'] if target
-    earliest = issue_affected_versions(issue).min
+    versions = issue.versions.map &:name
+    earliest = versions.min
     return earliest if earliest
     "Unversioned"
   end

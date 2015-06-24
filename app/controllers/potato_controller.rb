@@ -22,6 +22,7 @@ class PotatoController < ApplicationController
     end
     session[:viewed_user] = user
     
-    @context = format_task_list_by_version user, session, pj
+    @context = format_task_tallies_by_version user, session, pj
   end
 end
+

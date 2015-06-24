@@ -64,6 +64,5 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.5'
   gem 'rspec-rails', '~> 3.0'
   gem 'awesome_print'
-  gem 'pry'
 end
 
