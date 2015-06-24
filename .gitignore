@@ -17,6 +17,7 @@
 /tmp
 *.swp
 .DS_Store
+/test.html
 
 /config/potato.yml
 /config/secrets.yml

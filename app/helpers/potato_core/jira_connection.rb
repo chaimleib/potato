@@ -24,7 +24,16 @@ class JiraConnection
     # @password = 'password'
     # @host = 'https://www.example.com'
     load_config
+    validate
 
+  end
+
+  def load_config
+    cfg = Rails.application.secrets.jira
+
+    @username, @password = cfg['username'], cfg['password']
+    @host = cfg['host']
+    
     options = {
       :username => @username,
       :password => @password,
@@ -34,16 +43,27 @@ class JiraConnection
     }
     @client = JIRA::Client.new options
   end
-
-  def load_config
-    cfg = Rails.application.secrets.jira
-
-    @username, @password = cfg['username'], cfg['password']
-    @host = cfg['host']
-
+  
+  def validate
     raise "`#{@username}` is an invalid username for JIRA" if @username !~ USER_RGX
     raise "No password provided" if @password.empty?
     raise "`#{@host}` is an invalid host URI" if @host.empty? || @host !~ URI_RGX
+  end
+  
+  def submit_get(path='')
+    return if path.empty?
+    path = URI.escape path
+    path = "/#{path}" if path[0] != '/'
+    uri = URI.parse "#{@host}/#{path}"
+    puts uri
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+    request = Net::HTTP::Get.new(uri.request_uri)
+    request.basic_auth @username, @password
+    request["Content-Type"] = "application/json"
+    response = http.request(request)
+    raise "#{response.code}: #{response.message}" if response.code !~ /20[0-9]/
+    response.body
   end
 
   def get_projects
@@ -60,7 +80,7 @@ class JiraConnection
 
   def get_issues(username=@username)
     conditions = [
-      "assignee=#{username.inspect}",
+      "assignee=#{ActiveRecord::Base::sanitize username}",
       #'project=CD',
       'updated > -14d',
       'status not in (Closed,Resolved)',
@@ -139,4 +159,9 @@ class JiraConnection
 end
 
 PotatoJira = JiraConnection.new
+
+#if __FILE__ == $0
+#  con = JiraConnection.new
+#  puts con.submit_get '/wiki/display/CP/CD+Maintenance+Releases'
+#end
 

@@ -218,6 +218,7 @@ DEPENDENCIES
   jira-ruby
   jquery-rails
   mysql2 (~> 0.3.18)
+  nokogiri
   pry
   rails (= 4.2.0)
   rails-timeago (~> 2.0)
