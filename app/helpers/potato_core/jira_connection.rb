@@ -18,6 +18,8 @@ class JiraConnection
   
   URI_RGX = /^https?:\/\/[-.\/a-zA-Z0-9]+$/
   
+  attr_reader :client, :username
+  
   def initialize
     # These three are loaded from Rails.application.secrets.jira:
     # @username = 'username'
@@ -60,7 +62,6 @@ class JiraConnection
     http.use_ssl = true
     request = Net::HTTP::Get.new(uri.request_uri)
     request.basic_auth @username, @password
-    request["Content-Type"] = "application/json"
     response = http.request(request)
     raise "#{response.code}: #{response.message}" if response.code !~ /20[0-9]/
     response.body
@@ -157,8 +158,6 @@ class JiraConnection
     binding.pry
   end
 end
-
-PotatoJira = JiraConnection.new
 
 #if __FILE__ == $0
 #  con = JiraConnection.new
