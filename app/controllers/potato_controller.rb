@@ -1,24 +1,27 @@
-require 'potato_core/jira_adapter'
+# class:: PotatoController
+# Contains action methods for GUI linkage and rendering.
+# 
+# Hierarchy:
+#   * potato_core/jira_connection - login, HTTPS, REST client setup
+#   * potato_core/jira_adapter    - JQL, JSON, HTML, raw data aggregation
+#   * PotatoHelper                - sorting and formatting for HAML
+#   * PotatoController            - sessions, params, form interaction, page rendering
+
 require 'potato_helper'
 include PotatoHelper
 
 class PotatoController < ApplicationController
   def overview
     pj = ensure_potato_jira session
-    user = params[:user].present? ? params[:user] : pj.con.username
+    if params[:user].present?
+      user = params[:user]
+    elsif session.has_key? :viewed_user
+      user = session[:viewed_user]
+    else
+      user = pj.connection.username
+    end
+    session[:viewed_user] = user
     
-    data = get_task_list_by_version user, session, pj
-    
-    # order the data
-    sorted_keys = data.keys.sort
-    sorted_keys.delete('Unversioned')
-    sorted_keys.unshift 'Unversioned' if data.has_key? 'Unversioned'
-
-    @context = {
-      :overview_table_rows => sorted_keys,
-      :overview_table_data => data,
-      :overview_username => user
-    }
-    
+    @context = format_task_list_by_version user, session, pj
   end
 end

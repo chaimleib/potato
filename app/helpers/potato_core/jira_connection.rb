@@ -3,11 +3,7 @@
 #require 'rubygems'
 require 'jira'
 require 'uri'
-require 'pp'
-require 'utilities/object_cleaner'
 require 'jira-extensions/issue'
-require 'pry'
-#require 'rails'
 
 
 class JiraConnection
@@ -67,96 +63,6 @@ class JiraConnection
     response.body
   end
 
-  def get_projects
-    projects = @client.Project.all
-    projects.each do |project|
-      puts "#{project.key}: #{project.name}"
-    end
-  end
-
-  def get_user(username=@username)
-    user = @client.User.find username
-    pp user
-  end
-
-  def get_issues(username=@username)
-    conditions = [
-      "assignee=#{ActiveRecord::Base::sanitize username}",
-      #'project=CD',
-      'updated > -14d',
-      'status not in (Closed,Resolved)',
-    ]
-    query = conditions.join " AND "
-    query += " order by updated desc"
-    puts query
-    issues = @client.Issue.jql query
-  end
-  
-  def print_issue_array(issues)
-    issues.each do |issue|
-      # parent = issue.fields.parent.key
-      status = issue.status.name
-      description = issue.description
-      if description
-        description.gsub! "\n", ' '
-        description.gsub! "\r", ''
-      else
-        description = '<No description>'
-      end
-      versions = issue.versions.map &:name
-      versions = versions.join ', '
-      if versions.empty?
-        versions = 'No versions assigned'
-      else
-        versions = "Versions: #{versions}"
-      end
-      puts "# #{issue.key} #{issue.updated} (#{status}): #{versions}"
-      puts description
-      puts ''
-    end
-  end
-  
-  def sort_issues_by_version_category(issues)
-    result = {}
-    _add_to_version = proc do |issue, version|
-      result[version] = [] if !result.has_key? version
-      result[version].push issue
-    end
-    issues.each do |issue|
-      version = issue_version_category issue
-      _add_to_version.call issue, version
-    end
-    result
-  end
-  
-  def issue_affected_versions(issue)
-    versions = issue.versions.map &:name
-    versions
-  end
-  
-  def issue_version_category(issue)
-    target = issue.target_version
-    return target['name'] if target
-    earliest = issue_affected_versions(issue).min
-    return earliest if earliest
-    "Unversioned"
-  end
-    
-  def overview(username=@username)
-    issues = get_issues username
-    issues.delete_if &:has_parent?
-      
-    sorted = sort_issues_by_version_category issues
-    sorted.each{ |ver, issues|
-      sorted[ver] = issues.map &:key
-    }
-    sorted
-  end
-
-  def get_issue(issue='CD-29175')
-    issue = @client.Issue.find issue
-    binding.pry
-  end
 end
 
 #if __FILE__ == $0
