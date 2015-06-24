@@ -18,12 +18,11 @@ table {
 }
 
 .strong {
+    color: $color-text-strong;
     font-weight: bold;
 }
 
-.red {
-   color: $color-text-strong;
-}
+.red { color: $color-text-red; }
 
 tr.red {
     background-color: $color-background-strong;
@@ -31,17 +30,23 @@ tr.red {
 
 .header {
     margin: 0px;
-    background-color: $color-navbar-background;
+    
+    .container {
+        margin-top: 0;
+        background-color: transparent;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        margin: 0px;
+    }
+    h1 {
+        margin-bottom: 5px;
+    }
+    h2 {
+        font-size: 130%;
+    }
 }
 
-.header .container {
-    margin-top: 0;
-    background-color: transparent;
-}
-
-.header h1 {
-    margin: 0px;
-}
 
 .article .container {
     border: 1px solid $color-border;
@@ -56,13 +61,17 @@ tr.red {
     text-align: center;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
     color: $color-text-heading;
+}
+
+ul {
+    margin-left: 1.5em;
+}
+
+.page-margins {
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .container {
@@ -73,10 +82,5 @@ h6 {
     margin-right: auto;
     margin-top: 10px;
     padding: 0.5em;
-}
-
-.page-margins {
-    margin-left: 5px;
-    margin-right: 5px;
 }
 

@@ -1,1 +1,9 @@
-%p Find me in app/views/welcome/index.html.haml
+%p POTATO is a developer dashboard that gathers together JIRA and GitHub data in a single, convenient place. The acronym stands for Programmer's Open Task AgregaTOr.
+%h2 Views
+%ul
+  - PotatoController.instance_methods(false).each do |sym|
+  - name = sym.to_s
+  - display_name = action_display_name name
+    %li
+      = link_to display_name, "/potato/#{name}"
+

@@ -1,3 +1,5 @@
+require 'potato_core/jira_adapter'
+
 class PotatoController < ApplicationController
   def overview
     n = Time.now

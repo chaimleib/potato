@@ -20,11 +20,11 @@ class ApplicationController < ActionController::Base
     result = "&gt; #{result.join ' > '}"
   end
   
-  def controller_display_name
-    controller_name.underscore.humanize.capitalize
+  def controller_display_name(controller=self)
+    controller.controller_name.underscore.humanize.capitalize
   end
   
-  def action_display_name
-    action_name.humanize.capitalize
+  def action_display_name(name=action_name)
+    name.humanize.capitalize
   end
 end

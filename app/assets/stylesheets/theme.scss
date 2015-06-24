@@ -1,2 +1,10 @@
 @import 'colors/potato-colors';
 
+.header {
+    background-color: $color-background-invert;
+    h1, h2, h3, h4, h5, h6 {
+        color: $color-text-heading-invert;
+    }
+}
+
+
