@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get 'potato/overview'
   post 'potato/overview'
   
+  get 'potato/propagations'
+  post 'potato/propagations'
+  
   get 'potato/index', to: 'potato#overview'
   get 'potato', to: 'potato#overview'
 

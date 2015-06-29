@@ -29,5 +29,21 @@ class PotatoController < ApplicationController
     
     @context = format_task_tallies_by_version user, session, pj
   end
+  
+  def propagations
+    add_crumb("Propagations", potato_propagations_path)
+    
+    pj = ensure_potato_jira session
+    if params[:user].present?
+      user = params[:user]
+    elsif session.has_key? :viewed_user
+      user = session[:viewed_user]
+    else
+      user = pj.connection.username
+    end
+    session[:viewed_user] = user
+    
+    @context = {}
+  end
 end
 
