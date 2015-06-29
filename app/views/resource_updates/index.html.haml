@@ -16,8 +16,11 @@
       %tr
         %td= resource_update.name
         %td= resource_update.updated
-        %td= link_to resource_update.source_uri, resource_update.source_uri
-        %td= resource_update.user
+        %td
+          - buri = breakable_uri resource_update.source_uri
+          = link_to resource_update.source_uri do
+            != buri
+        %td= link_to resource_update.user.full_name, resource_update.user
         %td= link_to 'Show', resource_update
         %td= link_to 'Edit', edit_resource_update_path(resource_update)
         %td= link_to 'Destroy', resource_update, :method => :delete, :data => { :confirm => 'Are you sure?' }
