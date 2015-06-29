@@ -1,5 +1,5 @@
 require 'jira'
-require './lib/jira-extensions/sprint'
+require 'jira-extensions/sprint'
 
 class JIRA::Resource::Issue
   def target_branch
