@@ -1,0 +1,19 @@
+%p#notice= notice
+%table.hpretty
+  %tbody
+    %tr
+      %td
+        %b First name:
+      %td= @user.fname
+    %tr
+      %td
+        %b Last name:
+      %td= @user.lname
+    %tr
+      %td
+        %b Email:
+      %td= @user.email
+
+= link_to 'Edit', edit_user_path(@user)
+\|
+= link_to 'Back', users_path

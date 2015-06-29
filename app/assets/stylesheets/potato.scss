@@ -19,28 +19,3 @@ $overview_min_width : 220px;
     margin-right:auto;
 }
 
-#overview table {
-    width: 100%;
-    margin: 0;
-    border: 1px solid $color-border;
-    background-color: $color-background-shade;
-}
-#overview tr{
-    border-bottom: 1px solid $color-border;
-}
-#overview thead {
-    border-bottom: 1px solid $color-border;
-}
-#overview tr:last-child {
-    border-bottom: none;
-}
-
-#overview th {
-    text-align: left;
-}
-#overview th ~ th {
-    text-align: center;
-}
-#overview td ~ td {
-    text-align: center;
-}

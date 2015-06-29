@@ -13,9 +13,42 @@ a           {color: $color-text-link;}
 a:visited   {color: $color-text-link-visited;}
 a:hover     {color: $color-text-link-hover;}
 
-table {
+table.pretty {
     border-collapse: collapse;
+    width: 100%;
+    margin: 0;
+    border: 1px solid $color-border;
+    background-color: $color-background-shade;
+    
+    thead {
+        border-bottom: 1px solid $color-border;
+        
+        th {
+            text-align: left;
+        }
+        
+        th ~ th {
+            text-align: center;
+        }
+    }
+    
+    tr {
+        border-bottom: 1px solid $color-border;
+        
+        td ~ td {
+            text-align: center;
+        }
+    }
+    
+    tr:last-child {
+        border-bottom: none;
+    }
+        
+    tr.red {
+        background-color: $color-background-strong;
+    }
 }
+
 
 .strong {
     color: $color-text-strong;
@@ -23,10 +56,6 @@ table {
 }
 
 .red { color: $color-text-red; }
-
-tr.red {
-    background-color: $color-background-strong;
-}
 
 .header {
     margin: 0px;
@@ -40,6 +69,13 @@ tr.red {
         margin: 0px;
     }
     h1 {
+        a {
+            color: inherit;
+            text-decoration: inherit;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
         margin-bottom: 5px;
     }
     h2 {

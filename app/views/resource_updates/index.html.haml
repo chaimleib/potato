@@ -1,0 +1,27 @@
+%h1 Listing resource updates
+
+%table.pretty
+  %thead
+    %tr
+      %th Name
+      %th Updated
+      %th Source URI
+      %th User
+      %th
+      %th
+      %th
+
+  %tbody
+    - @resource_updates.each do |resource_update|
+      %tr
+        %td= resource_update.name
+        %td= resource_update.updated
+        %td= link_to resource_update.source_uri, resource_update.source_uri
+        %td= resource_update.user
+        %td= link_to 'Show', resource_update
+        %td= link_to 'Edit', edit_resource_update_path(resource_update)
+        %td= link_to 'Destroy', resource_update, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Resource Update', new_resource_update_path

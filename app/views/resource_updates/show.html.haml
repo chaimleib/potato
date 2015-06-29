@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%table.hpretty
+  %tbody
+    %tr
+      %td
+        %b Name:
+      %td= @resource_update.name
+    %tr
+      %td
+        %b Updated:
+      %td= @resource_update.updated
+    %tr
+      %td
+        %b Source URI:
+      %td= @resource_update.source_uri
+    %tr
+      %td
+        %b User:
+      %td
+        - user = @resource_update.user
+        - name = "#{user.fname} #{user.lname}"
+        = link_to name, @resource_update.user
+
+= link_to 'Edit', edit_resource_update_path(@resource_update)
+\|
+= link_to 'Back', resource_updates_path

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :users
+
+  resources :resource_updates
+
   get 'potato/overview'
   post 'potato/overview'
   

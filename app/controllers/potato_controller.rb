@@ -11,7 +11,12 @@ require 'potato_helper'
 include PotatoHelper
 
 class PotatoController < ApplicationController
+  add_crumb("Potato"){ |instance| instance.potato_path }
+  
+  
   def overview
+    add_crumb("Overview", potato_overview_path)
+    
     pj = ensure_potato_jira session
     if params[:user].present?
       user = params[:user]

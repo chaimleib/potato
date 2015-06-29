@@ -42,6 +42,7 @@ gem 'bcrypt', '~> 3.1.10'
 gem 'rails-timeago', '~> 2.0'
 gem 'jira-ruby'
 gem 'nokogiri'
+gem 'crummy', '~> 1.8.0'
 
 group :production do
   gem 'rails_12factor', '~> 0.0.2'
