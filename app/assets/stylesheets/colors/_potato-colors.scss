@@ -15,12 +15,26 @@ $color-text-heading: $dill-green;
 $color-text-heading-invert: $potato-fruit-yellow;
 $color-text-invert: $potato-crust-light-brown;
 $color-text-strong-invert: $tomato-light-red;
-$color-text-link: $midnight-blue;
-$color-text-link-visited: lighten($midnight-blue, 30%);
-$color-text-link-hover: lighten($midnight-blue, 40%);
-$color-text-link-invert: $midnight-blue;
-$color-text-link-visited-invert: $noon-sky-blue;
-$color-text-link-hover-invert: lighten($midnight-blue, 30%);
+$color-text-link: lighten($midnight-blue, 20%);
+$color-text-link-visited: $midnight-blue;
+$color-text-link-hover: lighten($midnight-blue, 30%);
+$color-text-link-invert: lighten($midnight-blue, 45%);
+$color-text-link-visited-invert: lighten($midnight-blue, 40%);
+$color-text-link-hover-invert: lighten($midnight-blue, 50%);
 $color-border: $potato-crust-dark-brown;
 $color-navbar-background: $potato-crust-dark-brown;
 
+body {background-clor: $white;}
+
+.header {
+    color: $color-text_invert;
+    h1 {
+        color: $color-text-heading-invert;
+        a           {color: $color-text-heading-invert;}
+        a:visited   {color: $color-text-heading-invert;}
+        a:hover     {color: $color-text-heading-invert;}
+    }
+    a {color: $color-text-link-invert;}
+    a:visited {color: $color-text-link-visited-invert;}
+    a:hover {color: $color-text-link-hover-invert;}
+}

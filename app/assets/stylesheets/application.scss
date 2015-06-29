@@ -6,7 +6,6 @@
 
 body {
    font: 100% Helvetica, sans-serif;
-   background-color: $white;
 }
 
 a           {color: $color-text-link;}
@@ -55,7 +54,7 @@ table.pretty {
     font-weight: bold;
 }
 
-.red { color: $color-text-red; }
+.red {color: $color-text-red;}
 
 .header {
     margin: 0px;
@@ -69,13 +68,8 @@ table.pretty {
         margin: 0px;
     }
     h1 {
-        a {
-            color: inherit;
-            text-decoration: inherit;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
+        a {text-decoration: inherit;}
+        a:hover {text-decoration: underline;}
         margin-bottom: 5px;
     }
     h2 {
