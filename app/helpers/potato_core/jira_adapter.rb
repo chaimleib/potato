@@ -33,7 +33,7 @@ class JiraAdapter
   ### INTERNAL ###
   
   def get_task_list_by_version(user)
-    issues = get_issues user
+    issues = get_open_issues user
     issues.delete_if &:has_parent?
       
     sorted = sort_issues_by_version_category issues
@@ -85,17 +85,20 @@ class JiraAdapter
     issue = @jira.Issue.find issue
   end
   
-  def get_issues(username=@connection.username)
-    conditions = [
-      "assignee=#{ActiveRecord::Base::sanitize username}",
-      #'project=CD',
-      'updated > -14d',
-      'status not in (Closed,Resolved)',
-    ]
+  def get_issues(conditions=[], username=@connection.username)
+    conditions.unshift "assignee=#{ActiveRecord::Base::sanitize username}"
     query = conditions.join " AND "
     query += " order by updated desc"
     puts query
     issues = @jira.Issue.jql query
+  end
+  
+  def get_open_issues(username=@connection.username)
+    conditions = [
+      'updated > -14d',
+      'status not in (Closed,Resolved)',
+    ]
+    issues = get_issues conditions, username
   end
   
   def get_user(username=@connection.username)
