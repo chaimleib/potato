@@ -1,6 +1,6 @@
 #selection_form_container
   %form{:name => 'selectionform', :id => 'selectionform', 
-  :action => '', :method => 'post'}
+  :action => controller.potato_overview_path, :method => 'post'}
     = hidden_field_tag :authenticity_token, form_authenticity_token
     %table
       %tbody
