@@ -7,18 +7,18 @@
           - @user.errors.full_messages.each do |msg|
             %li= msg
     .row.form-group
-      .col-sm-4.field= f.label :fname
+      .col-sm-4.field= f.label :fname, 'First name'
       .col-sm-8= f.text_field :fname
     .row.form-group
-      .col-sm-4.field= f.label :lname
+      .col-sm-4.field= f.label :lname, 'Last name'
       .col-sm-8= f.text_field :lname
     .row.form-group
-      .col-sm-4.field= f.label :email
+      .col-sm-4.field= f.label :email, 'E-mail'
       .col-sm-8= f.text_field :email
     .row.form-group
       .col-sm-4.field= f.label :password
       .col-sm-8= f.password_field :password
     .row.form-group
-      .col-sm-4.field= f.label :password_confirmation
+      .col-sm-4.field= f.label :password_confirmation, 'Confirm password'
       .col-sm-8= f.password_field :password_confirmation
     .row.form_buttons.actions.input-group= f.submit 'Save'
