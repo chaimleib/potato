@@ -3,13 +3,31 @@ require 'jira-extensions/sprint'
 
 class JIRA::Resource::Issue
   def target_branch
-    customfield_12905
+    begin
+      self.customfield_12905
+    rescue
+      nil
+    end
   end
   
+  def target_branch_name
+    return nil if self.target_branch.nil?
+    self.target_branch['name']
+  end
+
   def target_version
-    customfield_12803
+    begin
+      self.customfield_12803
+    rescue
+      nil
+    end
   end
   
+  def target_version_name
+    return nil if self.target_version.nil?
+    self.target_version['name']
+  end
+
   def has_parent?
     begin
       self.parent
@@ -18,7 +36,43 @@ class JIRA::Resource::Issue
       return false
     end
   end
+
+  def is_parent?
+    begin
+      if self.subtasks && self.subtasks.length > 0
+        true
+      else
+        false
+      end
+    rescue NoMethodError
+      false
+    end
+  end
   
+  def pull_requests
+    rgx = %r{https?://github\.com/.+/pull/([0-9]+)}i
+    results = []
+
+    scrape_prs = proc do |s, time|
+      s.to_enum(:scan, rgx).
+        map{Regexp.last_match}.
+        map{|m|
+          {
+            :key => m[1],
+            :uri => m[0],
+            :time => Time.parse(time)
+          }
+        }
+    end
+
+    results.push *scrape_prs.call(self.description, self.updated)
+
+    self.comments.each do |comment|
+      results.push *scrape_prs.call(comment.body, comment.updated)
+    end
+    results.sort_by{|pr| pr[:time]}.reverse
+  end
+
   def sprints
     result = customfield_10800.map{|s| Sprint.new s}
     result
