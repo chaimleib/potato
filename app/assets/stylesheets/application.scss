@@ -10,7 +10,7 @@
 @import 'theme';
 
 body {
-   font: 14pt Helvetica, sans-serif;
+   font: 12pt Helvetica, sans-serif;
 }
 
 a {
@@ -67,18 +67,13 @@ table.pretty {
 .header {
     margin: 0px;
     
-    .container {
-        margin-top: 0;
-        background-color: transparent;
-    }
-    
     h1, h2, h3, h4, h5, h6 {
         margin: 0px;
+        margin-bottom: 5px;
     }
     h1 {
         a {text-decoration: inherit;}
         a:hover {text-decoration: underline;}
-        margin-bottom: 5px;
     }
     h2 {
         font-size: 130%;
@@ -86,7 +81,7 @@ table.pretty {
 }
 
 
-.article .container {
+#main-container .article {
     border: 1px solid $color-border;
 }
 
@@ -100,6 +95,9 @@ table.pretty {
 }
 
 h1, h2, h3, h4, h5, h6 {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 0.5em;
     color: $color-text-heading;
 }
 
@@ -107,18 +105,19 @@ ul {
     margin-left: 1.5em;
 }
 
-.page-margins {
-    margin-left: 5px;
-    margin-right: 5px;
-}
-
-.container {
+.page_section {
+    padding: 20px;
+    margin-top: 10px;
     background-color: $color-background;
     color: $color-text;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-    padding: 0.5em;
 }
+
+form .row {
+    margin-top: 0.5em;
+}
+
+form .container-fluid {
+    margin-bottom: 0.5em;
+}
+
 
