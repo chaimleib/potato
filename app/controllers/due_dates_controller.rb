@@ -5,7 +5,7 @@ class DueDatesController < ApplicationController
   # GET /due_dates
   # GET /due_dates.json
   def index
-    @due_dates = DueDate.all
+    @due_dates = DueDate.all.reorder('branch_name')
   end
 
   # GET /due_dates/1
