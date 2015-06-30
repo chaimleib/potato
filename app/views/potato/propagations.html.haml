@@ -1,7 +1,8 @@
 - now = Time.now
 #selection_form_container
   %form{:name => 'selectionform', :id => 'selectionform', 
-  :action => '', :method => 'post'}
+    :action => controller.potato_propagations_path, 
+    :method => 'post'}
     = hidden_field_tag :authenticity_token, form_authenticity_token
     %table
       %tbody
@@ -15,27 +16,33 @@
   %table.pretty
     %thead
       %tr
+        %th Due
         %th Propagation
-        %th Parent
-        %th PR#
         %th Status
         %th Target
-        %th Due
+        %th PR#
+        %th Parent
+        %th Status
+        %th Target
     %tbody
       %tr
         //{class: (['strong', 'red'] if ... )}
-        %td CD-29394
-        %td CD-29245(R)
-        %td 15346
-        %td Code review
-        %th v12.0.11
         %td= timeago_tag(now + 1.hours)
-      %tr
-        %td CD-29397
-        %td CD-29245(R)
-        %td 15407
+        %td CD-29394
         %td Code review
-        %th v13.0.0
+        %td v12.0.11
+        %td 15346
+        %td CD-29245
+        %td Resolved
+        %td v13.0.0
+      %tr
         %td= timeago_tag(now + 1.weeks)
+        %td CD-29397
+        %td Code review
+        %td v13.0.0
+        %td 15407
+        %td CD-29245
+        %td Resolved
+        %td v13.0.0
         
 
