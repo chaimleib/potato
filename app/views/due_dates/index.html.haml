@@ -1,0 +1,25 @@
+%h1 Listing due dates
+
+%table.pretty
+  %thead
+    %tr
+      %th Branch name
+      %th Target version
+      %th Due
+      %th
+      %th
+      %th
+
+  %tbody
+    - @due_dates.each do |due_date|
+      %tr
+        %td= due_date.branch_name
+        %td= due_date.target_version
+        %td= due_date.due
+        %td= link_to 'Show', due_date
+        %td= link_to 'Edit', edit_due_date_path(due_date)
+        %td= link_to 'Destroy', due_date, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Due date', new_due_date_path

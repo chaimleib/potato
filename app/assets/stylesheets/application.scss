@@ -2,13 +2,21 @@
     *= require_self
 */
 @import 'partials/reset';
+
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'bootstrap-datetimepicker';
+
 @import 'theme';
 
 body {
-   font: 100% Helvetica, sans-serif;
+   font: 14pt Helvetica, sans-serif;
 }
 
-a           {color: $color-text-link;}
+a {
+    color: $color-text-link;
+    text-decoration: underline;
+}
 a:visited   {color: $color-text-link-visited;}
 a:hover     {color: $color-text-link-hover;}
 

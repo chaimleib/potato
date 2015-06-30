@@ -29,6 +29,19 @@ class JiraAdapter
     data
   end
   
+  def get_tasks_by_propagation(user)
+    require 'pry'
+    require 'utilities/object_cleaner'
+    n = Time.now
+    data = {}
+    conditions = [
+      'updated > -14d',
+      'status in (resolved,"code propagation",closed,"code review","ready to merge")'
+    ]
+    issues = get_issues conditions, user
+    binding.pry
+  end
+  
   
   ### INTERNAL ###
   

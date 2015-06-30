@@ -1,0 +1,20 @@
+%p#notice= notice
+
+%table.hpretty
+  %tbody
+    %tr
+      %td
+        %b Branch name:
+      %td= @due_date.branch_name
+    %tr
+      %td
+        %b Target_version:
+      %td= @due_date.target_version
+    %tr
+      %td
+        %b Due:
+      %td= @due_date.due
+
+= link_to 'Edit', edit_due_date_path(@due_date)
+\|
+= link_to 'Back', due_dates_path

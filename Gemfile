@@ -38,11 +38,16 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'haml', '~> 4.0.6'
 gem 'haml-rails'
 gem 'mysql2', '~> 0.3.18'
-gem 'bcrypt', '~> 3.1.10'
-gem 'rails-timeago', '~> 2.0'
-gem 'jira-ruby'
-gem 'nokogiri'
-gem 'crummy', '~> 1.8.0'
+gem 'bcrypt', '~> 3.1.10'     # password hashes
+gem 'rails-timeago', '~> 2.0' # relative date display
+gem 'jira-ruby'               # access to Jira and JQL (potato_core)
+gem 'nokogiri'                # parse and scrape HTML (potato_core)
+gem 'crummy', '~> 1.8.0'      # breadcrumbs in header
+
+gem 'momentjs-rails', '>=2.9.0'                     # supports bootstrap3-datetimepicker
+gem 'bootstrap-sass', '~>3.3.5'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'  # nice DateTime picker
+
 
 group :production do
   gem 'rails_12factor', '~> 0.0.2'
@@ -65,5 +70,6 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.5'
   gem 'rspec-rails', '~> 3.0'
   gem 'awesome_print'
+  gem 'pry-rails'
 end
 

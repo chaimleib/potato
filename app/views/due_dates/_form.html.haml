@@ -1,0 +1,22 @@
+= form_for @due_date do |f|
+  - if @due_date.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@due_date.errors.count, "error")} prohibited this due date from being saved:"
+      %ul
+        - @due_date.errors.full_messages.each do |msg|
+          %li= msg
+
+  %table
+    %tbody
+      %tr
+        %td.field= f.label :branch_name
+        %td= f.text_field :branch_name
+      %tr
+        %td.field= f.label :target_version
+        %td= f.text_field :target_version
+      %tr
+        %td.field= f.label :due
+        %td.input-group
+          = f.text_field :due, class: 'datepicker'
+      %tr
+        %td.form_buttons.actions= f.submit 'Save'

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :due_dates
+
   resources :users
 
   resources :resource_updates
