@@ -1,24 +1,21 @@
 = form_for @resource_update do |f|
-  - if @resource_update.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@resource_update.errors.count, "error")} prohibited this resource_update from being saved:"
-      %ul
-        - @resource_update.errors.full_messages.each do |msg|
-          %li= msg
-
-  %table
-    %tbody
-      %tr
-        %td.field= f.label :name
-        %td= f.text_field :name
-      %tr
-        %td.field= f.label :updated
-        %td= f.datetime_select :updated
-      %tr
-        %td.field Source URI
-        %td= f.text_area :source_uri
-      %tr
-        %td.field= f.label :user
-        %td= f.text_field :user
-      %tr
-        %td.form_buttons.actions= f.submit 'Save'
+  .container-fluid
+    - if @resource_update.errors.any?
+      .row#error_explanation
+        %h2= "#{pluralize(@resource_update.errors.count, "error")} prohibited this resource_update from being saved:"
+        %ul
+          - @resource_update.errors.full_messages.each do |msg|
+            %li= msg
+    .row.form-group
+      .col-sm-4.field= f.label :name
+      .col-sm-8.field= f.text_field :name
+    .row.form-group
+      .col-sm-4.field= f.label :updated
+      .col-sm-8= f.datetime_select :updated
+    .row.form-group
+      .col-sm-4.field= f.label :source_uri
+      .col-sm-8= f.text_area :source_uri
+    .row
+      .col-sm-4.field= f.label :user
+      .col-sm-8= f.text_field :user
+    .row.form_buttons.actions.input-group= f.submit 'Save'

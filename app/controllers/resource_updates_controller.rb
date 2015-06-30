@@ -22,7 +22,7 @@ class ResourceUpdatesController < ApplicationController
 
   # GET /resource_updates/1/edit
   def edit
-    add_crumb "Edit('#{@resource_update.name}##{resource_update.id}')", edit_resource_update_path
+    add_crumb "Edit('#{@resource_update.name}##{@resource_update.id}')", edit_resource_update_path
   end
 
   # POST /resource_updates
