@@ -1,28 +1,24 @@
 = form_for @user do |f|
-  - if @user.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
-      %ul
-        - @user.errors.full_messages.each do |msg|
-          %li= msg
-
-  %table
-    %tbody
-      %tr
-        %td.field= f.label :fname
-        %td= f.text_field :fname
-      %tr
-        %td.field= f.label :lname
-        %td= f.text_field :lname
-      %tr
-        %td.field= f.label :email
-        %td= f.text_field :email
-      %tr
-        %td.field= f.label :password
-        %td= f.password_field :password
-      %tr
-        %td.field= f.label :password_confirmation
-        %td= f.password_field :password_confirmation
-
-      %tr
-        %td.form_buttons.actions= f.submit 'Save'
+  .container-fluid
+    - if @user.errors.any?
+      .row#error_explanation
+        %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+        %ul
+          - @user.errors.full_messages.each do |msg|
+            %li= msg
+    .row.form-group
+      .col-sm-4.field= f.label :fname
+      .col-sm-8= f.text_field :fname
+    .row.form-group
+      .col-sm-4.field= f.label :lname
+      .col-sm-8= f.text_field :lname
+    .row.form-group
+      .col-sm-4.field= f.label :email
+      .col-sm-8= f.text_field :email
+    .row.form-group
+      .col-sm-4.field= f.label :password
+      .col-sm-8= f.password_field :password
+    .row.form-group
+      .col-sm-4.field= f.label :password_confirmation
+      .col-sm-8= f.password_field :password_confirmation
+    .row.form_buttons.actions.input-group= f.submit 'Save'
