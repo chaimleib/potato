@@ -43,7 +43,7 @@ class PotatoController < ApplicationController
     end
     session[:viewed_user] = user
     
-    @context = {}
+    @context = format_tasks_by_propagation user, session, pj
   end
 end
 

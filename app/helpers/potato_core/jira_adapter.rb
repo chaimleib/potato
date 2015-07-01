@@ -31,40 +31,43 @@ class JiraAdapter
   
   def get_tasks_by_propagation(user=@connection.username)
     require 'pry'
-    require 'utilities/object_cleaner'
-    n = Time.now
     data = []
     conditions = [
       'updated > -14d',
       'status in (resolved,"code propagation",closed,"code review","ready to merge")'
     ]
     issues = get_issues conditions, user
+    parents = []
     issues.each do |issue|
       line = {}
-      puts issue.key
       line[:key] = issue.key
       line[:status] = issue.status.name
-      line[:target] = target = issue.target_branch_name
+      line[:target] = target = issue.target_branch_name || issue.target_version_name
       line[:prs] = issue.pull_requests
+      dd = DueDate.find_by(branch_name: target)
+      line[:due] = dd.nil? ? nil : Time.strptime(dd.due, '%m/%d/%Y')
+      
       if issue.has_parent?
         line[:parent] = issue.parent['key']
-        parent = issue.parent['fields']
-        line[:parent_status] = parent['status']['name']
-        parent_target = parent[JIRA::Resource::Issue::TARGET_BRANCH_KEY]
-        line[:parent_target] = parent_target.nil? ? nil : parent_target['name']
+        parents.push issue.parent['key']
       else
         line[:parent] = nil
         line[:parent_status] = nil
         line[:parent_target] = nil
       end
-
-      dd = DueDate.find_by(branch_name: target)
-      line[:due] = dd.nil? ? nil : Time.strptime(dd.due, '%m/%d/%Y')
-
+      
       data.push line
     end
+    parents = get_issues_by_keys(parents)
+    data.each do |line|
+      next if line[:parent].nil?
+      key = line[:parent]
+      parent = parents[key]
+      line[:parent_status] = parent.status.name
+      line[:parent_target] = parent.target_branch_name || parent.target_version_name
+    end
 
-    binding.pry
+    data
   end
   
   
@@ -131,6 +134,20 @@ class JiraAdapter
     issues = @jira.Issue.jql query
   end
   
+  def get_issues_by_keys(keys)
+    return {} if keys.empty?
+    sanitized_keys = keys.map{|k| ActiveRecord::Base::sanitize k}.join ','
+    jql = "key in (#{sanitized_keys}) order by key asc"
+    puts jql
+    issues = @jira.Issue.jql jql
+    result = {}
+    issues.each do |issue|
+      key = issue.key
+      result[key] = issue
+    end
+    result
+  end
+
   def get_open_issues(username=@connection.username)
     conditions = [
       'updated > -14d',
@@ -140,8 +157,11 @@ class JiraAdapter
   end
   
   def get_user(username=@connection.username)
-    user = @jira.User.find username
-    pp user
+    begin
+      user = @jira.User.find username
+    rescue JIRA::HTTPError
+      nil
+    end
   end
 
   def get_projects

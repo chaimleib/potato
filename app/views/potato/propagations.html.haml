@@ -1,4 +1,9 @@
 - now = Time.now
+- def jira_link(key)
+  - return nil if key.nil?
+  - uri = "#{@context[:jira_issue_uri_base]}/#{key}"
+  - link_to key, uri
+
 #selection_form_container
   %form{:name => 'selectionform', :id => 'selectionform', 
     :action => controller.potato_propagations_path, 
@@ -12,6 +17,13 @@
             %input{:type => 'text', 
               :name => 'user', 
               :value => @context[:propagations_username]}
+        - if (errs = @context[:errors]) && (errs = errs[:user])
+          %tr
+            %td{class: ['red', 'strong']}
+              %ul
+                - errs.each do |err|
+                  %li= err
+
 #propagations
   %table.pretty
     %thead
@@ -25,24 +37,26 @@
         %th Status
         %th Target
     %tbody
-      %tr
-        //{class: (['strong', 'red'] if ... )}
-        %td= timeago_tag(now + 1.hours)
-        %td CD-29394
-        %td Code review
-        %td v12.0.11
-        %td 15346
-        %td CD-29245
-        %td Resolved
-        %td v13.0.0
-      %tr
-        %td= timeago_tag(now + 1.weeks)
-        %td CD-29397
-        %td Code review
-        %td v13.0.0
-        %td 15407
-        %td CD-29245
-        %td Resolved
-        %td v13.0.0
-        
-
+      - lines = @context[:propagations_table_data]
+      - lines.each do |line|
+        - red_line = line[:due_nil] || line[:due] < now
+        %tr{class: (['red'] if red_line)}
+          - if line[:due_nil]
+            %td{class: ['strong', 'red']} N/A
+          - else
+            %td{class: (['strong', 'red'] if red_line)}
+              = timeago_tag line[:due]
+          %td= jira_link line[:key]
+          %td= line[:status]
+          %td= line[:target] || 'N/A'
+          %td
+            - if line[:prs].empty?
+              N/A
+            - else
+              - line[:prs].each do |pr|
+                - uri = pr[:uri]
+                - num = pr[:key]
+                = link_to num, uri
+          %td= jira_link(line[:parent]) || '-'
+          %td= line[:parent_status] || (line[:parent] ? 'N/A' : '-')
+          %td= line[:parent_target] || (line[:parent] ? 'N/A' : '-')

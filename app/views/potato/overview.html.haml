@@ -1,13 +1,22 @@
 #selection_form_container
   %form{:name => 'selectionform', :id => 'selectionform', 
-  :action => controller.potato_overview_path, :method => 'post'}
+    :action => controller.potato_overview_path, 
+    :method => 'post'}
     = hidden_field_tag :authenticity_token, form_authenticity_token
     %table
       %tbody
         %tr
           %td
             %label{:for => 'user'} Username:
-            %input{:type => 'text', :name => 'user', :value => @context[:overview_username]}
+            %input{:type => 'text', 
+              :name => 'user', 
+              :value => @context[:overview_username]}
+        - if (errs = @context[:errors]) && (errs = errs[:user])
+          %tr
+            %td{class: ['red', 'strong']}
+              %ul
+                - errs.each do |err|
+                  %li= err
 #overview
   %table.pretty
     %thead
