@@ -11,4 +11,9 @@ class DueDate < ActiveRecord::Base
   validates :due,
     format: {with: DATE_RGX, message: DATE_ERR}
 
+  def self.for_version(version)
+    dd = find_by(branch_name: version)
+    return nil if dd.nil?
+    Time.strptime dd.due, '%m/%d/%Y'
+  end
 end

@@ -22,9 +22,8 @@ class JiraAdapter
     end
     
     # assign due dates
-    freezes = fetch_code_freeze_dates
     data.each do |ver, row|
-      row[:time] = get_code_freeze_date_for_version freezes, ver
+      row[:time] = DueDate.for_version ver
     end
     data
   end
@@ -82,18 +81,6 @@ class JiraAdapter
       sorted[ver] = issues.map &:key
     }
     sorted
-  end
-  
-  def fetch_code_freeze_dates
-    host_path = '/wiki/display/CP/CD+Maintenance+Releases'
-    html = @connection.submit_get host_path
-    freezes = VersionScraper.scrape_freeze_dates html
-  end
-  
-  def get_code_freeze_date_for_version(code_freezes, version)
-    version = version[1..-1] if %w(v V).include? version[0]
-    return code_freezes[version] if code_freezes[version].present?
-    nil
   end
   
   def sort_issues_by_version_category(issues)
