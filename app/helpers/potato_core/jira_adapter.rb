@@ -29,16 +29,41 @@ class JiraAdapter
     data
   end
   
-  def get_tasks_by_propagation(user)
+  def get_tasks_by_propagation(user=@connection.username)
     require 'pry'
     require 'utilities/object_cleaner'
     n = Time.now
-    data = {}
+    data = []
     conditions = [
       'updated > -14d',
       'status in (resolved,"code propagation",closed,"code review","ready to merge")'
     ]
     issues = get_issues conditions, user
+    issues.each do |issue|
+      line = {}
+      puts issue.key
+      line[:key] = issue.key
+      line[:status] = issue.status.name
+      line[:target] = target = issue.target_branch_name
+      line[:prs] = issue.pull_requests
+      if issue.has_parent?
+        line[:parent] = issue.parent['key']
+        parent = issue.parent['fields']
+        line[:parent_status] = parent['status']['name']
+        parent_target = parent[JIRA::Resource::Issue::TARGET_BRANCH_KEY]
+        line[:parent_target] = parent_target.nil? ? nil : parent_target['name']
+      else
+        line[:parent] = nil
+        line[:parent_status] = nil
+        line[:parent_target] = nil
+      end
+
+      dd = DueDate.find_by(branch_name: target)
+      line[:due] = dd.nil? ? nil : Time.strptime(dd.due, '%m/%d/%Y')
+
+      data.push line
+    end
+
     binding.pry
   end
   
