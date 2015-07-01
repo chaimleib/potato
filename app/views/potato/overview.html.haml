@@ -1,3 +1,4 @@
+- now = Time.now
 #selection_form_container
   %form{:name => 'selectionform', :id => 'selectionform', 
     :action => controller.potato_overview_path, 
@@ -25,14 +26,15 @@
         %th Tasks
         %th Due
     %tbody
-      - @context[:overview_table_rows].each do |version|
-        %tr{class: (['strong', 'red'] if version == 'Unversioned')}
-          %td= version
-          %td= @context[:overview_table_data][version][:tasks].to_s
+      - @context[:overview_table_data].each do |line|
+        - version = line[:version]
+        - tasks = line[:tasks]
+        - due = line[:due]
+        - red_line = version == 'Unversioned' || (due && due < now)
+        %tr{class: ('red' if red_line)}
+          %td{class: ('strong' if version == 'Unversioned')}
+            = version
           %td
-            - t = @context[:overview_table_data][version][:time]
-            - if t.nil?
-              N/A
-            - else
-              = timeago_tag(t)
-
+            = tasks
+          %td{class: ('strong' if due && due < now)}
+            = due ? timeago_tag(due) : 'N/A'

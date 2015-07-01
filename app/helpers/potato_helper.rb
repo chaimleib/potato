@@ -21,19 +21,27 @@ module PotatoHelper
       user: []
     }
     data = pj.get_task_tallies_by_version user
-    # order the data
+
     sorted_keys = data.keys.sort
-    sorted_keys.delete('Unversioned')
-    sorted_keys.unshift 'Unversioned' if data.has_key? 'Unversioned'
+    if data.has_key? 'Unversioned'
+      sorted_keys.delete 'Unversioned'
+      sorted_keys.unshift 'Unversioned'
+    end
+    if data.has_key? 'Backlog'
+      sorted_keys.delete 'Backlog'
+      sorted_keys.push 'Backlog'
+    end
+
+    sorted_data = sorted_keys.map{|key| data[key]}
 
     if sorted_keys.empty? && pj.get_user(user).nil?
       errors[:user].push 'No such user'
     end
 
     result = {
-      :overview_table_rows => sorted_keys,
-      :overview_table_data => data,
-      :overview_username => user
+      :overview_table_data => sorted_data,
+      :overview_username => user,
+      :errors => errors
     }
   end
 

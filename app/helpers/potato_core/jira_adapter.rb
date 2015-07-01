@@ -23,7 +23,8 @@ class JiraAdapter
     
     # assign due dates
     data.each do |ver, row|
-      row[:time] = DueDate.for_version ver
+      data[ver][:version] = ver
+      data[ver][:due] = DueDate.for_version ver
     end
     data
   end
