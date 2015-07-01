@@ -1,4 +1,5 @@
 require 'potato_core/jira_adapter'
+require 'potato_core/version_scraper'
 require 'pry'
 require 'pp'
 
@@ -25,6 +26,19 @@ def load_tsv(fpath)
   result
 end
 
+def scrape_wiki
+  jira = JiraAdapter.new
+  html = jira.connection.submit_get '/wiki/display/CP/CD+Maintenance+Releases'
+  data = VersionScraper.scrape_freeze_dates html
+  result = {}
+  data.each do |ver, date|
+    next if date.nil?
+    key = (ver =~ /\A[0-9]/) ? "v#{ver}" : ver
+    result[key] = date
+  end
+  result
+end
+
 def update_db(data)
   data.each do |branch, time|
     dd = DueDate.find_by(branch_name: branch)
@@ -39,5 +53,3 @@ def update_db(data)
     end
   end
 end
-
-binding.pry

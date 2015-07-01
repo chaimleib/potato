@@ -146,7 +146,7 @@ module VersionScraper
     date = cell.at('time')
     if date
       date = date.attributes['datetime'].value
-      date += ' 23:59:59'
+      #date += ' 23:59:59'
       date = Time.parse(date)
     else
       # If there is no time here, no use looking further
