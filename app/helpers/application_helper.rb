@@ -13,6 +13,7 @@ module ApplicationHelper
       result.push m
       temp = temp[m.length..-1]
     end
+    result.push temp
     
     result.join breaker
   end
@@ -25,6 +26,7 @@ module ApplicationHelper
       result.push m
       temp = temp[m.length..-1]
     end
+    result.push temp
     
     result.join breaker
   end
