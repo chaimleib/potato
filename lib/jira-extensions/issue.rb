@@ -2,9 +2,12 @@ require 'jira'
 require 'jira-extensions/sprint'
 
 class JIRA::Resource::Issue
+  TARGET_BRANCH_KEY = 'customfield_12905'
+  TARGET_VERSION_KEY = 'customfield_12803'
+
   def target_branch
     begin
-      self.customfield_12905
+      self.send TARGET_BRANCH_KEY
     rescue
       nil
     end
@@ -17,7 +20,7 @@ class JIRA::Resource::Issue
 
   def target_version
     begin
-      self.customfield_12803
+      self.send TARGET_VERSION_KEY
     rescue
       nil
     end
@@ -54,6 +57,7 @@ class JIRA::Resource::Issue
     results = []
 
     scrape_prs = proc do |s, time|
+      return [] if s.nil?
       s.to_enum(:scan, rgx).
         map{Regexp.last_match}.
         map{|m|
