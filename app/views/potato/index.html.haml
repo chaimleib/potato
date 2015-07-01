@@ -1,0 +1,8 @@
+%h2 Views
+%ul
+  - PotatoController.instance_methods(false).each do |sym|
+  - next if sym == :index
+  - name = sym.to_s
+  - display_name = controller.action_display_name name
+    %li
+      = link_to display_name, "/potato/#{name}"

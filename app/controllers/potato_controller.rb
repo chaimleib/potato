@@ -13,6 +13,8 @@ include PotatoHelper
 class PotatoController < ApplicationController
   add_crumb("Potato"){ |instance| instance.potato_path }
   
+  def index
+  end
   
   def overview
     add_crumb("Overview", potato_overview_path)

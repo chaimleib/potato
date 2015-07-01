@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   get 'potato/propagations'
   post 'potato/propagations'
   
-  get 'potato/index', to: 'potato#overview'
-  get 'potato', to: 'potato#overview'
+  get 'potato/index'
+  get 'potato', to: 'potato#index'
 
   get 'users/new'
 
