@@ -24,19 +24,29 @@ module PotatoHelper
     multi_user = user_splits.length > 1
     data = pj.get_task_tallies_by_version user_splits
 
-    sorted_keys = data.keys.sort
-    if data.has_key? 'Unversioned'
-      sorted_keys.delete 'Unversioned'
-      sorted_keys.unshift 'Unversioned'
+    front = []
+    back = []
+    middle = []
+    data.each do |ver, line|
+      case ver
+      when 'Unversioned'
+        front.push line
+      when 'Backlog'
+        back.push line
+      else
+        if line[:due].nil?
+          front.push line
+        else
+          middle.push line
+        end
+      end
     end
-    if data.has_key? 'Backlog'
-      sorted_keys.delete 'Backlog'
-      sorted_keys.push 'Backlog'
-    end
+    front = front.sort_by{|line| line[:version]}
+    middle = middle.sort_by{|line| line[:due]}
 
-    sorted_data = sorted_keys.map{|key| data[key]}
+    sorted_data = front + middle + back
 
-    if sorted_keys.empty? && pj.get_user(user).nil?
+    if sorted_data.empty? && pj.get_user(user).nil?
       errors[:user].push 'No such user'
     end
 
@@ -60,7 +70,7 @@ module PotatoHelper
     due_set = []
     data.each do |line|
       multi_user = true if line[:user] != user_splits.first
-      
+
       if line[:due].nil?
         line[:due_nil] = true
         due_nil.push line
