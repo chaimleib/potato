@@ -30,44 +30,50 @@ class JiraAdapter
   end
   
   def get_tasks_by_propagation(user=@connection.username)
-    require 'pry'
-    data = []
     conditions = [
-      'updated > -14d',
-      'status in (resolved,"code propagation",closed,"code review","ready to merge")'
+      "sprint in openSprints()",
+      "type='code propagation'",
+      "status not in (closed,resolved)"
     ]
-    issues = get_issues conditions, user
-    parents = []
-    issues.each do |issue|
+
+    parent_conditions = [
+      "status in (reopened,'code review','ready to merge',resolved,'code propagation')",
+      "type in (story,bug)"
+    ]
+
+    query_result = get_issues conditions, user
+    parent_keys = []   # parents I need to check later
+    issue_filter = []  # results of filtering on this issue's data
+    query_result.each do |issue|
+      next if !issue.has_parent?
+      parent_keys.push issue.parent['key']  # look up more stuff later
+
       line = {}
       line[:key] = issue.key
       line[:status] = issue.status.name
       line[:target] = target = issue.target_branch_name || issue.target_version_name
       line[:prs] = issue.pull_requests
-      dd = DueDate.find_by(branch_name: target)
-      line[:due] = dd.nil? ? nil : Time.strptime(dd.due, '%m/%d/%Y')
-      
-      if issue.has_parent?
-        line[:parent] = issue.parent['key']
-        parents.push issue.parent['key']
-      else
-        line[:parent] = nil
-        line[:parent_status] = nil
-        line[:parent_target] = nil
-      end
-      
-      data.push line
-    end
-    parents = get_issues_by_keys(parents)
-    data.each do |line|
-      next if line[:parent].nil?
-      key = line[:parent]
-      parent = parents[key]
-      line[:parent_status] = parent.status.name
-      line[:parent_target] = parent.target_branch_name || parent.target_version_name
+      line[:due] = DueDate.for_version target
+      line[:parent] = issue.parent['key']
+
+      issue_filter.push line
     end
 
-    data
+    filtered_parents = get_issues_by_keys(parent_keys, parent_conditions)
+
+    parent_filter = []  # results of filtering issues on parents' data
+    issue_filter.each do |line|
+      parent_key = line[:parent]
+      next unless filtered_parents.has_key? parent_key
+      
+      parent = filtered_parents[parent_key]
+      line[:parent_status] = parent.status.name
+      line[:parent_target] = parent.target_branch_name || parent.target_version_name
+
+      parent_filter.push line
+    end
+
+    parent_filter
   end
   
   
@@ -122,12 +128,14 @@ class JiraAdapter
     issues = @jira.Issue.jql query
   end
   
-  def get_issues_by_keys(keys)
+  def get_issues_by_keys(keys, conditions=[])
     return {} if keys.empty?
     sanitized_keys = keys.map{|k| ActiveRecord::Base::sanitize k}.join ','
-    jql = "key in (#{sanitized_keys}) order by key asc"
-    puts jql
-    issues = @jira.Issue.jql jql
+    conditions.unshift "key in (#{sanitized_keys})"
+    query = conditions.join " AND "
+    ordered_query = "#{query} order by key asc"
+    puts ordered_query
+    issues = @jira.Issue.jql ordered_query
     result = {}
     issues.each do |issue|
       key = issue.key
@@ -138,7 +146,7 @@ class JiraAdapter
 
   def get_open_issues(username=@connection.username)
     conditions = [
-      'updated > -14d',
+      'sprint in openSprints()',
       'status not in (Closed,Resolved)',
     ]
     issues = get_issues conditions, username
