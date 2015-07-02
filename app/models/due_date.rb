@@ -14,6 +14,8 @@ class DueDate < ActiveRecord::Base
   def self.for_version(version)
     dd = find_by(branch_name: version)
     return nil if dd.nil?
-    Time.strptime dd.due, '%m/%d/%Y'
+    day = Time.strptime dd.due, '%m/%d/%Y'
+    t_str = day.strftime '%Y-%m-%d 17:00:00'
+    Time.parse t_str
   end
 end
