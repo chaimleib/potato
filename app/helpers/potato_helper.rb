@@ -59,6 +59,8 @@ module PotatoHelper
     due_nil = []
     due_set = []
     data.each do |line|
+      multi_user = true if line[:user] != user_splits.first
+      
       if line[:due].nil?
         line[:due_nil] = true
         due_nil.push line
