@@ -31,10 +31,10 @@
         - tasks = line[:tasks]
         - due = line[:due]
         - red_line = version == 'Unversioned' || (due && due < now)
-        %tr{class: ('red' if red_line)}
-          %td{class: ('strong' if version == 'Unversioned')}
+        %tr
+          %td{class: (['strong', 'red'] if version == 'Unversioned')}
             = version
           %td
             = tasks
-          %td{class: ('strong' if due && due < now)}
+          %td{class: (['strong', 'red'] if due && due < now)}
             = due ? timeago_tag(due) : 'N/A'
