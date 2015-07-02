@@ -40,7 +40,7 @@
       - lines = @context[:propagations_table_data]
       - lines.each do |line|
         - red_line = line[:due_nil] || line[:due] < now
-        %tr{class: (['red'] if red_line)}
+        %tr
           - if line[:due_nil]
             %td{class: ['strong', 'red']} N/A
           - else
