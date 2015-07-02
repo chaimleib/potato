@@ -20,7 +20,9 @@ module PotatoHelper
     errors = {
       user: []
     }
-    data = pj.get_task_tallies_by_version user
+    user_splits = split_users user
+    multi_user = user_splits.length > 1
+    data = pj.get_task_tallies_by_version user_splits
 
     sorted_keys = data.keys.sort
     if data.has_key? 'Unversioned'
@@ -39,8 +41,9 @@ module PotatoHelper
     end
 
     result = {
+      :multi_user => multi_user,
       :overview_table_data => sorted_data,
-      :overview_username => user,
+      :overview_username => user_splits.join(', '),
       :errors => errors
     }
   end
@@ -49,7 +52,10 @@ module PotatoHelper
     errors = {
       user: []
     }
-    data = pj.get_tasks_by_propagation user
+    user_splits = split_users user
+    multi_user = user_splits.length > 1
+
+    data = pj.get_tasks_by_propagation user_splits
     due_nil = []
     due_set = []
     data.each do |line|
@@ -70,11 +76,19 @@ module PotatoHelper
     end
 
     result = {
+      :multi_user => multi_user,
       :propagations_table_data => sorted_data,
       :propagations_username => user,
       :jira_issue_uri_base => "#{Rails.application.secrets.jira['host']}/browse",
       :errors => errors
     }
+  end
+
+  def split_users(users)
+    users.
+      split(',').
+      map(&:strip).
+      map{|user| user.squeeze(" \t\r\n")}
   end
 end
 

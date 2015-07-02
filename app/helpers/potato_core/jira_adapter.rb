@@ -13,6 +13,7 @@ class JiraAdapter
   
   def get_task_tallies_by_version(user)
     issues = get_task_list_by_version user
+
     n = Time.now
     data = {}
     
@@ -41,7 +42,7 @@ class JiraAdapter
       "type in (story,bug)"
     ]
 
-    query_result = get_issues conditions, user
+    query_result = get_issues_by_user user, conditions
     parent_keys = []   # parents I need to check later
     issue_filter = []  # results of filtering on this issue's data
     query_result.each do |issue|
@@ -49,6 +50,7 @@ class JiraAdapter
       parent_keys.push issue.parent['key']  # look up more stuff later
 
       line = {}
+      line[:user] = issue.assignee.name
       line[:key] = issue.key
       line[:status] = issue.status.name
       line[:target] = target = issue.target_branch_name || issue.target_version_name
@@ -108,34 +110,44 @@ class JiraAdapter
   end
   
   def issue_version_category(issue)
-    target = issue.target_version
-    return target['name'] if target
-    versions = issue.versions.map &:name
-    earliest = versions.min
-    return earliest if earliest
-    "Unversioned"
+    issue.target_branch_name || 
+      issue.target_version_name || 
+      "Unversioned"
   end
   
   def get_issue(issue='CD-29175')
     issue = @jira.Issue.find issue
   end
   
-  def get_issues(conditions=[], username=@connection.username)
-    conditions.unshift "assignee=#{ActiveRecord::Base::sanitize username}"
+  def get_issues(conditions=[], order="updated desc")
     query = conditions.join " AND "
-    query += " order by updated desc"
+    query += " order by #{order}" if order.present?
     puts query
     issues = @jira.Issue.jql query
   end
+
+  def get_issues_by_user(username=@connection.username, conditions=[], order="updated desc")
+    return nil unless username.present?
+    usernames = (username.class == Array) ? username : [username]
+    user_conditions = usernames.map{|name|
+      sanitized_name = ActiveRecord::Base::sanitize name
+      if sanitized_name.include? ' '
+        user_condition = "assignee=#{sanitized_name}"
+      else
+        user_condition = "(assignee=#{sanitized_name} OR labels=#{sanitized_name})"
+      end
+      user_condition
+    }.
+      join ' OR '
+    conditions.unshift user_conditions
+    get_issues conditions, order
+  end
   
-  def get_issues_by_keys(keys, conditions=[])
+  def get_issues_by_keys(keys, conditions=[], order="key asc")
     return {} if keys.empty?
     sanitized_keys = keys.map{|k| ActiveRecord::Base::sanitize k}.join ','
     conditions.unshift "key in (#{sanitized_keys})"
-    query = conditions.join " AND "
-    ordered_query = "#{query} order by key asc"
-    puts ordered_query
-    issues = @jira.Issue.jql ordered_query
+    issues = get_issues conditions, order
     result = {}
     issues.each do |issue|
       key = issue.key
@@ -149,7 +161,7 @@ class JiraAdapter
       'sprint in openSprints()',
       'status not in (Closed,Resolved)',
     ]
-    issues = get_issues conditions, username
+    issues = get_issues_by_user username, conditions
   end
   
   def get_user(username=@connection.username)

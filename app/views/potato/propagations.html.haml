@@ -28,19 +28,24 @@
   %table.pretty
     %thead
       %tr
+        - if @context[:multi_user]
+          %th User
         %th Due
         %th Propagation
         %th Status
         %th Target
         %th PR#
         %th Parent
-        %th Status
-        %th Target
+        %th Parent Status
+        %th Parent Target
     %tbody
       - lines = @context[:propagations_table_data]
       - lines.each do |line|
         - red_line = line[:due_nil] || line[:due] < now
         %tr
+          - if @context[:multi_user]
+            %td= line[:user]
+
           - if line[:due_nil]
             %td{class: ['strong', 'red']} N/A
           - else
