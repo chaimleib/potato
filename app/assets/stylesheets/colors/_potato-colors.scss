@@ -22,6 +22,7 @@ $color-text-link-invert: lighten($midnight-blue, 45%);
 $color-text-link-visited-invert: lighten($midnight-blue, 40%);
 $color-text-link-hover-invert: lighten($midnight-blue, 50%);
 $color-border: $potato-crust-dark-brown;
+$color-border-weak: transparentize($potato-crust-dark-brown, 0.8);
 $color-navbar-background: $potato-crust-dark-brown;
 
 body {background-clor: $white;}

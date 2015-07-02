@@ -27,6 +27,10 @@ table.pretty {
     border: 1px solid $color-border;
     background-color: $color-background-shade;
     
+    .left-col-border {
+        border-left: 1px solid $color-border-weak;
+    }
+    
     thead {
         border-bottom: 1px solid $color-border;
         

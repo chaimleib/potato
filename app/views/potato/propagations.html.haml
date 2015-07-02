@@ -35,7 +35,7 @@
         %th Status
         %th Target
         %th PR#
-        %th Parent
+        %th.left-col-border Parent
         %th Parent Status
         %th Parent Target
     %tbody
@@ -62,6 +62,6 @@
                 - uri = pr[:uri]
                 - num = pr[:key]
                 = link_to num, uri
-          %td= jira_link(line[:parent]) || '-'
+          %td.left-col-border= jira_link(line[:parent]) || '-'
           %td= line[:parent_status] || (line[:parent] ? 'N/A' : '-')
           %td= line[:parent_target] || (line[:parent] ? 'N/A' : '-')
