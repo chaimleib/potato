@@ -41,7 +41,7 @@
         - red_line = line[:due_nil] || line[:due] < now
         %tr
           - if @context[:multi_user]
-            %td= line[:user]
+            %td= link_to line[:user], "#{controller.potato_propagations_path}?utf8=%E2%9C%93&user=#{CGI.escape(line[:user])}"
 
           - if line[:due_nil]
             %td{class: ['strong', 'red']} N/A
