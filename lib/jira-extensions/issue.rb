@@ -1,5 +1,9 @@
 require 'jira'
 require 'jira-extensions/sprint'
+if Rails.env.development?
+  require 'pry'
+  require 'pry-nav'
+end
 
 class JIRA::Resource::Issue
   TARGET_BRANCH_KEY = 'customfield_12905'

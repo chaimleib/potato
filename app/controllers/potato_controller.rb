@@ -9,6 +9,7 @@
 
 require 'potato_helper'
 include PotatoHelper
+require 'byebug' if Rails.env.development?
 
 class PotatoController < ApplicationController
   add_crumb("Potato"){ |instance| instance.potato_path }
@@ -33,8 +34,6 @@ class PotatoController < ApplicationController
   end
   
   def propagations
-    add_crumb("Propagations", potato_propagations_path)
-    
     pj = ensure_potato_jira session
     if params[:user].present?
       user = params[:user]
@@ -44,8 +43,16 @@ class PotatoController < ApplicationController
       user = pj.connection.username
     end
     session[:viewed_user] = user
-    
-    @context = format_tasks_by_propagation user, session, pj
+
+    respond_to do |format|
+      format.html {
+        add_crumb("Propagations", potato_propagations_path)
+        @context = {user: user}
+      }
+      format.json {
+        @context = format_tasks_by_propagation user, session, pj
+      }
+    end
   end
 end
 

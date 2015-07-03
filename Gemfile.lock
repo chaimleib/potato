@@ -53,6 +53,8 @@ GEM
       sass (>= 3.3.0)
     bootstrap3-datetimepicker-rails (4.7.14)
       momentjs-rails (>= 2.8.1)
+    bootstrap_sortable_rails (1.8.0)
+    bower-rails (0.9.2)
     builder (3.2.2)
     byebug (5.0.0)
       columnize (= 0.9.0)
@@ -121,6 +123,8 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-nav (0.2.4)
+      pry (>= 0.9.10, < 0.11.0)
     pry-rails (0.3.2)
       pry (>= 0.9.10)
     rack (1.6.4)
@@ -224,6 +228,8 @@ DEPENDENCIES
   better_errors
   bootstrap-sass (~> 3.3.5)
   bootstrap3-datetimepicker-rails (~> 4.7.14)
+  bootstrap_sortable_rails (~> 1.8.0)
+  bower-rails (~> 0.9.2)
   byebug
   coffee-rails (~> 4.1.0)
   crummy (~> 1.8.0)
@@ -236,6 +242,7 @@ DEPENDENCIES
   momentjs-rails (>= 2.9.0)
   mysql2 (~> 0.3.18)
   nokogiri
+  pry-nav
   pry-rails
   rails (= 4.2.0)
   rails-timeago (~> 2.0)

@@ -115,7 +115,7 @@ class JiraAdapter
       "Unversioned"
   end
   
-  def get_issue(issue='CD-29175')
+  def get_issue(issue)
     issue = @jira.Issue.find issue
   end
   

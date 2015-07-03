@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'potato/overview'
   post 'potato/overview'
   
-  get 'potato/propagations'
+  get 'potato/propagations'  
   
   get 'potato/index'
   get 'potato', to: 'potato#index'

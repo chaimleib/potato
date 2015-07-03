@@ -23,4 +23,5 @@
 /config/potato.yml
 /config/secrets.yml
 /spec/examples.txt
+/vendor/assets/components/
 

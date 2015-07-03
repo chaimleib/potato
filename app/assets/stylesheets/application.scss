@@ -6,6 +6,7 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 @import 'bootstrap-datetimepicker';
+@import 'bootstrap-table/src/bootstrap-table';
 
 @import 'theme';
 
@@ -20,6 +21,18 @@ a {
 a:visited   {color: $color-text-link-visited;}
 a:hover     {color: $color-text-link-hover;}
 
+.bootstrap-table {
+    .fixed-table-container {
+        border: 1px solid $color-border;
+        border-radius: 0;
+    }
+    .table.pretty {
+        border: none;
+        tbody {
+            border: none;
+        }
+    }
+}
 table.pretty {
     border-collapse: collapse;
     width: 100%;
@@ -46,8 +59,8 @@ table.pretty {
     }
     
     tr {
-        border-bottom: 1px solid $color-border;
-        
+        // border-bottom: 1px solid $color-border;
+        border: none;
         td {
             padding-left: 0.25em;
             padding-right: 0.25em;

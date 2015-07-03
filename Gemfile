@@ -47,7 +47,8 @@ gem 'crummy', '~> 1.8.0'      # breadcrumbs in header
 gem 'momentjs-rails', '>=2.9.0'                     # supports bootstrap3-datetimepicker
 gem 'bootstrap-sass', '~>3.3.5'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'  # nice DateTime picker
-
+gem 'bootstrap_sortable_rails', '~> 1.8.0'          # nice tables
+gem 'bower-rails', '~> 0.9.2'
 
 group :production do
   gem 'rails_12factor', '~> 0.0.2'
@@ -71,5 +72,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'awesome_print'
   gem 'pry-rails'
+  gem 'pry-nav'
 end
 

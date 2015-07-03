@@ -1,8 +1,14 @@
-- now = Time.now
-- def jira_link(key)
-  - return nil if key.nil?
-  - uri = "#{@context[:jira_issue_uri_base]}/#{key}"
-  - link_to key, uri
+/ - now = Time.now
+/ - def jira_link(key)
+/   - return nil if key.nil?
+/   - uri = "#{@context[:jira_issue_uri_base]}/#{key}"
+/   - link_to key, uri
+
+- def propagations_path(user)
+  - return nil unless user.present?
+  - base_uri = controller.potato_propagations_path
+  - escaped_user = CGI.escape user
+  - "#{base_uri}?utf8=%E2%9C%93&user=#{escaped_user}"
 
 #selection_form_container
   = form_tag(controller.potato_propagations_path, method: 'get') do
@@ -13,7 +19,7 @@
             %label{:for => 'user'} Username:
             %input{:type => 'text', 
               :name => 'user', 
-              :value => @context[:propagations_username]}
+              :value => session[:viewed_user]}
         - if (errs = @context[:errors]) && (errs = errs[:user])
           %tr
             %td{class: ['red', 'strong']}
@@ -22,43 +28,55 @@
                   %li= err
 
 #propagations
-  %table.pretty
+  %table.table.table-condensed.pretty{'data-url' => propagations_path(@context[:user]),
+    'data-sort-name' => 'due',
+    'data-sort-order' => 'asc'}
     %thead
       %tr
-        - if @context[:multi_user]
-          %th User
-        %th Due
-        %th Propagation
-        %th Status
-        %th Target
-        %th PR#
-        %th.left-col-border Parent
-        %th Parent Status
-        %th Parent Target
+        %th{'data-field' => 'user', 'data-sortable' => 'true'}
+          User
+        %th{'data-field' => 'due', 
+          'data-sortable' => 'true',
+          'data-formatter' => 'relDateFormatter'}
+          Due
+        %th{'data-field' => 'key', 'data-sortable' => 'true'} 
+          Propagation
+        %th{'data-field' => 'status', 'data-sortable' => 'true'} 
+          Status
+        %th{'data-field' => 'target', 'data-sortable' => 'true'} 
+          Target
+        %th{'data-field' => 'pr', 'data-sortable' => 'true'} 
+          PR#
+        %th.left-col-border{'data-field' => 'parent', 'data-sortable' => 'true'} 
+          Parent
+        %th{'data-field' => 'parent_status', 'data-sortable' => 'true'} 
+          Parent Status
+        %th{'data-field' => 'parent_target', 'data-sortable' => 'true'} 
+          Parent Target
     %tbody
-      - lines = @context[:propagations_table_data]
-      - lines.each do |line|
-        - red_line = line[:due_nil] || line[:due] < now
-        %tr
-          - if @context[:multi_user]
-            %td= link_to line[:user], "#{controller.potato_propagations_path}?utf8=%E2%9C%93&user=#{CGI.escape(line[:user])}"
+      / - lines = @context[:propagations_table_data]
+      / - lines.each do |line|
+      /   - red_line = line[:due_nil] || line[:due] < now
+      /   %tr
+      /     - if @context[:multi_user]
+      /       %td= link_to line[:user], "#{controller.potato_propagations_path}?utf8=%E2%9C%93&user=#{CGI.escape(line[:user])}"
 
-          - if line[:due_nil]
-            %td{class: ['strong', 'red']} N/A
-          - else
-            %td{class: (['strong', 'red'] if red_line)}
-              = timeago_tag line[:due]
-          %td= jira_link line[:key]
-          %td= line[:status]
-          %td= line[:target] || 'N/A'
-          %td
-            - if line[:prs].empty?
-              N/A
-            - else
-              - line[:prs].each do |pr|
-                - uri = pr[:uri]
-                - num = pr[:key]
-                = link_to num, uri
-          %td.left-col-border= jira_link(line[:parent]) || '-'
-          %td= line[:parent_status] || (line[:parent] ? 'N/A' : '-')
-          %td= line[:parent_target] || (line[:parent] ? 'N/A' : '-')
+      /     - if line[:due_nil]
+      /       %td{class: ['strong', 'red']} N/A
+      /     - else
+      /       %td{class: (['strong', 'red'] if red_line)}
+      /         = timeago_tag line[:due]
+      /     %td= jira_link line[:key]
+      /     %td= line[:status]
+      /     %td= line[:target] || 'N/A'
+      /     %td
+      /       - if line[:prs].empty?
+      /         N/A
+      /       - else
+      /         - line[:prs].each do |pr|
+      /           - uri = pr[:uri]
+      /           - num = pr[:key]
+      /           = link_to num, uri
+      /     %td.left-col-border= jira_link(line[:parent]) || '-'
+      /     %td= line[:parent_status] || (line[:parent] ? 'N/A' : '-')
+      /     %td= line[:parent_target] || (line[:parent] ? 'N/A' : '-')

@@ -1,0 +1,27 @@
+{
+  "name": "potato",
+  "version": "0.0.1",
+  "homepage": "https://github.com/chaimleib/potato",
+  "authors": [
+    "Chaim-Leib Halbert <chaim.leib.halbert@gmail.com>"
+  ],
+  "description": "Supports the potato web app",
+  "main": "app/controllers/welcome_controller.rb",
+  "moduleType": [
+    "node"
+  ],
+  "license": "Apache 2.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-table": "~1.8.1",
+    "strftime": "*"
+  }
+}
+

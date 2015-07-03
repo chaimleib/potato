@@ -16,4 +16,6 @@
 //= require rails-timeago
 //= require moment
 //= require bootstrap-datetimepicker
+//= require bootstrap-table/src/bootstrap-table
+//= require strftime/strftime-min
 //= require_tree .
