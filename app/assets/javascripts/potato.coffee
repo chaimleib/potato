@@ -4,12 +4,12 @@
 
 root = exports ? this
 
-root.relDateFormatter = (dateString) ->
+root.relDueDateFormatter = (dateString) ->
 	date = new Date(dateString)
 	now = new Date
 	iso = strftime('%Y-%m-%dT%H:%M:%S.%L%z', date)
 	friendly = strftime('%A, %B %-d, %Y %-I:%M %P %z', date)
-	timeClasses = ['timeago']
+	timeClasses = ['timeago', 'due']
 	if date < now
 		timeClasses.push 'urgent'
 
