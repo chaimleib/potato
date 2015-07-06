@@ -1,7 +1,7 @@
 (function() {
-	var ta = $.timeago;
+	var $t = $.timeago;
 
-	ta.settings.allowFuture = true;
-	ta.settings.strings['en'].prefixFromNow = 'in';
-	ta.settings.strings['en'].suffixFromNow = null;
+	$t.settings.allowFuture = true;
+	$t.settings.strings['en'].prefixFromNow = 'in';
+	$t.settings.strings['en'].suffixFromNow = null;
 })();

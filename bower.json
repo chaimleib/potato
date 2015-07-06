@@ -21,7 +21,8 @@
   ],
   "dependencies": {
     "bootstrap-table": "~1.8.1",
-    "strftime": "*"
+    "strftime": "*",
+    "timeago": "*"
   }
 }
 

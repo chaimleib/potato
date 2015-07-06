@@ -39,7 +39,6 @@ gem 'haml', '~> 4.0.6'
 gem 'haml-rails'
 gem 'mysql2', '~> 0.3.18'
 gem 'bcrypt', '~> 3.1.10'     # password hashes
-gem 'rails-timeago', '~> 2.0' # relative date display
 gem 'jira-ruby'               # access to Jira and JQL (potato_core)
 gem 'nokogiri'                # parse and scrape HTML (potato_core)
 gem 'crummy', '~> 1.8.0'      # breadcrumbs in header
@@ -71,6 +70,7 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.5'
   gem 'rspec-rails', '~> 3.0'
   gem 'awesome_print'
+  gem 'pry'
   gem 'pry-rails'
   gem 'pry-nav'
 end

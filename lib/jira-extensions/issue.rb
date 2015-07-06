@@ -2,7 +2,7 @@ require 'jira'
 require 'jira-extensions/sprint'
 if Rails.env.development?
   require 'pry'
-  require 'pry-nav'
+  # require 'pry-nav'
 end
 
 class JIRA::Resource::Issue
