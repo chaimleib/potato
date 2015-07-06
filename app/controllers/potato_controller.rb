@@ -47,7 +47,10 @@ class PotatoController < ApplicationController
     respond_to do |format|
       format.html {
         add_crumb("Propagations", potato_propagations_path)
-        @context = {user: user}
+        @context = {
+          user: user,
+          jira_host: pj.jira.options[:site]
+        }
       }
       format.json {
         @context = format_tasks_by_propagation user, session, pj
