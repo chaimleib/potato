@@ -56,7 +56,7 @@ class JIRA::Resource::Issue
     rgx = %r{https?://github\.com/.+/pull/([0-9]+)}i
     results = []
 
-    scrape_prs = proc do |s, time|
+    scrape_prs = lambda do |s, time|
       return [] if s.nil?
       s.to_enum(:scan, rgx).
         map{Regexp.last_match}.
@@ -74,7 +74,10 @@ class JIRA::Resource::Issue
     self.comments.each do |comment|
       results.push *scrape_prs.call(comment.body, comment.updated)
     end
-    results.sort_by{|pr| pr[:time]}.reverse
+
+    results = results.sort_by{|pr| pr[:time]}.reverse
+    
+    results
   end
 
   def sprints
