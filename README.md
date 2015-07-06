@@ -18,6 +18,8 @@ This app is tested using
 
 * Run `bundle`
 
+* Run `bower install`
+
 * Run `mysql.server start`
 
 * Run `rails server`
