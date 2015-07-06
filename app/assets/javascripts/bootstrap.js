@@ -5,7 +5,7 @@ $(function() {
     });
 
     $('table.table').bootstrapTable({ /* options */
-        onLoadSuccess: function (data) {
+        onAll: function (data) {
             $('time.timeago').timeago();
         }
     });
