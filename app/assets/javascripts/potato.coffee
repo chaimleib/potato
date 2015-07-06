@@ -6,10 +6,17 @@ root = exports ? this
 
 root.relDateFormatter = (dateString) ->
 	date = new Date(dateString)
+	now = new Date
 	iso = strftime('%Y-%m-%dT%H:%M:%S.%L%z', date)
 	friendly = strftime('%A, %B %-d, %Y %-I:%M %P %z', date)
+	timeClasses = ['timeago']
+	if date < now
+		timeClasses.push 'urgent'
+
 	tagParts = [
-		"<time class=\"timeago\" datetime=\"",
+		"<time class=\"",
+		timeClasses.join(' '),
+		"\" datetime=\"",
 		iso,
 		"\" title=\"",
 		friendly,
@@ -19,5 +26,6 @@ root.relDateFormatter = (dateString) ->
 		friendly,
 		"</time>"
 	]
+
 	tag = tagParts.join('')
 	return tag

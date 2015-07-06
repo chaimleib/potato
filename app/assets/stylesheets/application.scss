@@ -88,6 +88,11 @@ table.pretty {
 
 .red {color: $color-text-red;}
 
+.urgent {
+    @extend .strong;
+    @extend .red;
+}
+
 .header {
     margin: 0px;
     
