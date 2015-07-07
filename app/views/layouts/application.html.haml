@@ -4,7 +4,8 @@
     %title Potato</title>
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = stylesheet_link_tag    controller_name, media: 'all', 'data-turbolinks-track' => true
-    %script!= "document.context = #{@context.to_json};"
+    - if @context.present?
+      %script!= "document.context = #{@context.to_json};"
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = timeago_script_tag
     = javascript_include_tag 'timeago.js'

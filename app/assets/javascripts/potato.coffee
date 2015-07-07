@@ -11,7 +11,8 @@ root.formatters.common = common = new Object
 root.formatters.propagations = propagations = new Object
 
 baseUri = location.protocol + '//' + location.host + location.pathname
-jiraUriBase = document.context.jira_host + '/browse/'
+if document.context
+	jiraUriBase = document.context.jira_host + '/browse/'
  
 common.relDueDate = (dateString) ->
 	date = new Date(dateString)
