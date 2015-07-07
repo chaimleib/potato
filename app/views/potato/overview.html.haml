@@ -19,12 +19,12 @@
                 - errs.each do |err|
                   %li= err
 #overview
-  %table.pretty
+  %table.table.tabe-condensed.pretty
     %thead
       %tr
-        %th Version
-        %th Tasks
-        %th Due
+        %th{'data-sortable' => 'true'} Version
+        %th{'data-sortable' => 'true'} Tasks
+        %th{'data-sortable' => 'true'} Due
     %tbody
       - @context[:overview_table_data].each do |line|
         - version = line[:version]

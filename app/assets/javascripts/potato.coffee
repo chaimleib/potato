@@ -2,8 +2,11 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-root = exports ? this
+root = this
 root.formatters = new Object
+root.sorters = new Object
+
+### FORMATTERS ###
 root.formatters.common = common = new Object
 root.formatters.propagations = propagations = new Object
 
@@ -63,3 +66,13 @@ propagations.user = (userString) ->
 	tag.innerHTML = userString
 	return tag.outerHTML
 
+propagations.targetVersion = (version, row) ->
+	due = new Date(row.due)
+	now = new Date
+	isUrgent = due < now
+	unless isUrgent
+		return version
+	tag = document.createElement('span')
+	tag.setAttribute('class', 'urgent')
+	tag.innerHTML = version
+	return tag.outerHTML
