@@ -51,10 +51,11 @@ module PotatoHelper
     end
 
     result = {
-      :multi_user => multi_user,
-      :overview_table_data => sorted_data,
-      :overview_username => user_splits.join(', '),
-      :errors => errors
+      multi_user: multi_user,
+      overview_table_data: sorted_data,
+      overview_username: user_splits.join(', '),
+      errors: errors,
+      jira_host: pj.jira.options[:site]
     }
   end
 
@@ -88,11 +89,11 @@ module PotatoHelper
     end
 
     result = {
-      :multi_user => multi_user,
-      :propagations_table_data => sorted_data,
-      :propagations_username => user,
-      :jira_issue_uri_base => "#{Rails.application.secrets.jira['host']}/browse",
-      :errors => errors
+      multi_user: multi_user,
+      propagations_table_data: sorted_data,
+      propagations_username: user,
+      errors: errors,
+      jira_host: pj.jira.options[:site]
     }
   end
 
