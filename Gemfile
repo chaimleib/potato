@@ -48,6 +48,7 @@ gem 'bootstrap-sass', '~>3.3.5'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'  # nice DateTime picker
 gem 'bootstrap_sortable_rails', '~> 1.8.0'          # nice tables
 gem 'bower-rails', '~> 0.9.2'
+gem 'rails-timeago'
 
 group :production do
   gem 'rails_12factor', '~> 0.0.2'
