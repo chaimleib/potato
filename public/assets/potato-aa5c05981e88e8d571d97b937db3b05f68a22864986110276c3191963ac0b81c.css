@@ -1,0 +1,62 @@
+/* line 28, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/colors/_potato-colors.scss */
+body {
+  background-clor: #fff;
+}
+
+/* line 30, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/colors/_potato-colors.scss */
+.header {
+  color: #dcb685;
+}
+/* line 32, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/colors/_potato-colors.scss */
+.header h1 {
+  color: #f1cc6f;
+}
+/* line 34, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/colors/_potato-colors.scss */
+.header h1 a {
+  color: #f1cc6f;
+}
+/* line 35, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/colors/_potato-colors.scss */
+.header h1 a:visited {
+  color: #f1cc6f;
+}
+/* line 36, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/colors/_potato-colors.scss */
+.header h1 a:hover {
+  color: #f1cc6f;
+}
+/* line 38, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/colors/_potato-colors.scss */
+.header a {
+  color: #4da6ff;
+}
+/* line 39, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/colors/_potato-colors.scss */
+.header a:visited {
+  color: #3399ff;
+}
+/* line 40, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/colors/_potato-colors.scss */
+.header a:hover {
+  color: #66b3ff;
+}
+
+/* line 3, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/theme.scss */
+.header {
+  background-color: #3f1600;
+}
+/* line 5, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/theme.scss */
+.header h1, .header h2, .header h3, .header h4, .header h5, .header h6 {
+  color: #f1cc6f;
+}
+
+/* line 8, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/potato.scss */
+#selection_form_container {
+  width: 50%;
+  min-width: 220px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 15, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/potato.scss */
+#overview {
+  width: 50%;
+  min-width: 220px;
+  margin-left: auto;
+  margin-right: auto;
+}

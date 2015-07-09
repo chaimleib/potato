@@ -1,0 +1,8 @@
+/* line 1, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/partials/_reset.scss */
+html,
+body,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}

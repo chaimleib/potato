@@ -1,12 +1,15 @@
 /*
-    *= require_self
+*= require_self
+*= require bootstrap-sass/assets/stylesheets/_bootstrap
+*= require bootstrap-table/src/bootstrap-table
+*= require smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min
+
 */
 @import 'partials/reset';
 
-@import 'bootstrap-sprockets';
-@import 'bootstrap';
-@import 'bootstrap-datetimepicker';
-@import 'bootstrap-table/src/bootstrap-table';
+// @import 'bootstrap-sprockets';
+// @import 'bootstrap-datetimepicker';
+// @import 'bootstrap-table/src/bootstrap-table';
 
 @import 'theme';
 

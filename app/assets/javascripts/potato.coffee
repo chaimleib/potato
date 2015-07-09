@@ -15,6 +15,8 @@ if document.context
 	jiraUriBase = document.context.jira_host + '/browse/'
  
 common.relDueDate = (dateString) ->
+	if not dateString
+		return "N/A"
 	date = new Date(dateString)
 	now = new Date
 	iso = strftime('%Y-%m-%dT%H:%M:%S.%L%z', date)
@@ -70,7 +72,7 @@ propagations.user = (userString) ->
 propagations.targetVersion = (version, row) ->
 	due = new Date(row.due)
 	now = new Date
-	isUrgent = due < now
+	isUrgent = row.due && due < now
 	unless isUrgent
 		return version
 	tag = document.createElement('span')

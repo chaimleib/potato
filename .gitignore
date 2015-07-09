@@ -24,4 +24,5 @@
 /config/secrets.yml
 /spec/examples.txt
 /vendor/assets/components/
+/node_modules/
 

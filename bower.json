@@ -21,9 +21,12 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap-table": "~1.8.1",
+    "bootstrap-sass": "3.3.x",
+    "bootstrap-table": "1.8.x",
     "strftime": "*",
-    "timeago": "*"
+    "timeago": "1.4.x",
+    "moment": "2.10.x",
+    "smalot-bootstrap-datetimepicker": "*"
   }
 }
 

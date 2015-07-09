@@ -8,7 +8,14 @@
     },
     "license": "Apache-2.0",
     "engines": {
-        "npm": "*"
+        "node": "0.12.x",
+        "npm": "2.12.x"
+    },
+    "dependencies": {
+        "bower": "1.4.x"
+    },
+    "scripts": {
+        "postinstall": "./node_modules/bower/bin/bower install"
     }
 }
 

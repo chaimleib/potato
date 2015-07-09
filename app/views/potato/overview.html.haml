@@ -1,4 +1,9 @@
-- now = Time.now
+- def overview_path(user)
+  - return nil unless user.present?
+  - base_uri = controller.potato_overview_path
+  - escaped_user = CGI.escape user
+  - "#{base_uri}?utf8=%E2%9C%93&user=#{escaped_user}"
+
 #selection_form_container
   %form{:name => 'selectionform', :id => 'selectionform', 
     :action => controller.potato_overview_path, 
@@ -11,7 +16,7 @@
             %label{:for => 'user'} Username:
             %input{:type => 'text', 
               :name => 'user', 
-              :value => @context[:overview_username]}
+              :value => @context[:user]}
         - if (errs = @context[:errors]) && (errs = errs[:user])
           %tr
             %td{class: ['red', 'strong']}
@@ -19,22 +24,18 @@
                 - errs.each do |err|
                   %li= err
 #overview
-  %table.table.tabe-condensed.pretty
+  %table.table.tabe-condensed.pretty{'data-url' => overview_path(@context[:user])}
     %thead
       %tr
-        %th{'data-sortable' => 'true'} Version
-        %th{'data-sortable' => 'true'} Tasks
-        %th{'data-sortable' => 'true'} Due
+        %th{'data-field' => 'version', 
+          'data-sortable' => 'true', 
+          'data-formatter' => 'formatters.propagations.targetVersion'}
+          Version
+        %th{'data-field' => 'tasks', 
+          'data-sortable' => 'true'} 
+          Tasks
+        %th{'data-field' => 'due', 
+          'data-sortable' => 'true', 
+          'data-formatter' => 'formatters.common.relDueDate'}
+          Due
     %tbody
-      - @context[:overview_table_data].each do |line|
-        - version = line[:version]
-        - tasks = line[:tasks]
-        - due = line[:due]
-        - red_line = version == 'Unversioned' || (due && due < now)
-        %tr
-          %td{class: (['strong', 'red'] if version == 'Unversioned')}
-            = version
-          %td
-            = tasks
-          %td{class: (['strong', 'red'] if due && due < now)}
-            = due ? timeago_tag(due) : 'N/A'

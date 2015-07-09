@@ -35,20 +35,19 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 ### CUSTOM ###
-gem 'haml', '~> 4.0.6'
 gem 'haml-rails'
+# gem 'therubyracer'            # less-rails
+# gem 'less-rails'              # bootstrap-datetimepicker (bower)
 gem 'mysql2', '~> 0.3.18'
 gem 'bcrypt', '~> 3.1.10'     # password hashes
 gem 'jira-ruby'               # access to Jira and JQL (potato_core)
 gem 'nokogiri'                # parse and scrape HTML (potato_core)
 gem 'crummy', '~> 1.8.0'      # breadcrumbs in header
 
-gem 'momentjs-rails', '>=2.9.0'                     # supports bootstrap3-datetimepicker
-gem 'bootstrap-sass', '~>3.3.5'
-gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'  # nice DateTime picker
-gem 'bootstrap_sortable_rails', '~> 1.8.0'          # nice tables
-gem 'bower-rails', '~> 0.9.2'
-gem 'rails-timeago'
+# gem 'momentjs-rails', '>=2.9.0'                     # supports bootstrap3-datetimepicker
+# gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'  # nice DateTime picker
+# gem 'bootstrap_sortable_rails', '~> 1.8.0'          # nice tables
+# gem 'rails-timeago'
 
 group :production do
   gem 'rails_12factor', '~> 0.0.2'

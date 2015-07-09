@@ -7,7 +7,6 @@
     - if @context.present?
       %script!= "document.context = #{@context.to_json};"
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    = timeago_script_tag
     = javascript_include_tag 'timeago.js'
     = csrf_meta_tags
   %body

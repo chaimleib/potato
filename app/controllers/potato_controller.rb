@@ -17,9 +17,7 @@ class PotatoController < ApplicationController
   def index
   end
   
-  def overview
-    add_crumb("Overview", potato_overview_path)
-    
+  def overview    
     pj = ensure_potato_jira session
     if params[:user].present?
       user = params[:user]
@@ -30,7 +28,18 @@ class PotatoController < ApplicationController
     end
     session[:viewed_user] = user
     
-    @context = format_task_tallies_by_version user, session, pj
+    respond_to do |format|
+      format.html {
+        add_crumb("Overview", potato_overview_path)
+        @context = {
+          user: user,
+          jira_host: pj.jira.options[:site]
+        }
+      }
+      format.json {
+        @context = format_task_tallies_by_version user, session, pj    
+      }
+    end
   end
   
   def propagations

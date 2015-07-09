@@ -8,5 +8,12 @@ Rails.application.config.assets.version = '1.0'
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-Rails.application.config.assets.precompile += [/.*\.js/,/.*\.css/]
+
+asset_filter = lambda do |filename, path|
+  path =~ /app\/assets/ && 
+    %w(.js .css).include?(File.extname(filename)) &&
+    filename.first != '_'
+end
+Rails.application.config.assets.precompile << asset_filter
+
 

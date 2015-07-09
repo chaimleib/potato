@@ -13,9 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require rails-timeago
-//= require moment
-//= require bootstrap-datetimepicker
+//= require timeago/jquery.timeago
+//= require moment/moment
+//= require bootstrap-sass/assets/javascripts/bootstrap.min
+//= require smalot-bootstrap-datetimepicker/js/bootstrap-datetimepicker.min
 //= require bootstrap-table/src/bootstrap-table
 //= require strftime/strftime-min
 //= require_tree .
