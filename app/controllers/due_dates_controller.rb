@@ -1,3 +1,10 @@
+require 'due_dates_helper'
+include DueDatesHelper
+
+require 'potato_helper'
+include PotatoHelper
+require 'byebug' if Rails.env.development?
+
 class DueDatesController < ApplicationController
   before_action :set_due_date, only: [:show, :edit, :update, :destroy]
   add_crumb("Due dates"){|instance| instance.due_dates_path}
@@ -23,6 +30,18 @@ class DueDatesController < ApplicationController
   # GET /due_dates/1/edit
   def edit
     add_crumb "Edit('#{@due_date.branch_name}')", edit_due_date_path
+  end
+
+  def mass_update
+    pj = ensure_potato_jira session
+    user = User.find_by(email: params[:user]) || User.first
+
+    add_crumb "Wiki update", due_dates_mass_update_path
+    @context = {messages: []}
+
+    if params[:update].present?
+      @context = try_update_from_wiki user, session, pj
+    end
   end
 
   # POST /due_dates

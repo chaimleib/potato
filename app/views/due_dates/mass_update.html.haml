@@ -1,0 +1,16 @@
+- user = @context[:user]
+- messages = @context[:messages]
+
+%h1 Mass update
+.container-fluid
+  - if messages.present?
+    .row
+      %ul
+        - messages.each do |msg|
+          %li{class: msg[:class]}= msg[:body]
+  = form_tag(controller.due_dates_mass_update_path, method: 'get') do
+    .row.form-group
+      .col-sm-4.field
+        %label{for: 'action'} Update from wiki (may take ~60 secs):
+      .col-sm-8.input-group
+        %input{type: 'submit', name: 'update', value: 'Wiki'}

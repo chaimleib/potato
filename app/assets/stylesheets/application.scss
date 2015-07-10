@@ -90,10 +90,16 @@ table.pretty {
 }
 
 .red {color: $color-text-red;}
+.green {color: $color-text-green;}
 
 .urgent {
     @extend .strong;
     @extend .red;
+}
+
+.success {
+    @extend .strong;
+    @extend .green;
 }
 
 .header {

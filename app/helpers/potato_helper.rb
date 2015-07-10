@@ -12,7 +12,7 @@ module PotatoHelper
   # pj  is short for PotatoJira, an instance of 
   # app/helpers/potato_core/jira_adapter. It connects to JIRA.
   
-  def ensure_potato_jira(session)
+  def ensure_potato_jira(session=nil)
     pj = JiraAdapter.new
   end
   
