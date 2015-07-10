@@ -49,6 +49,8 @@ gem 'crummy', '~> 1.8.0'      # breadcrumbs in header
 
 group :production do
   gem 'rails_12factor', '~> 0.0.2'
+  gem 'pry'
+
 end
 
 
