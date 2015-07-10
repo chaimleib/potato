@@ -16,5 +16,11 @@ namespace :heroku do
     unless system("heroku config:set SECRET_KEY_BASE=#{secret_key_base.inspect}")
       raise 'Failed to set SECRET_KEY_BASE'
     end
+
+    system "heroku config:set BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-multi.git"
+
+    system 'heroku config:set "$(heroku config |
+      grep CLEARDB_DATABASE_URL | 
+      sed -e \'s/^.*\/\//DATABASE_URL=mysql2:\/\//\')"'
   end
 end
