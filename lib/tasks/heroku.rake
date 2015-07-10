@@ -1,6 +1,31 @@
 namespace :heroku do
   desc "Sets up heroku config variables on foreign server."
 
+  class HerokuServer
+    attr_accessor :plans
+
+    def initialize
+      @_name = nil
+      @plans = []
+    end
+
+    def name
+      return @_name unless @_name.nil?
+      conf = %x(heroku config)
+      words = conf.split("\n").first.split(' ')
+      if words[0].first == '='
+        @_name = words[1]
+      end
+      @_name
+    end
+  end
+
+  server = HerokuServer.new 
+
+  task :name do
+    puts server.name
+  end
+
   task :config do
     env_keys = %w(JIRA_USER JIRA_KEY JIRA_HOST)
     env_vars_present = env_keys.all?{|key| ENV[key].present?}
@@ -17,10 +42,33 @@ namespace :heroku do
       raise 'Failed to set SECRET_KEY_BASE'
     end
 
-    system "heroku config:set BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-multi.git"
+    unless system "heroku config:set BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-multi.git"
+      raise 'Failed to set BUILDPACK_URL'
+    end
 
-    system 'heroku config:set "$(heroku config |
-      grep CLEARDB_DATABASE_URL | 
-      sed -e \'s/^.*\/\//DATABASE_URL=mysql2:\/\//\')"'
+    unless system 'heroku config:set "$(heroku config |
+        grep CLEARDB_DATABASE_URL | 
+        sed -e \'s/^.*\/\//DATABASE_URL=mysql2:\/\//\')"'
+      raise(["Failed to set DATABASE_URL",
+        "Do you still have heroku-postgresql installed? If so, run\n",
+        "\theroku addons:destroy heroku-postgresql",
+        "\theroku addons:create cleardb:ignite\n"].join "\n")
+    end
+  end
+
+  task :dbsetup do
+    addons = %x(heroku addons)
+    plans = []
+    found_plans = false
+    addons.split("\n").each{|line|
+      found_plans |= line =~ /\APlan/i
+      next unless found_plans
+      next if %w(- =).include? line.first
+      break if line.strip.empty?
+      line = line.strip.squeeze ' '
+      cols = line.split ' '
+      plans << cols.first
+    }
+    puts plans
   end
 end
