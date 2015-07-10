@@ -36,6 +36,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 ### CUSTOM ###
 gem 'haml-rails'
+gem 'puma'
 gem 'mysql2', '~> 0.3.18'
 gem 'bcrypt', '~> 3.1.10'     # password hashes
 gem 'jira-ruby'               # access to Jira and JQL (potato_core)
@@ -49,8 +50,7 @@ gem 'crummy', '~> 1.8.0'      # breadcrumbs in header
 
 group :production do
   gem 'rails_12factor', '~> 0.0.2'
-  gem 'pry'
-
+  gem 'pry'   # remove ASAP; added to stop activesupport from complaining
 end
 
 
