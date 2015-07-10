@@ -9,11 +9,16 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 
-asset_filter = lambda do |filename, path|
+app_asset_filter = lambda {|filename, path|
   path =~ /app\/assets/ && 
     %w(.js .css).include?(File.extname(filename)) &&
     filename.first != '_'
-end
-Rails.application.config.assets.precompile << asset_filter
+}
+Rails.application.config.assets.precompile << app_asset_filter
 
-
+bootstrap_font_filter = lambda {|filename, path|
+  path =~ /vendor\/assets\/components\/bootstrap-sass\/assets\/fonts/ && 
+    %w(.woff2 .woff .ttf).include?(File.extname(filename)) &&
+    filename.first != '_'
+}
+Rails.application.config.assets.precompile << bootstrap_font_filter
