@@ -1,6 +1,6 @@
 require 'potato_core/jira_adapter'
 require 'potato_core/version_scraper'
-require 'pry'
+# require 'pry'
 require 'pp'
 
 TFORMAT = "%m/%d/%Y"
