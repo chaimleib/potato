@@ -36,8 +36,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 ### CUSTOM ###
 gem 'haml-rails'
-# gem 'therubyracer'            # less-rails
-# gem 'less-rails'              # bootstrap-datetimepicker (bower)
 gem 'mysql2', '~> 0.3.18'
 gem 'bcrypt', '~> 3.1.10'     # password hashes
 gem 'jira-ruby'               # access to Jira and JQL (potato_core)
@@ -69,6 +67,7 @@ group :development, :test do
   gem 'better_errors'
   gem 'factory_girl_rails', '~> 4.5'
   gem 'rspec-rails', '~> 3.0'
+  gem 'dotenv-rails'
   gem 'awesome_print'
   gem 'pry'
   gem 'pry-rails'

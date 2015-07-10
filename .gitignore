@@ -20,8 +20,8 @@
 .DS_Store
 /test.html
 
+.env
 /config/potato.yml
-/config/secrets.yml
 /spec/examples.txt
 /vendor/assets/components/
 /node_modules/
