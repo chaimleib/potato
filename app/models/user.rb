@@ -16,4 +16,9 @@ class User < ActiveRecord::Base
   def full_name
     "#{fname} #{lname}"
   end
+
+  def self.root_user
+    root = User.find_by(email: ENV['ROOT_USER']) || self.first
+    # root.is_admin? ? root : nil
+  end
 end
