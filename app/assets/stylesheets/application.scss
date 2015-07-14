@@ -24,6 +24,10 @@ a {
 a:visited   {color: $color-text-link-visited;}
 a:hover     {color: $color-text-link-hover;}
 
+.centered {
+    text-align: center;
+}
+
 .bootstrap-table {
     .fixed-table-container {
         border: 1px solid $color-border;
@@ -83,6 +87,36 @@ table.pretty {
     }
 }
 
+table.hpretty {
+    border-collapse: collapse;
+    width: 0%;
+    margin-right: auto;
+    margin-left: auto;
+    border: 1px solid $color-border;
+    background-color: $color-background-shade;
+    
+    th {
+        text-align: right;
+        padding-left: 0.25em;
+        padding-right: 0.5em;
+    }
+    tr {
+        border-bottom: 1px solid $color-border-weak;
+        // border: none;
+        td {
+            padding-left: 0.25em;
+            padding-right: 0.25em;
+        }
+    }
+    
+    tr:last-child {
+        border-bottom: none;
+    }
+        
+    tr.red {
+        background-color: $color-background-strong;
+    }
+}
 
 .strong {
     color: $color-text-strong;
@@ -91,6 +125,7 @@ table.pretty {
 
 .red {color: $color-text-red;}
 .green {color: $color-text-green;}
+.grey {color: $color-text-grey;}
 
 .urgent {
     @extend .strong;
