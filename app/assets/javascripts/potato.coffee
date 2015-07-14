@@ -12,7 +12,9 @@ root.formatters.propagations = propagations = new Object
 
 baseUri = location.protocol + '//' + location.host + location.pathname
 if document.context
-	jiraUriBase = document.context.jira_host + '/browse/'
+	jiraUriBase = document.context.jira_host
+	jiraIssueUriBase = jiraUriBase + '/browse/'
+	jiraSessionUri = jiraUriBase + '/rest/auth/1/session'
  
 common.relDueDate = (dateString) ->
 	if not dateString
@@ -36,7 +38,7 @@ common.relDueDate = (dateString) ->
 common.jiraIssue = (key) ->
 	tag = document.createElement('a')
 	escapedKey = encodeURIComponent(key)
-	tag.setAttribute('href', jiraUriBase + escapedKey)
+	tag.setAttribute('href', jiraIssueUriBase + escapedKey)
 	tag.innerHTML = key.replace('-', '&#8209;')
 	return tag.outerHTML
 
