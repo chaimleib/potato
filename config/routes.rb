@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :user_permissions
   get 'due_dates/mass_update'
   resources :due_dates
 

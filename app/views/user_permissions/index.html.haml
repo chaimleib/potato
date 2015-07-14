@@ -1,0 +1,23 @@
+%h1 Listing user_permissions
+
+%table
+  %thead
+    %tr
+      %th User
+      %th Is admin
+      %th
+      %th
+      %th
+
+  %tbody
+    - @user_permissions.each do |user_permission|
+      %tr
+        %td= user_permission.user
+        %td= user_permission.is_admin
+        %td= link_to 'Show', user_permission
+        %td= link_to 'Edit', edit_user_permission_path(user_permission)
+        %td= link_to 'Destroy', user_permission, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New User permission', new_user_permission_path
