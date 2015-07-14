@@ -10,9 +10,10 @@ def write_page
   File.new('test.html', 'wb').write(html)
 end
 
-write_page
+if __FILE__ == $0
+  write_page
 
-html = File.read('test.html')
-freezes = VersionScraper.scrape_freeze_dates html
-pp freezes
-
+  html = File.read('test.html')
+  freezes = VersionScraper.scrape_freeze_dates html
+  pp freezes
+end
