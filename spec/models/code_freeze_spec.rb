@@ -6,22 +6,22 @@ RSpec.describe CodeFreeze, type: :model do
     @cf = FactoryGirl.build :code_freeze
   end
   
-  it 'should be valid from the factory' do
+  it 'is valid from the factory' do
     expect(@cf).to be_valid
   end
   
   describe 'version' do
-    it 'should not be empty' do
+    it 'is not empty' do
       @cf.version = ''
       expect(@cf).to_not be_valid
     end
     
-    it 'should not be nil' do
+    it 'is not nil' do
       @cf.version = nil
       expect(@cf).to_not be_valid
     end
     
-    it 'should be unique' do
+    it 'is unique' do
       
       cf2 = @cf.dup
       
@@ -48,12 +48,12 @@ RSpec.describe CodeFreeze, type: :model do
       expect(@cf).to be_valid
     end
     
-    it 'should not accept an invalid ISO8601 date' do
+    it 'does not accept an invalid ISO8601 date' do
       @cf.date = 'invalid ISO8601'
       expect(@cf).to_not be_valid
     end
     
-    it 'should not be too long (> 26 char)' do
+    it 'can\'t be too long (> 26 char)' do
       @cf.date = '2012-10-06T04:13:00.123456789+00:00'
       expect(@cf).to_not be_valid
     end
