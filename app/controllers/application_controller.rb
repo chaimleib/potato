@@ -4,10 +4,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   add_crumb("Home", '/')
   
-  def controller_display_name(controller=self)
-    controller.controller_name.underscore.humanize.capitalize
+  def self.controller_display_name
+    self.controller_name.underscore.humanize.capitalize
   end
   
+  def controller_display_name
+    self.class.controller_display_name
+  end
+
   def action_display_name(name=action_name)
     name.humanize.capitalize
   end
