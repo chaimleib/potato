@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
     self.email = email.downcase
   }
 
-  before_destroy{
+  before_destroy {
+    raise "Cannot destroy root user" if self.is_root?
     self.user_permission.destroy
   }
 
@@ -24,6 +25,14 @@ class User < ActiveRecord::Base
   
   def full_name
     "#{fname} #{lname}"
+  end
+
+  def concealed_email
+    email.sub /\A([^@])[^@]+@/, '\1***@'
+  end
+
+  def human_email
+    "#{full_name} <#{email}>"
   end
 
   def self.root_user
