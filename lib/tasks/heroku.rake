@@ -45,23 +45,19 @@ namespace :heroku do
     unless system "heroku config:set BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-multi.git"
       raise 'Failed to set BUILDPACK_URL'
     end
-
-    unless system 'heroku config:set "$(heroku config |
-        grep CLEARDB_DATABASE_URL | 
-        sed -e \'s/^.*\/\//DATABASE_URL=mysql2:\/\//\')"'
-      raise(["Failed to set DATABASE_URL",
-        "Do you still have heroku-postgresql installed? If so, run\n",
-        "\theroku addons:destroy heroku-postgresql",
-        "\theroku addons:create cleardb:ignite\n"].join "\n")
-    end
   end
 
-  task :dbsetup do
+  task :dbinit do
+    puts ">> Reading addons..."
     addons = %x(heroku addons)
     plans = []
     found_plans = false
     addons.split("\n").each{|line|
-      found_plans |= line =~ /\APlan/i
+      found_plans_header |= line =~ /\APlan/i
+      if found_plans_header
+        found_plans = true
+        next
+      end
       next unless found_plans
       next if %w(- =).include? line.first
       break if line.strip.empty?
@@ -69,6 +65,26 @@ namespace :heroku do
       cols = line.split ' '
       plans << cols.first
     }
-    puts plans
+
+    if plans.include? 'cleardb:ignite'
+      puts ">> ClearDB already installed"
+    else
+      puts ">> Installing ClearDB MySQL..."
+      system('heroku addons:create cleardb:ignite')
+    end
+
+    puts '>> Setting CLEARDB_DATABASE_URL...'
+    unless system('heroku config:set "$(heroku config |
+      grep CLEARDB_DATABASE_URL | 
+      sed -e \'s/^.*\/\//DATABASE_URL=mysql2:\/\//\')"')
+      raise(["Failed to set DATABASE_URL",
+        "Do you still have heroku-postgresql installed? If so, run\n",
+        "\theroku addons:destroy heroku-postgresql",
+        "\theroku addons:create cleardb:ignite\n"].join "\n")
+    end
+
+    puts '>> Initializing databases...'
+    system 'heroku run rake db:drop db:create db:migrate db:seed'
+    puts '>> Done'
   end
 end
