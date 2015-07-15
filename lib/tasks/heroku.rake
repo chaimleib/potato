@@ -107,7 +107,7 @@ namespace :heroku do
   end
 
   task :deploy do
-    puts '>> Pushing to stage...'
+    puts '>> Pushing HEAD to stage...'
     system 'git push -f stage HEAD:master'
     puts '>> Finished deployment'
   end
