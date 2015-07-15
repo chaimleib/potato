@@ -8,9 +8,9 @@
 
   .field
     = f.label :user
-    = f.text_field :user
+    = f.collection_select :user_id, User.all, :id, :human_email
   .field
     = f.label :is_admin
-    = f.text_field :is_admin
+    = f.check_box :is_admin
   .actions
     = f.submit 'Save'

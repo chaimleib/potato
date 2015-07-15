@@ -1,5 +1,6 @@
 %h1 Listing users
 
+= link_to 'New User', new_user_path
 %table.table.table-condensed.pretty
   %thead
     %tr
@@ -9,17 +10,22 @@
       %th
       %th
       %th
+      %th
 
   %tbody
     - @users.each do |user|
       %tr
         %td= user.fname
         %td= user.lname
-        %td= user.email.sub /\A([^@])[^@]+@/, '\1***@'
+        %td= user.concealed_email
+        %td= link_to 'Permissions', user.user_permission
         %td= link_to 'Show', user
         %td= link_to 'Edit', edit_user_path(user)
-        %td= link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td
+          - if user.is_root?
+            %span.strong.grey Root user
+          - else
+            = link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
-
 = link_to 'New User', new_user_path

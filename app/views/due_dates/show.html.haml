@@ -3,18 +3,18 @@
 %table.hpretty
   %tbody
     %tr
-      %td
-        %b Branch name:
+      %th Branch name:
       %td= @due_date.branch_name
     %tr
-      %td
-        %b Target_version:
+      %th Target_version:
       %td= @due_date.target_version
     %tr
-      %td
-        %b Due:
+      %th Due:
       %td= @due_date.due
 
 = link_to 'Edit', edit_due_date_path(@due_date)
+- if notice.present?
+  \|
+  = link_to 'Create another', new_due_date_path
 \|
-= link_to 'Back', due_dates_path
+= link_to 'Show all', due_dates_path

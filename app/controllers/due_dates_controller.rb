@@ -7,7 +7,9 @@ require 'byebug' if Rails.env.development?
 
 class DueDatesController < ApplicationController
   before_action :set_due_date, only: [:show, :edit, :update, :destroy]
-  add_crumb("Due dates"){|instance| instance.due_dates_path}
+  add_crumb controller_display_name, controller_base_path
+
+  self.model = DueDate
 
   # GET /due_dates
   # GET /due_dates.json
@@ -18,7 +20,7 @@ class DueDatesController < ApplicationController
   # GET /due_dates/1
   # GET /due_dates/1.json
   def show
-    add_crumb "Show('#{@due_date.branch_name}')", due_date_path
+    add_crumb "Show #{@due_date.branch_name.inspect}", due_date_path
   end
 
   # GET /due_dates/new
@@ -29,7 +31,7 @@ class DueDatesController < ApplicationController
 
   # GET /due_dates/1/edit
   def edit
-    add_crumb "Edit('#{@due_date.branch_name}')", edit_due_date_path
+    add_crumb "Edit #{@due_date.branch_name.inspect}", edit_due_date_path
   end
 
   def mass_update

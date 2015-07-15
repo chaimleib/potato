@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  add_crumb("Users"){|instance| instance.users_path}
+  add_crumb controller_display_name, controller_base_path
+
+  self.shown_to = [:administrators]
+  self.model = User
 
   # GET /users
   # GET /users.json
@@ -11,7 +14,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    add_crumb "Show('#{@user.email}')", user_path
+    add_crumb "Show #{@user.email.inspect}", user_path
   end
 
   # GET /users/new
@@ -22,7 +25,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    add_crumb "Edit('#{@user.email}')", edit_user_path
+    add_crumb "Edit #{@user.email.inspect}", edit_user_path
   end
 
   # POST /users

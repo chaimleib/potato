@@ -1,12 +1,17 @@
 %p#notice= notice
 
-%p
-  %b User:
-  = @user_permission.user
-%p
-  %b Is admin:
-  = @user_permission.is_admin
+%table.hpretty
+  %tr
+    %th User:
+    %td= link_to @user_permission.user.human_email, @user_permission.user
+  %tr
+    %th Is admin:
+    %td= @user_permission.is_admin
 
 = link_to 'Edit', edit_user_permission_path(@user_permission)
+- if notice.present?
+  \|
+  = link_to 'Create another', new_user_permission_path
 \|
-= link_to 'Back', user_permissions_path
+= link_to 'Show all', user_permissions_path
+

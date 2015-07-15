@@ -1,6 +1,9 @@
 class ResourceUpdatesController < ApplicationController
   before_action :set_resource_update, only: [:show, :edit, :update, :destroy]
-  add_crumb('Resource updates'){|instance| instance.resource_updates_path}
+  add_crumb controller_display_name, controller_base_path
+
+  self.shown_to = [:administrators]
+  self.model = ResourceUpdate
 
   # GET /resource_updates
   # GET /resource_updates.json
@@ -11,7 +14,7 @@ class ResourceUpdatesController < ApplicationController
   # GET /resource_updates/1
   # GET /resource_updates/1.json
   def show
-    add_crumb "Show('#{@resource_update.name}##{@resource_update.id}')", resource_update_path
+    add_crumb "Show id: #{@resource_update.id}, name: #{@resource_update.name.inspect}", resource_update_path
   end
 
   # GET /resource_updates/new
@@ -22,7 +25,7 @@ class ResourceUpdatesController < ApplicationController
 
   # GET /resource_updates/1/edit
   def edit
-    add_crumb "Edit('#{@resource_update.name}##{@resource_update.id}')", edit_resource_update_path
+    add_crumb "Edit id: #{@resource_update.id}, name: #{@resource_update.name.inspect}", edit_resource_update_path
   end
 
   # POST /resource_updates

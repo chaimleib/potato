@@ -12,8 +12,8 @@ include PotatoHelper
 require 'byebug' if Rails.env.development?
 
 class PotatoController < ApplicationController
-  add_crumb("Potato"){ |instance| instance.potato_path }
-  
+  add_crumb controller_display_name, controller_base_path
+
   def index
   end
   

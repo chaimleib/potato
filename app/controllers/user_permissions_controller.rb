@@ -1,5 +1,9 @@
 class UserPermissionsController < ApplicationController
-  before_action :set_user_permission, only: [:show, :edit, :update, :destroy]
+  before_action :set_user_permission, only: [:show, :edit, :update]
+  add_crumb controller_display_name, controller_base_path
+
+  self.shown_to = [:administrators]
+  self.model = UserPermission
 
   # GET /user_permissions
   # GET /user_permissions.json
@@ -10,32 +14,35 @@ class UserPermissionsController < ApplicationController
   # GET /user_permissions/1
   # GET /user_permissions/1.json
   def show
+    add_crumb "Show #{@user_permission.user.email.inspect}",user_permission_path
   end
 
-  # GET /user_permissions/new
-  def new
-    @user_permission = UserPermission.new
-  end
+  # # GET /user_permissions/new
+  # def new
+  #   add_crumb "New", new_user_permission_path
+  #   @user_permission = UserPermission.new
+  # end
 
   # GET /user_permissions/1/edit
   def edit
+    add_crumb "Edit #{@user_permission.user.email.inspect}",user_permission_path
   end
 
-  # POST /user_permissions
-  # POST /user_permissions.json
-  def create
-    @user_permission = UserPermission.new(user_permission_params)
+  # # POST /user_permissions
+  # # POST /user_permissions.json
+  # def create
+  #   @user_permission = UserPermission.new(user_permission_params)
 
-    respond_to do |format|
-      if @user_permission.save
-        format.html { redirect_to @user_permission, notice: 'User permission was successfully created.' }
-        format.json { render :show, status: :created, location: @user_permission }
-      else
-        format.html { render :new }
-        format.json { render json: @user_permission.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  #   respond_to do |format|
+  #     if @user_permission.save
+  #       format.html { redirect_to @user_permission, notice: 'User permission was successfully created.' }
+  #       format.json { render :show, status: :created, location: @user_permission }
+  #     else
+  #       format.html { render :new }
+  #       format.json { render json: @user_permission.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # PATCH/PUT /user_permissions/1
   # PATCH/PUT /user_permissions/1.json
@@ -51,15 +58,15 @@ class UserPermissionsController < ApplicationController
     end
   end
 
-  # DELETE /user_permissions/1
-  # DELETE /user_permissions/1.json
-  def destroy
-    @user_permission.destroy
-    respond_to do |format|
-      format.html { redirect_to user_permissions_url, notice: 'User permission was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+  # # DELETE /user_permissions/1
+  # # DELETE /user_permissions/1.json
+  # def destroy
+  #   @user_permission.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to user_permissions_url, notice: 'User permission was successfully destroyed.' }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

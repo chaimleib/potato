@@ -1,7 +1,7 @@
-%h1 Editing user_permission
+%h1= "Editing #{controller.controller_display_name}"
 
 = render 'form'
 
 = link_to 'Show', @user_permission
 \|
-= link_to 'Back', user_permissions_path
+= link_to 'Show all', user_permissions_path

@@ -1,7 +1,9 @@
 %h1 Listing due dates
-%p
-  %span.button= link_to 'Mass update...', due_dates_mass_update_path
+%p#notice= notice
 
+= link_to 'New Due date', new_due_date_path
+\|
+= link_to 'Mass update...', due_dates_mass_update_path
 %table.table.table-condensed.pretty
   %thead
     %tr

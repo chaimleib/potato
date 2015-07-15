@@ -2,18 +2,20 @@
 %table.hpretty
   %tbody
     %tr
-      %td
-        %b First name:
+      %th First name:
       %td= @user.fname
     %tr
-      %td
-        %b Last name:
+      %th Last name:
       %td= @user.lname
     %tr
-      %td
-        %b Email:
+      %th Email:
       %td= @user.email
+    %tr
+      %td.centered{colspan: 2}= link_to 'Permissions', @user.user_permission
 
 = link_to 'Edit', edit_user_path(@user)
+- if notice.present?
+  \|
+  = link_to 'Create another', new_user_path
 \|
-= link_to 'Back', users_path
+= link_to 'Show all', users_path
