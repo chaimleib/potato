@@ -16145,11 +16145,31 @@ $(function() {
 });
 
 (function() {
-
+  $(function() {
+    var getThrobber, throbber;
+    getThrobber = function(id) {
+      var img, img_div;
+      img = document.createElement('img');
+      img.setAttribute('src', '/assets/throbber.gif');
+      img.setAttribute('alt', 'loading...');
+      img_div = document.createElement('div');
+      img_div.setAttribute('id', id);
+      img_div.setAttribute('class', 'icon-container');
+      img_div.innerHTML = img.outerHTML;
+      return img_div;
+    };
+    throbber = getThrobber();
+    return $('#wiki-btn').click(function() {
+      var btn;
+      btn = $('#wiki-btn');
+      btn.setAttribute('disabled', 'true');
+      return btn.insertAfter(throbber);
+    });
+  });
 
 }).call(this);
 (function() {
-  var baseUri, common, jiraUriBase, propagations, root;
+  var baseUri, common, jiraIssueUriBase, jiraSessionUri, jiraUriBase, propagations, root;
 
   root = this;
 
@@ -16167,7 +16187,9 @@ $(function() {
   baseUri = location.protocol + '//' + location.host + location.pathname;
 
   if (document.context) {
-    jiraUriBase = document.context.jira_host + '/browse/';
+    jiraUriBase = document.context.jira_host;
+    jiraIssueUriBase = jiraUriBase + '/browse/';
+    jiraSessionUri = jiraUriBase + '/rest/auth/1/session';
   }
 
   common.relDueDate = function(dateString) {
@@ -16196,7 +16218,7 @@ $(function() {
     var escapedKey, tag;
     tag = document.createElement('a');
     escapedKey = encodeURIComponent(key);
-    tag.setAttribute('href', jiraUriBase + escapedKey);
+    tag.setAttribute('href', jiraIssueUriBase + escapedKey);
     tag.innerHTML = key.replace('-', '&#8209;');
     return tag.outerHTML;
   };
@@ -16267,6 +16289,10 @@ $(function() {
 	$t.settings.strings.prefixFromNow = 'in';
 	$t.settings.strings.suffixFromNow = null;
 })();
+(function() {
+
+
+}).call(this);
 (function() {
 
 

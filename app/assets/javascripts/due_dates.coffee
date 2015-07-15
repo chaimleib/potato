@@ -13,7 +13,9 @@ $(() ->
     img_div.innerHTML = img.outerHTML
     return img_div
   throbber = getThrobber()
-  $('#wiki-btn').click(
-    () -> $('#wiki-btn').replaceWith(throbber)
+  $('#wiki-btn').click(() -> 
+    btn = $('#wiki-btn')
+    btn.setAttribute('disabled', 'true')
+    btn.insertAfter(throbber)
   )
 )
