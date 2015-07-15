@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   }
 
   after_save{
-    self.ensure_permissions
+    self.ensure_permission
   }
 
   before_destroy {
@@ -50,18 +50,28 @@ class User < ActiveRecord::Base
   end
 
   def is_admin?
+    # Root has a strict superset of admin permissions, and is an
+    # admin, even if his user_permissions don't say so.
     self.is_root? || 
-      self.permissions.is_admin
+      self.ensure_permission.is_admin
   end
 
   def may_delete_user?(other)
-    return false unless self.is_admin? 
+    # Only admins can delete users. 
+    return false unless self.is_admin?
+
+    # Nobody, not even root, can delete root. 
     return false if other.is_root?
-    self != other
+
+    #self != other  # Nobody can delete themselves.
+    true
   end
 
-  def ensure_permissions
-    perms = UserPermission.find_by(user: self)
+  def ensure_permission
+    # Make sure that this User has a UserPermission.
+    # Create it if it's not there yet.
+    # @returns user_permission
+    perms = user_permission
     unless perms
       perms = UserPermission.create(user: self, is_admin: false)
       perms.save

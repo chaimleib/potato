@@ -19,7 +19,7 @@ FactoryGirl.define do
       sequence(:email) {|n| "adam#{n}@localhost"}
 
       after :create do |user|
-        perms = user.ensure_permissions
+        perms = user.ensure_permission
         perms.is_admin = true
         perms.save
       end

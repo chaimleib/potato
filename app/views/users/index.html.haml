@@ -1,6 +1,7 @@
-%h1 Listing users
+%h1= "Listing #{controller.controller_display_name.downcase}"
+%p#notice= notice
 
-= link_to 'New User', new_user_path
+= link_to 'New user', new_user_path
 %table.table.table-condensed.pretty
   %thead
     %tr
@@ -18,7 +19,7 @@
         %td= user.fname
         %td= user.lname
         %td= user.concealed_email
-        %td= link_to 'Permissions', user.user_permission
+        %td= link_to 'Permissions', user.ensure_permission
         %td= link_to 'Show', user
         %td= link_to 'Edit', edit_user_path(user)
         %td
@@ -28,4 +29,4 @@
             = link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
-= link_to 'New User', new_user_path
+= link_to 'New user', new_user_path
