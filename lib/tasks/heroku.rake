@@ -2,11 +2,9 @@ namespace :heroku do
   desc "Sets up heroku config variables on foreign server."
 
   class HerokuServer
-    attr_accessor :plans
-
     def initialize
       @_name = nil
-      @plans = []
+      @_plans = nil
     end
 
     def name
@@ -17,6 +15,32 @@ namespace :heroku do
         @_name = words[1]
       end
       @_name
+    end
+
+    def plans_changed
+      @_plans = nil
+    end
+
+    def plans
+      return @_plans unless @_plans.nil?
+
+      addons = %x(heroku addons)
+      @_plans = []
+      found_plans = false
+      addons.split("\n").each{|line|
+        found_plans_header |= line =~ /\APlan/i
+        if found_plans_header
+          found_plans = true
+          next
+        end
+        next unless found_plans
+        next if %w(- =).include? line.first
+        break if line.strip.empty?
+        line = line.strip.squeeze ' '
+        cols = line.split ' '
+        @_plans << cols.first
+      }
+      @_plans
     end
   end
 
@@ -55,31 +79,16 @@ namespace :heroku do
     end
     puts '>> Buildpack set successfully'
   end
-  
-  task :dbinit do
-    puts ">> Reading addons..."
-    addons = %x(heroku addons)
-    plans = []
-    found_plans = false
-    addons.split("\n").each{|line|
-      found_plans_header |= line =~ /\APlan/i
-      if found_plans_header
-        found_plans = true
-        next
-      end
-      next unless found_plans
-      next if %w(- =).include? line.first
-      break if line.strip.empty?
-      line = line.strip.squeeze ' '
-      cols = line.split ' '
-      plans << cols.first
-    }
 
-    if plans.include? 'cleardb:ignite'
+  task :dbinit do
+    puts ">> Initializing database..."
+    puts ">> Reading addons..."
+    if server.plans.include? 'cleardb:ignite'
       puts ">> ClearDB already installed"
     else
       puts ">> Installing ClearDB MySQL..."
       system('heroku addons:create cleardb:ignite')
+      server.plans_changed
     end
 
     puts '>> Setting CLEARDB_DATABASE_URL...'
@@ -92,9 +101,9 @@ namespace :heroku do
         "\theroku addons:create cleardb:ignite\n"].join "\n")
     end
 
-    puts '>> Initializing databases...'
+    puts '>> Initializing database...'
     system 'heroku run rake db:drop db:create db:migrate db:seed'
-    puts '>> Databases initialized successfully'
+    puts '>> Database initialized successfully'
   end
 
   task :deploy do
