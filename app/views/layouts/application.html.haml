@@ -7,8 +7,6 @@
     = stylesheet_link_tag    controller_name, media: 'all', 'data-turbolinks-track' => true
     - if @context.present?
       %script!= "document.context = #{@context.to_json};"
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    = javascript_include_tag 'timeago.js'
     = csrf_meta_tags
   %body
     #main-container.container-fluid
@@ -22,5 +20,7 @@
           -if Rails.env.development?
             .row.page_section= debug(params)
         .col-md-1
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = javascript_include_tag 'timeago.js'
     = javascript_include_tag 'bootstrap.js'
 
