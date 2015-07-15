@@ -24,6 +24,12 @@ a {
 a:visited   {color: $color-text-link-visited;}
 a:hover     {color: $color-text-link-hover;}
 
+div.icon-container {
+    display: inline-block;
+    img {
+        max-height: 24px;
+    }
+}
 .centered {
     text-align: center;
 }
