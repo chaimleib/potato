@@ -7,6 +7,10 @@ class User < ActiveRecord::Base
     self.email = email.downcase
   }
 
+  after_save{
+    self.ensure_permissions
+  }
+
   before_destroy {
     raise "Cannot destroy root user" if self.is_root?
     self.user_permission.destroy
