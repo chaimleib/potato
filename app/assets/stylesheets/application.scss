@@ -6,17 +6,13 @@
 
 */
 @import 'partials/reset';
-
-// @import 'bootstrap-sprockets';
-// @import 'bootstrap-datetimepicker';
-// @import 'bootstrap-table/src/bootstrap-table';
-
 @import 'theme';
 
 body {
    font: 12pt Helvetica, sans-serif;
 }
 
+// LINKS
 a {
     color: $color-text-link;
     text-decoration: underline;
@@ -30,26 +26,28 @@ div.icon-container {
         max-height: 24px;
     }
 }
-.centered {
-    text-align: center;
-}
 
+// DATA TABLES
 .bootstrap-table {
+    margin-top: 0.5em;
     .fixed-table-container {
         border: 1px solid $color-border;
         border-radius: 0;
     }
     .table.pretty {
+        margin-top: 0;
         border: none;
         tbody {
             border: none;
         }
     }
 }
+
 table.pretty {
     border-collapse: collapse;
     width: 100%;
-    margin: 0;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
     border: 1px solid $color-border;
     background-color: $color-background-shade;
     
@@ -98,6 +96,9 @@ table.hpretty {
     width: 0%;
     margin-right: auto;
     margin-left: auto;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+
     border: 1px solid $color-border;
     background-color: $color-background-shade;
     
@@ -124,6 +125,11 @@ table.hpretty {
     }
 }
 
+// TEXT/SPAN STYLING
+.centered {
+    text-align: center;
+}
+
 .strong {
     color: $color-text-strong;
     font-weight: bold;
@@ -143,6 +149,7 @@ table.hpretty {
     @extend .green;
 }
 
+// PAGE SECTIONS
 .header {
     margin: 0px;
     
@@ -159,6 +166,12 @@ table.hpretty {
     }
 }
 
+.page_section {
+    padding: 20px;
+    margin-top: 10px;
+    background-color: $color-background;
+    color: $color-text;
+}
 
 #main-container .article {
     border: 1px solid $color-border;
@@ -173,6 +186,7 @@ table.hpretty {
     text-align: center;
 }
 
+// HEADERS and LISTS
 h1, h2, h3, h4, h5, h6 {
     padding: 0;
     margin: 0;
@@ -184,19 +198,32 @@ ul {
     margin-left: 1.5em;
 }
 
-.page_section {
-    padding: 20px;
-    margin-top: 10px;
-    background-color: $color-background;
-    color: $color-text;
-}
-
+// FORMS
 form .row {
     margin-top: 0.5em;
 }
 
 form .container-fluid {
     margin-bottom: 0.5em;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 600px;
+    .row {
+        .field {
+            padding-right: 0.5em;
+        }
+    }
+    .row.actions {
+        text-align: center;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    textarea {
+        max-width: 100%;
+    }
 }
 
+input.form-control {
+    color: $color-text;
+}
 
