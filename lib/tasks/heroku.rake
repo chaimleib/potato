@@ -26,11 +26,15 @@ namespace :heroku do
     puts server.name
   end
 
-  task :config do
+  task :config => [:secrets, :buildpack, :deploy, :dbinit] do
+  end
+  
+  task :secrets  do
+    puts '>> Setting secret variables from .env...'
     env_keys = %w(JIRA_USER JIRA_KEY JIRA_HOST)
     env_vars_present = env_keys.all?{|key| ENV[key].present?}
     unless env_vars_present
-      raise 'ENV vars not set'
+      raise 'ENV vars not set; do you have a .env file?'
     end
     unless env_keys.all?{|key| system "heroku config:set #{key}=#{ENV[key].inspect}"}
       raise 'Failed to config remote ENV'
@@ -41,12 +45,17 @@ namespace :heroku do
     unless system("heroku config:set SECRET_KEY_BASE=#{secret_key_base.inspect}")
       raise 'Failed to set SECRET_KEY_BASE'
     end
+    puts '>> Finished setting secret variables'
+  end
 
+  task :buildpack do
+    puts '>> Setting buildpack-multi...'
     unless system "heroku config:set BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-multi.git"
       raise 'Failed to set BUILDPACK_URL'
     end
+    puts '>> Buildpack set successfully'
   end
-
+  
   task :dbinit do
     puts ">> Reading addons..."
     addons = %x(heroku addons)
@@ -85,6 +94,12 @@ namespace :heroku do
 
     puts '>> Initializing databases...'
     system 'heroku run rake db:drop db:create db:migrate db:seed'
-    puts '>> Done'
+    puts '>> Databases initialized successfully'
+  end
+
+  task :deploy do
+    puts '>> Pushing to stage...'
+    system 'git push -f stage HEAD:master'
+    puts '>> Finished deployment'
   end
 end
