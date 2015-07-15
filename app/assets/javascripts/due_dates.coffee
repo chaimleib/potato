@@ -12,7 +12,7 @@ $(() ->
     img_div.setAttribute('class', 'icon-container')
     img_div.innerHTML = img.outerHTML
     return img_div
-  throbber = getThrobber
+  throbber = getThrobber()
   $('#wiki-btn').click(
     () -> $('#wiki-btn').replaceWith(throbber)
   )
