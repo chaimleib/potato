@@ -2,17 +2,17 @@
 - messages = @context[:messages]
 
 %h1 Mass update
-.container-fluid
-  - if messages.present?
-    .row
-      %ul
-        - messages.each do |msg|
-          %li{class: msg[:class]}= msg[:body]
-  = form_tag(controller.due_dates_mass_update_path, method: 'get', id: 'mass-update-form') do
+= form_tag(controller.due_dates_mass_update_path, method: 'post', id: 'mass-update-form') do
+  .container-fluid
+    - if messages.present?
+      .row
+        %ul
+          - messages.each do |msg|
+            %li{class: msg[:class]}= msg[:body]
     .row.form-group
-      .col-sm-4.field
+      .col-sm-9.field
         %label{for: 'action'} Update from wiki (may take ~60 secs):
-      .col-sm-8.input-group
+      .col-sm-3
         %input#mass-update-update-field{type: 'hidden', name: 'update', 'value': 'Wiki'}
         %input#wiki-btn{type: 'submit', value: 'Wiki'}
-= link_to 'Show all', due_dates_path
+= link_to 'Show all due dates', due_dates_path
