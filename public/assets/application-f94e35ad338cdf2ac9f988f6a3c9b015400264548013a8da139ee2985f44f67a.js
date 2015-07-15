@@ -16159,11 +16159,10 @@ $(function() {
       return img_div;
     };
     throbber = getThrobber();
-    return $('#wiki-btn').click(function() {
-      var btn;
-      btn = $('#wiki-btn');
-      btn.setAttribute('disabled', 'true');
-      return btn.insertAfter(throbber);
+    return $('#wiki-btn').mouseup(function() {
+      $(this).attr('disabled', 'disabled');
+      $(throbber).insertAfter(this);
+      return $('#mass-update-form').submit();
     });
   });
 

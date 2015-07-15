@@ -13,9 +13,9 @@ $(() ->
     img_div.innerHTML = img.outerHTML
     return img_div
   throbber = getThrobber()
-  $('#wiki-btn').click(() -> 
-    btn = $('#wiki-btn')
-    btn.setAttribute('disabled', 'true')
-    btn.insertAfter(throbber)
+  $('#wiki-btn').mouseup(() -> 
+    $(this).attr('disabled', 'disabled')
+    $(throbber).insertAfter(this)
+    $('#mass-update-form').submit()
   )
 )

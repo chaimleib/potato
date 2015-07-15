@@ -13,8 +13,10 @@
       return img_div;
     };
     throbber = getThrobber();
-    return $('#wiki-btn').click(function() {
-      return $('#wiki-btn').replaceWith(throbber);
+    return $('#wiki-btn').mouseup(function() {
+      $(this).attr('disabled', 'disabled');
+      $(throbber).insertAfter(this);
+      return $('#mass-update-form').submit();
     });
   });
 
