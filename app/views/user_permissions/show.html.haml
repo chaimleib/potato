@@ -1,17 +1,23 @@
+- user = @user_permission.user
+- helper = UserPermissionsHelper
 %p#notice= notice
 
 %table.hpretty
   %tr
     %th User:
-    %td= link_to @user_permission.user.human_email, @user_permission.user
+    %td= link_to user.human_email, user
   %tr
     %th Is admin:
-    %td= @user_permission.is_admin
+    %td
+      = @user_permission.is_admin
+      - admin_notes = helper.admin_notes(@user_permission)
+      - if admin_notes.present?
+        %span.red.strong= "<#{admin_notes.join '; '}>"
 
 = link_to 'Edit', edit_user_permission_path(@user_permission)
 - if notice.present?
   \|
   = link_to 'Create another', new_user_permission_path
 \|
-= link_to 'Show all', user_permissions_path
+= link_to 'Show all user permissions', user_permissions_path
 

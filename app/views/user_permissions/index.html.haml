@@ -1,5 +1,6 @@
-- right_arrow = "\u2192"
-%h1= "Listing #{controller.controller_display_name}"
+- helper = UserPermissionsHelper
+
+%h1= "Listing #{controller.controller_display_name.downcase}"
 %p#notice= notice
 
 %table.table.condensed-table.pretty
@@ -19,7 +20,8 @@
         %td= link_to user.lname, user
         %td
           = user_permission.is_admin
-          - if !!user_permission.is_admin != user.is_admin?
-            %span.red.strong= "<user.is_admin? #{right_arrow} #{user_permission.user.is_admin?}>"
+          - admin_notes = helper.admin_notes(user_permission)
+          - if admin_notes.present?
+            %span.red.strong= "<#{admin_notes.join '; '}>"
         %td= link_to 'Show', user_permission
         %td= link_to 'Edit', edit_user_permission_path(user_permission)
