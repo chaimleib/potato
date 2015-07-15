@@ -1,7 +1,7 @@
-%h1 Listing resource updates
+%h1= "Listing #{controller.controller_display_name.downcase}"
 %p#notice= notice
 
-= link_to 'New Resource Update', new_resource_update_path
+= link_to 'New resource update', new_resource_update_path
 %table.table.table-condensed.pretty
   %thead
     %tr
@@ -29,4 +29,4 @@
 
 %br
 
-= link_to 'New Resource Update', new_resource_update_path
+= link_to 'New resource update', new_resource_update_path

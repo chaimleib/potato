@@ -1,7 +1,7 @@
-%h1 Listing due dates
+%h1= "Listing #{controller.controller_display_name.downcase}"
 %p#notice= notice
 
-= link_to 'New Due date', new_due_date_path
+= link_to 'New due date', new_due_date_path
 \|
 = link_to 'Mass update...', due_dates_mass_update_path
 %table.table.table-condensed.pretty
@@ -24,4 +24,4 @@
 
 %br
 
-= link_to 'New Due date', new_due_date_path
+= link_to 'New due date', new_due_date_path

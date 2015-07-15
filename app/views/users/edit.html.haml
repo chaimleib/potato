@@ -1,7 +1,7 @@
-%h1 Editing user
+%h1= "Editing #{controller.controller_display_name.downcase}"
 
 = render 'form'
 
 = link_to 'Show', @user
 \|
-= link_to 'Show all', users_path
+= link_to 'Show all users', users_path
