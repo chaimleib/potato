@@ -50,7 +50,7 @@ namespace :heroku do
     puts server.name
   end
 
-  task :config => [:secrets, :buildpack, :deploy, :dbinit] do
+  task :init => [:secrets, :buildpack, :deploy, :dbinit] do
   end
   
   task :secrets  do
