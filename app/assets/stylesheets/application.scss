@@ -30,12 +30,14 @@ div.icon-container {
 // DATA TABLES
 .bootstrap-table {
     margin-top: 0.5em;
+    margin-bottom: 0.5em;
     .fixed-table-container {
         border: 1px solid $color-border;
         border-radius: 0;
     }
     .table.pretty {
         margin-top: 0;
+        margin-bottom: 0;
         border: none;
         tbody {
             border: none;
