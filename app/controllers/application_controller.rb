@@ -28,4 +28,28 @@ class ApplicationController < ActionController::Base
   def controller_base_path
     self.class.controller_base_path
   end
+
+  def action_base_path(id=nil)
+    parts = [controller_base_path]
+    parts << id.to_s unless id.nil?
+    parts << action_name unless action_name == 'show'
+    parts.join '/'
+  end
+
+  def autocrumb(name=nil)
+    crumb_title = sanitize(action_display_name).html_safe
+    if name.present?
+      crumb_title << " #{name.inspect}"
+    end
+    add_crumb crumb_title, action_base_path(params[:id])
+  end
+
+  def autocrumb_with_email(email)
+    new_email = ApplicationHelper.breakable_email email
+    crumb_title = sanitize(action_display_name).html_safe
+    crumb_title << ' "'
+    crumb_title << new_email
+    crumb_title << '"'
+    add_crumb crumb_title, action_base_path(params[:id])
+  end
 end
