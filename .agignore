@@ -1,0 +1,6 @@
+# An ignore file for the_silver_searcher, aka ag. Basically, 
+# it's grep/ack, except better/faster.
+# https://github.com/ggreer/the_silver_searcher
+
+/public/assets/
+
