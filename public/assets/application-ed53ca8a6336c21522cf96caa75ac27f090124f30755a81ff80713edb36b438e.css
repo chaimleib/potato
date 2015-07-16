@@ -1,8 +1,5 @@
+@charset "UTF-8";
 /*
-
-
-
-
 
 */
 /* line 1, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/partials/_reset.scss */
@@ -61,258 +58,6 @@ body {
   color: #f1cc6f;
 }
 
-/* line 12, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-body {
-  font: 12pt Helvetica, sans-serif;
-}
-
-/* line 17, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-a {
-  color: #0066cc;
-  text-decoration: underline;
-}
-
-/* line 21, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-a:visited {
-  color: #036;
-}
-
-/* line 22, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-a:hover {
-  color: #0080ff;
-}
-
-/* line 24, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-div.icon-container {
-  display: inline-block;
-}
-/* line 26, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-div.icon-container img {
-  max-height: 24px;
-}
-
-/* line 32, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-.bootstrap-table {
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-}
-/* line 35, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-.bootstrap-table .fixed-table-container {
-  border: 1px solid #4b260b;
-  border-radius: 0;
-}
-/* line 39, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-.bootstrap-table .table.pretty {
-  margin-top: 0;
-  margin-bottom: 0;
-  border: none;
-}
-/* line 43, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-.bootstrap-table .table.pretty tbody {
-  border: none;
-}
-
-/* line 49, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-table.pretty {
-  border-collapse: collapse;
-  width: 100%;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  border: 1px solid #4b260b;
-  background-color: #eff0c6;
-}
-/* line 57, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-table.pretty .left-col-border {
-  border-left: 1px solid rgba(75, 38, 11, 0.2);
-}
-/* line 61, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-table.pretty thead {
-  border-bottom: 1px solid #4b260b;
-}
-/* line 64, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-table.pretty thead th {
-  text-align: left;
-  padding-left: 0.25em;
-  padding-right: 0.25em;
-}
-/* line 70, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-table.pretty thead th ~ th {
-  text-align: center;
-}
-/* line 75, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-table.pretty tr {
-  border: none;
-}
-/* line 78, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-table.pretty tr td {
-  padding-left: 0.25em;
-  padding-right: 0.25em;
-}
-/* line 83, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-table.pretty tr td ~ td {
-  text-align: center;
-}
-/* line 88, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-table.pretty tr:last-child {
-  border-bottom: none;
-}
-/* line 92, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-table.pretty tr.red, table.pretty tr.urgent {
-  background-color: #de9086;
-}
-
-/* line 97, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-table.hpretty {
-  border-collapse: collapse;
-  width: 0%;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  border: 1px solid #4b260b;
-  background-color: #eff0c6;
-}
-/* line 108, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-table.hpretty th {
-  text-align: right;
-  padding-left: 0.25em;
-  padding-right: 0.5em;
-}
-/* line 113, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-table.hpretty tr {
-  border-bottom: 1px solid rgba(75, 38, 11, 0.2);
-}
-/* line 116, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-table.hpretty tr td {
-  padding-left: 0.25em;
-  padding-right: 0.25em;
-}
-/* line 122, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-table.hpretty tr:last-child {
-  border-bottom: none;
-}
-/* line 126, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-table.hpretty tr.red, table.hpretty tr.urgent {
-  background-color: #de9086;
-}
-
-/* line 132, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-.centered {
-  text-align: center;
-}
-
-/* line 136, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-.strong, .urgent, .success {
-  color: #8d0104;
-  font-weight: bold;
-}
-
-/* line 141, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-.red, .urgent {
-  color: #8d0104;
-}
-
-/* line 142, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-.green, .success {
-  color: #6a7e0d;
-}
-
-/* line 143, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-.grey {
-  color: gray;
-}
-
-/* line 156, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-.header {
-  margin: 0px;
-}
-/* line 159, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-.header h1, .header h2, .header h3, .header h4, .header h5, .header h6 {
-  margin: 0px;
-  margin-bottom: 5px;
-}
-/* line 164, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-.header h1 a {
-  text-decoration: inherit;
-}
-/* line 165, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-.header h1 a:hover {
-  text-decoration: underline;
-}
-/* line 167, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-.header h2 {
-  font-size: 130%;
-}
-
-/* line 172, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-.page_section {
-  padding: 20px;
-  margin-top: 10px;
-  background-color: #e1d4a1;
-  color: #3f1600;
-}
-
-/* line 179, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-#main-container .article {
-  border: 1px solid #4b260b;
-}
-
-/* line 183, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-.footer * {
-  color: #7f5d42;
-}
-
-/* line 187, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-.footer p {
-  font-size: 80%;
-  text-align: center;
-}
-
-/* line 193, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-h1, h2, h3, h4, h5, h6 {
-  padding: 0;
-  margin: 0;
-  margin-bottom: 0.5em;
-  color: #6a7e0d;
-}
-
-/* line 200, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-ul {
-  margin-left: 1.5em;
-}
-
-/* line 205, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-form .row {
-  margin-top: 0.5em;
-}
-
-/* line 209, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-form .container-fluid {
-  margin-bottom: 0.5em;
-  margin-right: auto;
-  margin-left: auto;
-  max-width: 600px;
-}
-/* line 215, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-form .container-fluid .row .field {
-  padding-right: 0.5em;
-}
-/* line 219, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-form .container-fluid .row.actions {
-  text-align: center;
-  margin-right: auto;
-  margin-left: auto;
-}
-/* line 224, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-form .container-fluid textarea {
-  max-width: 100%;
-}
-
-/* line 229, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
-input.form-control {
-  color: #3f1600;
-}
-@charset "UTF-8";
 /*!
  * Bootstrap v3.3.5 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
@@ -681,8 +426,8 @@ th {
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url("../fonts/bootstrap/glyphicons-halflings-regular.eot");
-  src: url("../fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/bootstrap/glyphicons-halflings-regular.woff2") format("woff2"), url("../fonts/bootstrap/glyphicons-halflings-regular.woff") format("woff"), url("../fonts/bootstrap/glyphicons-halflings-regular.ttf") format("truetype"), url("../fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
+  src: url("/assets/bootstrap-sass/assets/fonts/bootstrap/glyphicons-halflings-regular-13634da87d9e23f8c3ed9108ce1724d183a39ad072e73e1b3d8cbf646d2d0407.eot");
+  src: url("/assets/bootstrap-sass/assets/fonts/bootstrap/glyphicons-halflings-regular-13634da87d9e23f8c3ed9108ce1724d183a39ad072e73e1b3d8cbf646d2d0407.eot?#iefix") format("embedded-opentype"), url("/assets/bootstrap-sass/assets/fonts/bootstrap/glyphicons-halflings-regular-fe185d11a49676890d47bb783312a0cda5a44c4039214094e7957b4c040ef11c.woff2") format("woff2"), url("/assets/bootstrap-sass/assets/fonts/bootstrap/glyphicons-halflings-regular-a26394f7ede100ca118eff2eda08596275a9839b959c226e15439557a5a80742.woff") format("woff"), url("/assets/bootstrap-sass/assets/fonts/bootstrap/glyphicons-halflings-regular-e395044093757d82afcb138957d06a1ea9361bdcf0b442d06a18a8051af57456.ttf") format("truetype"), url("/assets/bootstrap-sass/assets/fonts/bootstrap/glyphicons-halflings-regular-42f60659d265c1a3c30f9fa42abcbb56bd4a53af4d83d316d6dd7a36903c43e5.svg#glyphicons_halflingsregular") format("svg");
 }
 /* line 24, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-sass/assets/stylesheets/bootstrap/_glyphicons.scss */
 .glyphicon {
@@ -9088,286 +8833,335 @@ button.close {
  * version: 1.8.1
  * https://github.com/wenzhixin/bootstrap-table/
  */
-
-
+/* line 7, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .bootstrap-table .table {
-    margin-bottom: 0 !important;
-    border-bottom: 1px solid #dddddd;
-    border-collapse: collapse !important;
-    border-radius: 1px;
+  margin-bottom: 0 !important;
+  border-bottom: 1px solid #dddddd;
+  border-collapse: collapse !important;
+  border-radius: 1px;
 }
 
+/* line 14, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .bootstrap-table .table,
 .bootstrap-table .table > tbody > tr > th,
 .bootstrap-table .table > tfoot > tr > th,
 .bootstrap-table .table > thead > tr > td,
 .bootstrap-table .table > tbody > tr > td,
 .bootstrap-table .table > tfoot > tr > td {
-    padding: 8px !important;
+  padding: 8px !important;
 }
 
+/* line 23, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .bootstrap-table .table.table-no-bordered > thead > tr > th,
 .bootstrap-table .table.table-no-bordered > tbody > tr > td {
-    border-right: 2px solid transparent;
+  border-right: 2px solid transparent;
 }
 
+/* line 28, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-container {
-    position: relative;
-    clear: both;
-    border: 1px solid #dddddd;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
+  position: relative;
+  clear: both;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
 }
 
+/* line 37, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-container.table-no-bordered {
-    border: 1px solid transparent;
+  border: 1px solid transparent;
 }
 
+/* line 41, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-footer,
 .fixed-table-header {
-    height: 37px; /*cellHeight*/
-    overflow: hidden;
-    border-radius: 4px 4px 0 0;
-    -webkit-border-radius: 4px 4px 0 0;
-    -moz-border-radius: 4px 4px 0 0;
+  height: 37px;
+  /*cellHeight*/
+  overflow: hidden;
+  border-radius: 4px 4px 0 0;
+  -webkit-border-radius: 4px 4px 0 0;
+  -moz-border-radius: 4px 4px 0 0;
 }
 
+/* line 50, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-header {
-    border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
 }
 
+/* line 54, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-footer {
-    border-top: 1px solid #dddddd;
+  border-top: 1px solid #dddddd;
 }
 
+/* line 58, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-body {
-    overflow-x: auto;
-    overflow-y: auto;
-    height: 100%;
+  overflow-x: auto;
+  overflow-y: auto;
+  height: 100%;
 }
 
+/* line 64, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-container table {
-    width: 100%;
+  width: 100%;
 }
 
+/* line 68, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-container thead th {
-    height: 0;
-    padding: 0;
-    margin: 0;
-    border-left: 1px solid #dddddd;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  border-left: 1px solid #dddddd;
 }
 
+/* line 75, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-container thead th:first-child {
-    border-left: none;
-    border-top-left-radius: 4px;
-    -webkit-border-top-left-radius: 4px;
-    -moz-border-radius-topleft: 4px;
+  border-left: none;
+  border-top-left-radius: 4px;
+  -webkit-border-top-left-radius: 4px;
+  -moz-border-radius-topleft: 4px;
 }
 
+/* line 82, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-container thead th .th-inner {
-    padding: 8px;
-    line-height: 24px;
-    vertical-align: top;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  padding: 8px;
+  line-height: 24px;
+  vertical-align: top;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
+/* line 91, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-container thead th .sortable {
-    cursor: pointer;
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAQAAADYWf5HAAAAkElEQVQoz7X QMQ5AQBCF4dWQSJxC5wwax1Cq1e7BAdxD5SL+Tq/QCM1oNiJidwox0355mXnG/DrEtIQ6azioNZQxI0ykPhTQIwhCR+BmBYtlK7kLJYwWCcJA9M4qdrZrd8pPjZWPtOqdRQy320YSV17OatFC4euts6z39GYMKRPCTKY9UnPQ6P+GtMRfGtPnBCiqhAeJPmkqAAAAAElFTkSuQmCC');
-    background-position: right;
-    background-repeat: no-repeat;
-    padding-right: 30px;
+  cursor: pointer;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAQAAADYWf5HAAAAkElEQVQoz7X QMQ5AQBCF4dWQSJxC5wwax1Cq1e7BAdxD5SL+Tq/QCM1oNiJidwox0355mXnG/DrEtIQ6azioNZQxI0ykPhTQIwhCR+BmBYtlK7kLJYwWCcJA9M4qdrZrd8pPjZWPtOqdRQy320YSV17OatFC4euts6z39GYMKRPCTKY9UnPQ6P+GtMRfGtPnBCiqhAeJPmkqAAAAAElFTkSuQmCC");
+  background-position: right;
+  background-repeat: no-repeat;
+  padding-right: 30px;
 }
 
+/* line 99, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-container th.detail {
-    width: 30px;
+  width: 30px;
 }
 
+/* line 103, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-container tbody td {
-    border-left: 1px solid #dddddd;
+  border-left: 1px solid #dddddd;
 }
 
+/* line 107, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-container tbody tr:first-child td {
-    border-top: none;
+  border-top: none;
 }
 
+/* line 111, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-container tbody td:first-child {
-    border-left: none;
+  border-left: none;
 }
 
 /* the same color with .active */
+/* line 116, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-container tbody .selected td {
-    background-color: #f5f5f5;
+  background-color: #f5f5f5;
 }
 
+/* line 120, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-container .bs-checkbox {
-    text-align: center;
+  text-align: center;
 }
 
+/* line 124, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-container .bs-checkbox .th-inner {
-    padding: 8px 0;
+  padding: 8px 0;
 }
 
+/* line 128, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-container input[type="radio"],
 .fixed-table-container input[type="checkbox"] {
-    margin: 0 auto !important;
+  margin: 0 auto !important;
 }
 
+/* line 133, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-container .no-records-found {
-    text-align: center;
+  text-align: center;
 }
 
+/* line 137, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-pagination div.pagination,
 .fixed-table-pagination .pagination-detail {
-    margin-top: 10px;
-    margin-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
+/* line 143, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-pagination div.pagination .pagination {
-    margin: 0;
+  margin: 0;
 }
 
+/* line 147, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-pagination .pagination a {
-    padding: 6px 12px;
-    line-height: 1.428571429;
+  padding: 6px 12px;
+  line-height: 1.428571429;
 }
 
+/* line 152, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-pagination .pagination-info {
-    line-height: 34px;
-    margin-right: 5px;
+  line-height: 34px;
+  margin-right: 5px;
 }
 
+/* line 157, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-pagination .btn-group {
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
 }
 
+/* line 163, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-pagination .dropup .dropdown-menu {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
+/* line 167, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-pagination .page-list {
-    display: inline-block;
+  display: inline-block;
 }
 
+/* line 171, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-toolbar .columns-left {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
+/* line 175, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-toolbar .columns-right {
-    margin-left: 5px;
+  margin-left: 5px;
 }
 
+/* line 179, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-toolbar .columns label {
-    display: block;
-    padding: 3px 20px;
-    clear: both;
-    font-weight: normal;
-    line-height: 1.428571429;
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.428571429;
 }
 
+/* line 187, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-toolbar .bars,
 .fixed-table-toolbar .search,
 .fixed-table-toolbar .columns {
-    position: relative;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    line-height: 34px;
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  line-height: 34px;
 }
 
+/* line 196, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-pagination li.disabled a {
-    pointer-events: none;
-    cursor: default;
+  pointer-events: none;
+  cursor: default;
 }
 
+/* line 201, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-loading {
-    display: none;
-    position: absolute;
-    top: 42px;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 99;
-    background-color: #fff;
-    text-align: center;
+  display: none;
+  position: absolute;
+  top: 42px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  background-color: #fff;
+  text-align: center;
 }
 
+/* line 213, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-body .card-view .title {
-    font-weight: bold;
-    display: inline-block;
-    min-width: 30%;
-    text-align: left !important;
+  font-weight: bold;
+  display: inline-block;
+  min-width: 30%;
+  text-align: left !important;
 }
 
 /* support bootstrap 2 */
+/* line 221, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-body thead th .th-inner {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
+/* line 225, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .table th, .table td {
-    vertical-align: middle;
-    box-sizing: border-box;
+  vertical-align: middle;
+  box-sizing: border-box;
 }
 
+/* line 230, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-toolbar .dropdown-menu {
-    text-align: left;
-    max-height: 300px;
-    overflow: auto;
+  text-align: left;
+  max-height: 300px;
+  overflow: auto;
 }
 
+/* line 236, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-toolbar .btn-group > .btn-group {
-    display: inline-block;
-    margin-left: -1px !important;
+  display: inline-block;
+  margin-left: -1px !important;
 }
 
+/* line 241, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-toolbar .btn-group > .btn-group > .btn {
-    border-radius: 0;
+  border-radius: 0;
 }
 
+/* line 245, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-toolbar .btn-group > .btn-group:first-child > .btn {
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
 }
 
+/* line 250, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .fixed-table-toolbar .btn-group > .btn-group:last-child > .btn {
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 
+/* line 255, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .bootstrap-table .table > thead > tr > th {
-    vertical-align: bottom;
-    border-bottom: 2px solid #ddd;
+  vertical-align: bottom;
+  border-bottom: 2px solid #ddd;
 }
 
 /* support bootstrap 3 */
+/* line 261, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .bootstrap-table .table thead > tr > th {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
+/* line 266, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 .pull-right .dropdown-menu {
-    right: 0;
-    left: auto;
+  right: 0;
+  left: auto;
 }
 
 /* calculate scrollbar width */
+/* line 272, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 p.fixed-table-scroll-inner {
-    width: 100%;
-    height: 200px;
+  width: 100%;
+  height: 200px;
 }
 
+/* line 277, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/bootstrap-table/src/bootstrap-table.css */
 div.fixed-table-scroll-outer {
-    top: 0;
-    left: 0;
-    visibility: hidden;
-    width: 200px;
-    height: 150px;
-    overflow: hidden;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  width: 200px;
+  height: 150px;
+  overflow: hidden;
 }
+
 /*!
  * Datetimepicker for Bootstrap
  *
@@ -9377,4 +9171,619 @@ div.fixed-table-scroll-outer {
  * http://www.apache.org/licenses/LICENSE-2.0
  *
  */
-.datetimepicker{padding:4px;margin-top:1px;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;direction:ltr}.datetimepicker-inline{width:220px}.datetimepicker.datetimepicker-rtl{direction:rtl}.datetimepicker.datetimepicker-rtl table tr td span{float:right}.datetimepicker-dropdown,.datetimepicker-dropdown-left{top:0;left:0}[class*=" datetimepicker-dropdown"]:before{content:'';display:inline-block;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:7px solid #ccc;border-bottom-color:rgba(0,0,0,0.2);position:absolute}[class*=" datetimepicker-dropdown"]:after{content:'';display:inline-block;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:6px solid #fff;position:absolute}[class*=" datetimepicker-dropdown-top"]:before{content:'';display:inline-block;border-left:7px solid transparent;border-right:7px solid transparent;border-top:7px solid #ccc;border-top-color:rgba(0,0,0,0.2);border-bottom:0}[class*=" datetimepicker-dropdown-top"]:after{content:'';display:inline-block;border-left:6px solid transparent;border-right:6px solid transparent;border-top:6px solid #fff;border-bottom:0}.datetimepicker-dropdown-bottom-left:before{top:-7px;right:6px}.datetimepicker-dropdown-bottom-left:after{top:-6px;right:7px}.datetimepicker-dropdown-bottom-right:before{top:-7px;left:6px}.datetimepicker-dropdown-bottom-right:after{top:-6px;left:7px}.datetimepicker-dropdown-top-left:before{bottom:-7px;right:6px}.datetimepicker-dropdown-top-left:after{bottom:-6px;right:7px}.datetimepicker-dropdown-top-right:before{bottom:-7px;left:6px}.datetimepicker-dropdown-top-right:after{bottom:-6px;left:7px}.datetimepicker>div{display:none}.datetimepicker.minutes div.datetimepicker-minutes{display:block}.datetimepicker.hours div.datetimepicker-hours{display:block}.datetimepicker.days div.datetimepicker-days{display:block}.datetimepicker.months div.datetimepicker-months{display:block}.datetimepicker.years div.datetimepicker-years{display:block}.datetimepicker table{margin:0}.datetimepicker td,.datetimepicker th{text-align:center;width:20px;height:20px;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;border:0}.table-striped .datetimepicker table tr td,.table-striped .datetimepicker table tr th{background-color:transparent}.datetimepicker table tr td.minute:hover{background:#eee;cursor:pointer}.datetimepicker table tr td.hour:hover{background:#eee;cursor:pointer}.datetimepicker table tr td.day:hover{background:#eee;cursor:pointer}.datetimepicker table tr td.old,.datetimepicker table tr td.new{color:#999}.datetimepicker table tr td.disabled,.datetimepicker table tr td.disabled:hover{background:0;color:#999;cursor:default}.datetimepicker table tr td.today,.datetimepicker table tr td.today:hover,.datetimepicker table tr td.today.disabled,.datetimepicker table tr td.today.disabled:hover{background-color:#fde19a;background-image:-moz-linear-gradient(top,#fdd49a,#fdf59a);background-image:-ms-linear-gradient(top,#fdd49a,#fdf59a);background-image:-webkit-gradient(linear,0 0,0 100%,from(#fdd49a),to(#fdf59a));background-image:-webkit-linear-gradient(top,#fdd49a,#fdf59a);background-image:-o-linear-gradient(top,#fdd49a,#fdf59a);background-image:linear-gradient(top,#fdd49a,#fdf59a);background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fdd49a',endColorstr='#fdf59a',GradientType=0);border-color:#fdf59a #fdf59a #fbed50;border-color:rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);filter:progid:DXImageTransform.Microsoft.gradient(enabled=false)}.datetimepicker table tr td.today:hover,.datetimepicker table tr td.today:hover:hover,.datetimepicker table tr td.today.disabled:hover,.datetimepicker table tr td.today.disabled:hover:hover,.datetimepicker table tr td.today:active,.datetimepicker table tr td.today:hover:active,.datetimepicker table tr td.today.disabled:active,.datetimepicker table tr td.today.disabled:hover:active,.datetimepicker table tr td.today.active,.datetimepicker table tr td.today:hover.active,.datetimepicker table tr td.today.disabled.active,.datetimepicker table tr td.today.disabled:hover.active,.datetimepicker table tr td.today.disabled,.datetimepicker table tr td.today:hover.disabled,.datetimepicker table tr td.today.disabled.disabled,.datetimepicker table tr td.today.disabled:hover.disabled,.datetimepicker table tr td.today[disabled],.datetimepicker table tr td.today:hover[disabled],.datetimepicker table tr td.today.disabled[disabled],.datetimepicker table tr td.today.disabled:hover[disabled]{background-color:#fdf59a}.datetimepicker table tr td.today:active,.datetimepicker table tr td.today:hover:active,.datetimepicker table tr td.today.disabled:active,.datetimepicker table tr td.today.disabled:hover:active,.datetimepicker table tr td.today.active,.datetimepicker table tr td.today:hover.active,.datetimepicker table tr td.today.disabled.active,.datetimepicker table tr td.today.disabled:hover.active{background-color:#fbf069}.datetimepicker table tr td.active,.datetimepicker table tr td.active:hover,.datetimepicker table tr td.active.disabled,.datetimepicker table tr td.active.disabled:hover{background-color:#006dcc;background-image:-moz-linear-gradient(top,#08c,#04c);background-image:-ms-linear-gradient(top,#08c,#04c);background-image:-webkit-gradient(linear,0 0,0 100%,from(#08c),to(#04c));background-image:-webkit-linear-gradient(top,#08c,#04c);background-image:-o-linear-gradient(top,#08c,#04c);background-image:linear-gradient(top,#08c,#04c);background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0088cc',endColorstr='#0044cc',GradientType=0);border-color:#04c #04c #002a80;border-color:rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);filter:progid:DXImageTransform.Microsoft.gradient(enabled=false);color:#fff;text-shadow:0 -1px 0 rgba(0,0,0,0.25)}.datetimepicker table tr td.active:hover,.datetimepicker table tr td.active:hover:hover,.datetimepicker table tr td.active.disabled:hover,.datetimepicker table tr td.active.disabled:hover:hover,.datetimepicker table tr td.active:active,.datetimepicker table tr td.active:hover:active,.datetimepicker table tr td.active.disabled:active,.datetimepicker table tr td.active.disabled:hover:active,.datetimepicker table tr td.active.active,.datetimepicker table tr td.active:hover.active,.datetimepicker table tr td.active.disabled.active,.datetimepicker table tr td.active.disabled:hover.active,.datetimepicker table tr td.active.disabled,.datetimepicker table tr td.active:hover.disabled,.datetimepicker table tr td.active.disabled.disabled,.datetimepicker table tr td.active.disabled:hover.disabled,.datetimepicker table tr td.active[disabled],.datetimepicker table tr td.active:hover[disabled],.datetimepicker table tr td.active.disabled[disabled],.datetimepicker table tr td.active.disabled:hover[disabled]{background-color:#04c}.datetimepicker table tr td.active:active,.datetimepicker table tr td.active:hover:active,.datetimepicker table tr td.active.disabled:active,.datetimepicker table tr td.active.disabled:hover:active,.datetimepicker table tr td.active.active,.datetimepicker table tr td.active:hover.active,.datetimepicker table tr td.active.disabled.active,.datetimepicker table tr td.active.disabled:hover.active{background-color:#039}.datetimepicker table tr td span{display:block;width:23%;height:54px;line-height:54px;float:left;margin:1%;cursor:pointer;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px}.datetimepicker .datetimepicker-hours span{height:26px;line-height:26px}.datetimepicker .datetimepicker-hours table tr td span.hour_am,.datetimepicker .datetimepicker-hours table tr td span.hour_pm{width:14.6%}.datetimepicker .datetimepicker-hours fieldset legend,.datetimepicker .datetimepicker-minutes fieldset legend{margin-bottom:inherit;line-height:30px}.datetimepicker .datetimepicker-minutes span{height:26px;line-height:26px}.datetimepicker table tr td span:hover{background:#eee}.datetimepicker table tr td span.disabled,.datetimepicker table tr td span.disabled:hover{background:0;color:#999;cursor:default}.datetimepicker table tr td span.active,.datetimepicker table tr td span.active:hover,.datetimepicker table tr td span.active.disabled,.datetimepicker table tr td span.active.disabled:hover{background-color:#006dcc;background-image:-moz-linear-gradient(top,#08c,#04c);background-image:-ms-linear-gradient(top,#08c,#04c);background-image:-webkit-gradient(linear,0 0,0 100%,from(#08c),to(#04c));background-image:-webkit-linear-gradient(top,#08c,#04c);background-image:-o-linear-gradient(top,#08c,#04c);background-image:linear-gradient(top,#08c,#04c);background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0088cc',endColorstr='#0044cc',GradientType=0);border-color:#04c #04c #002a80;border-color:rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);filter:progid:DXImageTransform.Microsoft.gradient(enabled=false);color:#fff;text-shadow:0 -1px 0 rgba(0,0,0,0.25)}.datetimepicker table tr td span.active:hover,.datetimepicker table tr td span.active:hover:hover,.datetimepicker table tr td span.active.disabled:hover,.datetimepicker table tr td span.active.disabled:hover:hover,.datetimepicker table tr td span.active:active,.datetimepicker table tr td span.active:hover:active,.datetimepicker table tr td span.active.disabled:active,.datetimepicker table tr td span.active.disabled:hover:active,.datetimepicker table tr td span.active.active,.datetimepicker table tr td span.active:hover.active,.datetimepicker table tr td span.active.disabled.active,.datetimepicker table tr td span.active.disabled:hover.active,.datetimepicker table tr td span.active.disabled,.datetimepicker table tr td span.active:hover.disabled,.datetimepicker table tr td span.active.disabled.disabled,.datetimepicker table tr td span.active.disabled:hover.disabled,.datetimepicker table tr td span.active[disabled],.datetimepicker table tr td span.active:hover[disabled],.datetimepicker table tr td span.active.disabled[disabled],.datetimepicker table tr td span.active.disabled:hover[disabled]{background-color:#04c}.datetimepicker table tr td span.active:active,.datetimepicker table tr td span.active:hover:active,.datetimepicker table tr td span.active.disabled:active,.datetimepicker table tr td span.active.disabled:hover:active,.datetimepicker table tr td span.active.active,.datetimepicker table tr td span.active:hover.active,.datetimepicker table tr td span.active.disabled.active,.datetimepicker table tr td span.active.disabled:hover.active{background-color:#039}.datetimepicker table tr td span.old{color:#999}.datetimepicker th.switch{width:145px}.datetimepicker th span.glyphicon{pointer-events:none}.datetimepicker thead tr:first-child th,.datetimepicker tfoot tr:first-child th{cursor:pointer}.datetimepicker thead tr:first-child th:hover,.datetimepicker tfoot tr:first-child th:hover{background:#eee}.input-append.date .add-on i,.input-prepend.date .add-on i,.input-group.date .input-group-addon span{cursor:pointer;width:14px;height:14px}
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker {
+  padding: 4px;
+  margin-top: 1px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  direction: ltr;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker-inline {
+  width: 220px;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker.datetimepicker-rtl {
+  direction: rtl;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker.datetimepicker-rtl table tr td span {
+  float: right;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker-dropdown, .datetimepicker-dropdown-left {
+  top: 0;
+  left: 0;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+[class*=" datetimepicker-dropdown"]:before {
+  content: '';
+  display: inline-block;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #ccc;
+  border-bottom-color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+[class*=" datetimepicker-dropdown"]:after {
+  content: '';
+  display: inline-block;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid #fff;
+  position: absolute;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+[class*=" datetimepicker-dropdown-top"]:before {
+  content: '';
+  display: inline-block;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #ccc;
+  border-top-color: rgba(0, 0, 0, 0.2);
+  border-bottom: 0;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+[class*=" datetimepicker-dropdown-top"]:after {
+  content: '';
+  display: inline-block;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #fff;
+  border-bottom: 0;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker-dropdown-bottom-left:before {
+  top: -7px;
+  right: 6px;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker-dropdown-bottom-left:after {
+  top: -6px;
+  right: 7px;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker-dropdown-bottom-right:before {
+  top: -7px;
+  left: 6px;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker-dropdown-bottom-right:after {
+  top: -6px;
+  left: 7px;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker-dropdown-top-left:before {
+  bottom: -7px;
+  right: 6px;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker-dropdown-top-left:after {
+  bottom: -6px;
+  right: 7px;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker-dropdown-top-right:before {
+  bottom: -7px;
+  left: 6px;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker-dropdown-top-right:after {
+  bottom: -6px;
+  left: 7px;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker > div {
+  display: none;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker.minutes div.datetimepicker-minutes {
+  display: block;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker.hours div.datetimepicker-hours {
+  display: block;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker.days div.datetimepicker-days {
+  display: block;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker.months div.datetimepicker-months {
+  display: block;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker.years div.datetimepicker-years {
+  display: block;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker table {
+  margin: 0;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker td, .datetimepicker th {
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border: 0;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.table-striped .datetimepicker table tr td, .table-striped .datetimepicker table tr th {
+  background-color: transparent;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker table tr td.minute:hover {
+  background: #eee;
+  cursor: pointer;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker table tr td.hour:hover {
+  background: #eee;
+  cursor: pointer;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker table tr td.day:hover {
+  background: #eee;
+  cursor: pointer;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker table tr td.old, .datetimepicker table tr td.new {
+  color: #999;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker table tr td.disabled, .datetimepicker table tr td.disabled:hover {
+  background: 0;
+  color: #999;
+  cursor: default;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker table tr td.today, .datetimepicker table tr td.today:hover, .datetimepicker table tr td.today.disabled, .datetimepicker table tr td.today.disabled:hover {
+  background-color: #fde19a;
+  background-image: -moz-linear-gradient(top, #fdd49a, #fdf59a);
+  background-image: -ms-linear-gradient(top, #fdd49a, #fdf59a);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fdd49a), to(#fdf59a));
+  background-image: -webkit-linear-gradient(top, #fdd49a, #fdf59a);
+  background-image: -o-linear-gradient(top, #fdd49a, #fdf59a);
+  background-image: linear-gradient(top, #fdd49a, #fdf59a);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fdd49a',endColorstr='#fdf59a',GradientType=0);
+  border-color: #fdf59a #fdf59a #fbed50;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker table tr td.today:hover, .datetimepicker table tr td.today:hover:hover, .datetimepicker table tr td.today.disabled:hover, .datetimepicker table tr td.today.disabled:hover:hover, .datetimepicker table tr td.today:active, .datetimepicker table tr td.today:hover:active, .datetimepicker table tr td.today.disabled:active, .datetimepicker table tr td.today.disabled:hover:active, .datetimepicker table tr td.today.active, .datetimepicker table tr td.today:hover.active, .datetimepicker table tr td.today.disabled.active, .datetimepicker table tr td.today.disabled:hover.active, .datetimepicker table tr td.today.disabled, .datetimepicker table tr td.today:hover.disabled, .datetimepicker table tr td.today.disabled.disabled, .datetimepicker table tr td.today.disabled:hover.disabled, .datetimepicker table tr td.today[disabled], .datetimepicker table tr td.today:hover[disabled], .datetimepicker table tr td.today.disabled[disabled], .datetimepicker table tr td.today.disabled:hover[disabled] {
+  background-color: #fdf59a;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker table tr td.today:active, .datetimepicker table tr td.today:hover:active, .datetimepicker table tr td.today.disabled:active, .datetimepicker table tr td.today.disabled:hover:active, .datetimepicker table tr td.today.active, .datetimepicker table tr td.today:hover.active, .datetimepicker table tr td.today.disabled.active, .datetimepicker table tr td.today.disabled:hover.active {
+  background-color: #fbf069;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker table tr td.active, .datetimepicker table tr td.active:hover, .datetimepicker table tr td.active.disabled, .datetimepicker table tr td.active.disabled:hover {
+  background-color: #006dcc;
+  background-image: -moz-linear-gradient(top, #08c, #04c);
+  background-image: -ms-linear-gradient(top, #08c, #04c);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#08c), to(#04c));
+  background-image: -webkit-linear-gradient(top, #08c, #04c);
+  background-image: -o-linear-gradient(top, #08c, #04c);
+  background-image: linear-gradient(top, #08c, #04c);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0088cc',endColorstr='#0044cc',GradientType=0);
+  border-color: #04c #04c #002a80;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker table tr td.active:hover, .datetimepicker table tr td.active:hover:hover, .datetimepicker table tr td.active.disabled:hover, .datetimepicker table tr td.active.disabled:hover:hover, .datetimepicker table tr td.active:active, .datetimepicker table tr td.active:hover:active, .datetimepicker table tr td.active.disabled:active, .datetimepicker table tr td.active.disabled:hover:active, .datetimepicker table tr td.active.active, .datetimepicker table tr td.active:hover.active, .datetimepicker table tr td.active.disabled.active, .datetimepicker table tr td.active.disabled:hover.active, .datetimepicker table tr td.active.disabled, .datetimepicker table tr td.active:hover.disabled, .datetimepicker table tr td.active.disabled.disabled, .datetimepicker table tr td.active.disabled:hover.disabled, .datetimepicker table tr td.active[disabled], .datetimepicker table tr td.active:hover[disabled], .datetimepicker table tr td.active.disabled[disabled], .datetimepicker table tr td.active.disabled:hover[disabled] {
+  background-color: #04c;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker table tr td.active:active, .datetimepicker table tr td.active:hover:active, .datetimepicker table tr td.active.disabled:active, .datetimepicker table tr td.active.disabled:hover:active, .datetimepicker table tr td.active.active, .datetimepicker table tr td.active:hover.active, .datetimepicker table tr td.active.disabled.active, .datetimepicker table tr td.active.disabled:hover.active {
+  background-color: #039;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker table tr td span {
+  display: block;
+  width: 23%;
+  height: 54px;
+  line-height: 54px;
+  float: left;
+  margin: 1%;
+  cursor: pointer;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker .datetimepicker-hours span {
+  height: 26px;
+  line-height: 26px;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker .datetimepicker-hours table tr td span.hour_am, .datetimepicker .datetimepicker-hours table tr td span.hour_pm {
+  width: 14.6%;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker .datetimepicker-hours fieldset legend, .datetimepicker .datetimepicker-minutes fieldset legend {
+  margin-bottom: inherit;
+  line-height: 30px;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker .datetimepicker-minutes span {
+  height: 26px;
+  line-height: 26px;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker table tr td span:hover {
+  background: #eee;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker table tr td span.disabled, .datetimepicker table tr td span.disabled:hover {
+  background: 0;
+  color: #999;
+  cursor: default;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker table tr td span.active, .datetimepicker table tr td span.active:hover, .datetimepicker table tr td span.active.disabled, .datetimepicker table tr td span.active.disabled:hover {
+  background-color: #006dcc;
+  background-image: -moz-linear-gradient(top, #08c, #04c);
+  background-image: -ms-linear-gradient(top, #08c, #04c);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#08c), to(#04c));
+  background-image: -webkit-linear-gradient(top, #08c, #04c);
+  background-image: -o-linear-gradient(top, #08c, #04c);
+  background-image: linear-gradient(top, #08c, #04c);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0088cc',endColorstr='#0044cc',GradientType=0);
+  border-color: #04c #04c #002a80;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker table tr td span.active:hover, .datetimepicker table tr td span.active:hover:hover, .datetimepicker table tr td span.active.disabled:hover, .datetimepicker table tr td span.active.disabled:hover:hover, .datetimepicker table tr td span.active:active, .datetimepicker table tr td span.active:hover:active, .datetimepicker table tr td span.active.disabled:active, .datetimepicker table tr td span.active.disabled:hover:active, .datetimepicker table tr td span.active.active, .datetimepicker table tr td span.active:hover.active, .datetimepicker table tr td span.active.disabled.active, .datetimepicker table tr td span.active.disabled:hover.active, .datetimepicker table tr td span.active.disabled, .datetimepicker table tr td span.active:hover.disabled, .datetimepicker table tr td span.active.disabled.disabled, .datetimepicker table tr td span.active.disabled:hover.disabled, .datetimepicker table tr td span.active[disabled], .datetimepicker table tr td span.active:hover[disabled], .datetimepicker table tr td span.active.disabled[disabled], .datetimepicker table tr td span.active.disabled:hover[disabled] {
+  background-color: #04c;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker table tr td span.active:active, .datetimepicker table tr td span.active:hover:active, .datetimepicker table tr td span.active.disabled:active, .datetimepicker table tr td span.active.disabled:hover:active, .datetimepicker table tr td span.active.active, .datetimepicker table tr td span.active:hover.active, .datetimepicker table tr td span.active.disabled.active, .datetimepicker table tr td span.active.disabled:hover.active {
+  background-color: #039;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker table tr td span.old {
+  color: #999;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker th.switch {
+  width: 145px;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker th span.glyphicon {
+  pointer-events: none;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker thead tr:first-child th, .datetimepicker tfoot tr:first-child th {
+  cursor: pointer;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.datetimepicker thead tr:first-child th:hover, .datetimepicker tfoot tr:first-child th:hover {
+  background: #eee;
+}
+
+/* line 9, /Users/chaimleib/Documents/Programming/Coupa/potato/vendor/assets/components/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css */
+.input-append.date .add-on i, .input-prepend.date .add-on i, .input-group.date .input-group-addon span {
+  cursor: pointer;
+  width: 14px;
+  height: 14px;
+}
+
+/* line 12, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+body {
+  font: 12pt Helvetica, sans-serif;
+}
+
+/* line 17, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+a {
+  color: #0066cc;
+  text-decoration: underline;
+}
+
+/* line 21, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+a:visited {
+  color: #036;
+}
+
+/* line 22, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+a:hover {
+  color: #0080ff;
+}
+
+/* line 24, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+div.icon-container {
+  display: inline-block;
+}
+/* line 26, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+div.icon-container img {
+  max-height: 24px;
+}
+
+/* line 32, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+.bootstrap-table {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+/* line 35, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+.bootstrap-table .fixed-table-container {
+  border: 1px solid #4b260b;
+  border-radius: 0;
+}
+/* line 39, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+.bootstrap-table .table.pretty {
+  margin-top: 0;
+  margin-bottom: 0;
+  border: none;
+}
+/* line 43, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+.bootstrap-table .table.pretty tbody {
+  border: none;
+}
+
+/* line 49, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+table.pretty {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  border: 1px solid #4b260b;
+  background-color: #eff0c6;
+}
+/* line 57, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+table.pretty .left-col-border {
+  border-left: 1px solid rgba(75, 38, 11, 0.2);
+}
+/* line 61, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+table.pretty thead {
+  border-bottom: 1px solid #4b260b;
+}
+/* line 64, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+table.pretty thead th {
+  text-align: left;
+  padding-left: 0.25em;
+  padding-right: 0.25em;
+}
+/* line 70, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+table.pretty thead th ~ th {
+  text-align: center;
+}
+/* line 75, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+table.pretty tr {
+  border: none;
+}
+/* line 78, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+table.pretty tr td {
+  padding-left: 0.25em;
+  padding-right: 0.25em;
+}
+/* line 83, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+table.pretty tr td ~ td {
+  text-align: center;
+}
+/* line 88, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+table.pretty tr:last-child {
+  border-bottom: none;
+}
+/* line 92, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+table.pretty tr.red, table.pretty tr.urgent {
+  background-color: #de9086;
+}
+
+/* line 97, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+table.hpretty {
+  border-collapse: collapse;
+  width: 0%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  border: 1px solid #4b260b;
+  background-color: #eff0c6;
+}
+/* line 108, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+table.hpretty th {
+  text-align: right;
+  padding-left: 0.25em;
+  padding-right: 0.5em;
+}
+/* line 113, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+table.hpretty tr {
+  border-bottom: 1px solid rgba(75, 38, 11, 0.2);
+}
+/* line 116, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+table.hpretty tr td {
+  padding-left: 0.25em;
+  padding-right: 0.25em;
+}
+/* line 122, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+table.hpretty tr:last-child {
+  border-bottom: none;
+}
+/* line 126, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+table.hpretty tr.red, table.hpretty tr.urgent {
+  background-color: #de9086;
+}
+
+/* line 132, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+.centered {
+  text-align: center;
+}
+
+/* line 136, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+.strong, .urgent, .success {
+  color: #8d0104;
+  font-weight: bold;
+}
+
+/* line 141, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+.red, .urgent {
+  color: #8d0104;
+}
+
+/* line 142, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+.green, .success {
+  color: #6a7e0d;
+}
+
+/* line 143, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+.grey {
+  color: gray;
+}
+
+/* line 156, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+.header {
+  margin: 0px;
+}
+/* line 159, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+.header h1, .header h2, .header h3, .header h4, .header h5, .header h6 {
+  margin: 0px;
+  margin-bottom: 5px;
+}
+/* line 164, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+.header h1 a {
+  text-decoration: inherit;
+}
+/* line 165, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+.header h1 a:hover {
+  text-decoration: underline;
+}
+/* line 167, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+.header h2 {
+  font-size: 130%;
+}
+
+/* line 172, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+.page_section {
+  padding: 20px;
+  margin-top: 10px;
+  background-color: #e1d4a1;
+  color: #3f1600;
+}
+
+/* line 179, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+#main-container .article {
+  border: 1px solid #4b260b;
+}
+
+/* line 183, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+.footer * {
+  color: #7f5d42;
+}
+
+/* line 187, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+.footer p {
+  font-size: 80%;
+  text-align: center;
+}
+
+/* line 193, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+h1, h2, h3, h4, h5, h6 {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 0.5em;
+  color: #6a7e0d;
+}
+
+/* line 200, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+ul {
+  margin-left: 1.5em;
+}
+
+/* line 205, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+form .row {
+  margin-top: 0.5em;
+}
+
+/* line 209, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+form .container-fluid {
+  margin-bottom: 0.5em;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 600px;
+}
+/* line 215, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+form .container-fluid .row .field {
+  padding-right: 0.5em;
+}
+/* line 219, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+form .container-fluid .row.actions {
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+}
+/* line 224, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+form .container-fluid textarea {
+  max-width: 100%;
+}
+
+/* line 229, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+input.form-control {
+  color: #3f1600;
+}
