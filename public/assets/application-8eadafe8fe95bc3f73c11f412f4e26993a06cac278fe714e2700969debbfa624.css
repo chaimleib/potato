@@ -94,23 +94,25 @@ div.icon-container img {
 /* line 32, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 .bootstrap-table {
   margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
-/* line 34, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 35, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 .bootstrap-table .fixed-table-container {
   border: 1px solid #4b260b;
   border-radius: 0;
 }
-/* line 38, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 39, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 .bootstrap-table .table.pretty {
   margin-top: 0;
+  margin-bottom: 0;
   border: none;
 }
-/* line 41, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 43, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 .bootstrap-table .table.pretty tbody {
   border: none;
 }
 
-/* line 47, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 49, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 table.pretty {
   border-collapse: collapse;
   width: 100%;
@@ -119,47 +121,47 @@ table.pretty {
   border: 1px solid #4b260b;
   background-color: #eff0c6;
 }
-/* line 55, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 57, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 table.pretty .left-col-border {
   border-left: 1px solid rgba(75, 38, 11, 0.2);
 }
-/* line 59, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 61, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 table.pretty thead {
   border-bottom: 1px solid #4b260b;
 }
-/* line 62, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 64, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 table.pretty thead th {
   text-align: left;
   padding-left: 0.25em;
   padding-right: 0.25em;
 }
-/* line 68, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 70, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 table.pretty thead th ~ th {
   text-align: center;
 }
-/* line 73, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 75, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 table.pretty tr {
   border: none;
 }
-/* line 76, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 78, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 table.pretty tr td {
   padding-left: 0.25em;
   padding-right: 0.25em;
 }
-/* line 81, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 83, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 table.pretty tr td ~ td {
   text-align: center;
 }
-/* line 86, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 88, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 table.pretty tr:last-child {
   border-bottom: none;
 }
-/* line 90, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 92, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 table.pretty tr.red, table.pretty tr.urgent {
   background-color: #de9086;
 }
 
-/* line 95, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 97, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 table.hpretty {
   border-collapse: collapse;
   width: 0%;
@@ -170,79 +172,79 @@ table.hpretty {
   border: 1px solid #4b260b;
   background-color: #eff0c6;
 }
-/* line 106, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 108, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 table.hpretty th {
   text-align: right;
   padding-left: 0.25em;
   padding-right: 0.5em;
 }
-/* line 111, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 113, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 table.hpretty tr {
   border-bottom: 1px solid rgba(75, 38, 11, 0.2);
 }
-/* line 114, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 116, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 table.hpretty tr td {
   padding-left: 0.25em;
   padding-right: 0.25em;
 }
-/* line 120, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 122, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 table.hpretty tr:last-child {
   border-bottom: none;
 }
-/* line 124, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 126, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 table.hpretty tr.red, table.hpretty tr.urgent {
   background-color: #de9086;
 }
 
-/* line 130, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 132, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 .centered {
   text-align: center;
 }
 
-/* line 134, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 136, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 .strong, .urgent, .success {
   color: #8d0104;
   font-weight: bold;
 }
 
-/* line 139, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 141, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 .red, .urgent {
   color: #8d0104;
 }
 
-/* line 140, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 142, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 .green, .success {
   color: #6a7e0d;
 }
 
-/* line 141, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 143, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 .grey {
   color: gray;
 }
 
-/* line 154, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 156, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 .header {
   margin: 0px;
 }
-/* line 157, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 159, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 .header h1, .header h2, .header h3, .header h4, .header h5, .header h6 {
   margin: 0px;
   margin-bottom: 5px;
 }
-/* line 162, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 164, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 .header h1 a {
   text-decoration: inherit;
 }
-/* line 163, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 165, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 .header h1 a:hover {
   text-decoration: underline;
 }
-/* line 165, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 167, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 .header h2 {
   font-size: 130%;
 }
 
-/* line 170, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 172, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 .page_section {
   padding: 20px;
   margin-top: 10px;
@@ -250,23 +252,23 @@ table.hpretty tr.red, table.hpretty tr.urgent {
   color: #3f1600;
 }
 
-/* line 177, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 179, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 #main-container .article {
   border: 1px solid #4b260b;
 }
 
-/* line 181, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 183, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 .footer * {
   color: #7f5d42;
 }
 
-/* line 185, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 187, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 .footer p {
   font-size: 80%;
   text-align: center;
 }
 
-/* line 191, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 193, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 h1, h2, h3, h4, h5, h6 {
   padding: 0;
   margin: 0;
@@ -274,39 +276,39 @@ h1, h2, h3, h4, h5, h6 {
   color: #6a7e0d;
 }
 
-/* line 198, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 200, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 ul {
   margin-left: 1.5em;
 }
 
-/* line 203, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 205, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 form .row {
   margin-top: 0.5em;
 }
 
-/* line 207, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 209, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 form .container-fluid {
   margin-bottom: 0.5em;
   margin-right: auto;
   margin-left: auto;
   max-width: 600px;
 }
-/* line 213, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 215, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 form .container-fluid .row .field {
   padding-right: 0.5em;
 }
-/* line 217, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 219, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 form .container-fluid .row.actions {
   text-align: center;
   margin-right: auto;
   margin-left: auto;
 }
-/* line 222, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 224, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 form .container-fluid textarea {
   max-width: 100%;
 }
 
-/* line 227, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
+/* line 229, /Users/chaimleib/Documents/Programming/Coupa/potato/app/assets/stylesheets/application.scss */
 input.form-control {
   color: #3f1600;
 }
