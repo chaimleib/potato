@@ -1,12 +1,12 @@
 /*
 *= require_self
-*= require bootstrap-sass/assets/stylesheets/_bootstrap
-*= require bootstrap-table/src/bootstrap-table
-*= require smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min
-
 */
 @import 'partials/reset';
 @import 'theme';
+@import 'bootstrap-sass/assets/stylesheets/_bootstrap-sprockets';
+@import 'bootstrap-sass/assets/stylesheets/_bootstrap';
+@import 'bootstrap-table/src/bootstrap-table';
+@import 'smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min';
 
 body {
    font: 12pt Helvetica, sans-serif;

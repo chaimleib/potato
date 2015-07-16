@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require timeago/jquery.timeago
 //= require moment/moment
+//= require bootstrap-sass/assets/javascripts/bootstrap-sprockets
 //= require bootstrap-sass/assets/javascripts/bootstrap.min
 //= require smalot-bootstrap-datetimepicker/js/bootstrap-datetimepicker.min
 //= require bootstrap-table/src/bootstrap-table
