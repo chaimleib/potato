@@ -10,7 +10,7 @@
       %td= @resource_update.updated
     %tr
       %th Source URI:
-      %td= @resource_update.source_uri
+      %td= breakable_uri @resource_update.source_uri
     %tr
       %th User:
       %td
@@ -21,6 +21,6 @@
 = link_to 'Edit', edit_resource_update_path(@resource_update)
 - if notice.present?
   \|
-  = link_to 'Create another', new_resource_updates_path
+  = link_to 'Create another', new_resource_update_path
 \|
 = link_to 'Show all resource updates', resource_updates_path
