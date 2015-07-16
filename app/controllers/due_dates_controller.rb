@@ -20,25 +20,25 @@ class DueDatesController < ApplicationController
   # GET /due_dates/1
   # GET /due_dates/1.json
   def show
-    add_crumb "Show #{@due_date.branch_name.inspect}", due_date_path
+    autocrumb @due_date.branch_name
   end
 
   # GET /due_dates/new
   def new
-    add_crumb "New", new_due_date_path
+    autocrumb
     @due_date = DueDate.new
   end
 
   # GET /due_dates/1/edit
   def edit
-    add_crumb "Edit #{@due_date.branch_name.inspect}", edit_due_date_path
+    autocrumb @due_date.branch_name
   end
 
   def mass_update
+    autocrumb
     pj = ensure_potato_jira session
     user = User.find_by(email: params[:user]) || User.first
 
-    add_crumb "Wiki update", due_dates_mass_update_path
     @context = {messages: []}
 
     if params[:update].present?

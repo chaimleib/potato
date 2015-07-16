@@ -14,18 +14,18 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    add_crumb "Show #{@user.email.inspect}", user_path
+    autocrumb_with_email @user.email
   end
 
   # GET /users/new
   def new
-    add_crumb "New", new_user_path
+    autocrumb
     @user = User.new
   end
 
   # GET /users/1/edit
   def edit
-    add_crumb "Edit #{@user.email.inspect}", edit_user_path
+    autocrumb_with_email @user.email
   end
 
   # POST /users

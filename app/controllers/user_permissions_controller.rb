@@ -1,3 +1,5 @@
+require 'byebug' if Rails.env.development?
+
 class UserPermissionsController < ApplicationController
   before_action :set_user_permission, only: [:show, :edit, :update]
   add_crumb controller_display_name, controller_base_path
@@ -14,7 +16,7 @@ class UserPermissionsController < ApplicationController
   # GET /user_permissions/1
   # GET /user_permissions/1.json
   def show
-    add_crumb "Show #{@user_permission.user.email.inspect}",user_permission_path
+    autocrumb_with_email @user_permission.user.email
   end
 
   # # GET /user_permissions/new
@@ -25,7 +27,7 @@ class UserPermissionsController < ApplicationController
 
   # GET /user_permissions/1/edit
   def edit
-    add_crumb "Edit #{@user_permission.user.email.inspect}",user_permission_path
+    autocrumb_with_email @user_permission.user.email
   end
 
   # # POST /user_permissions

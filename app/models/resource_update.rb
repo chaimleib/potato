@@ -16,4 +16,8 @@ class ResourceUpdate < ActiveRecord::Base
   def default_values
     self.user ||= User.first
   end
+
+  def unique_name
+    "#{name}/#{id}"
+  end
 end

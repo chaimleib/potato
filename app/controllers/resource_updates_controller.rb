@@ -14,18 +14,18 @@ class ResourceUpdatesController < ApplicationController
   # GET /resource_updates/1
   # GET /resource_updates/1.json
   def show
-    add_crumb "Show id: #{@resource_update.id}, name: #{@resource_update.name.inspect}", resource_update_path
+    autocrumb @resource_update.unique_name
   end
 
   # GET /resource_updates/new
   def new
-    add_crumb "New", new_resource_update_path
+    autocrumb
     @resource_update = ResourceUpdate.new
   end
 
   # GET /resource_updates/1/edit
   def edit
-    add_crumb "Edit id: #{@resource_update.id}, name: #{@resource_update.name.inspect}", edit_resource_update_path
+    autocrumb @resource_update.unique_name
   end
 
   # POST /resource_updates

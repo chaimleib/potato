@@ -30,7 +30,7 @@ class PotatoController < ApplicationController
     
     respond_to do |format|
       format.html {
-        add_crumb("Overview", potato_overview_path)
+        autocrumb
         @context = {
           user: user,
           jira_host: pj.jira.options[:site]
@@ -55,7 +55,7 @@ class PotatoController < ApplicationController
 
     respond_to do |format|
       format.html {
-        add_crumb("Propagations", potato_propagations_path)
+        autocrumb
         @context = {
           user: user,
           jira_host: pj.jira.options[:site]
