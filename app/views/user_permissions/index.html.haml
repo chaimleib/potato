@@ -1,4 +1,3 @@
-- helper = UserPermissionsHelper
 
 %h1= "Listing #{controller.controller_display_name.downcase}"
 %p#notice= notice
@@ -20,8 +19,8 @@
         %td= link_to user.lname, user
         %td
           = user_permission.is_admin
-          - admin_notes = helper.admin_notes(user_permission)
-          - if admin_notes.present?
-            %span.red.strong= "<#{admin_notes.join '; '}>"
+          - notes = admin_notes user_permission
+          - if notes.present?
+            %span.red.strong= "<#{notes.join '; '}>"
         %td= link_to 'Show', user_permission
         %td= link_to 'Edit', edit_user_permission_path(user_permission)
