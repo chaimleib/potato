@@ -1,7 +1,7 @@
 module UserPermissionsHelper
   RIGHT_ARROW = "\u2192"
 
-  def self.admin_notes(user_permission)
+  def admin_notes(user_permission)
     admin_notes = []
     user = user_permission.user
     if user.is_root?
