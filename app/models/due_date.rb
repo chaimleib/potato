@@ -16,7 +16,7 @@ class DueDate < ActiveRecord::Base
     dd = find_by(branch_name: version)
     return nil if dd.nil?
     day = Time.strptime dd.due, '%m/%d/%Y'
-    t_str = day.strftime '%Y-%m-%d 17:00:00.000-07:00'
+    t_str = day.strftime '%Y-%m-%d 17:00:00.000'#'-07:00'
     Time.parse t_str
   end
 end
