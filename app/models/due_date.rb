@@ -15,8 +15,12 @@ class DueDate < ActiveRecord::Base
   def self.for_version(version)
     dd = find_by(branch_name: version)
     return nil if dd.nil?
-    day = Time.strptime dd.due, '%m/%d/%Y'
-    t_str = day.strftime '%Y-%m-%d 17:00:00.000'#'-07:00'
-    Time.parse t_str
+
+    # t is time without time zone
+    # TODO: get 17:00:00 from db
+    t = Time.strptime "#{dd.due} 17:00:00" , "%m/%d/%Y %H:%M:%S"
+
+    # apply config.time_zone
+    Time.zone.local(t.year, t.month, t.day, t.hour, t.min, t.sec)
   end
 end
