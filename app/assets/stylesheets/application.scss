@@ -151,6 +151,12 @@ table.hpretty {
     @extend .green;
 }
 
+.form-note {
+    @extend .strong;
+    @extend .grey;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+}
 // PAGE SECTIONS
 .header {
     margin: 0px;
