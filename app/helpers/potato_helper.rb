@@ -34,7 +34,9 @@ module PotatoHelper
       when 'Backlog'
         back.push line
       else
-        if line[:due].nil?
+        due = DueDate.for_version ver
+        line[:due] = due
+        if due.nil?
           front.push line
         else
           middle.push line
@@ -71,8 +73,9 @@ module PotatoHelper
     due_set = []
     data.each do |line|
       multi_user = true if line[:user] != user_splits.first
-
-      if line[:due].nil?
+      due = DueDate.for_version line[:target]
+      line[:due] = due
+      if due.nil?
         line[:due_nil] = true
         due_nil.push line
       else

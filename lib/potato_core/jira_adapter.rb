@@ -13,8 +13,6 @@ class JiraAdapter
   
   def get_task_tallies_by_version(user)
     issues = get_task_list_by_version user
-
-    n = Time.now
     data = {}
     
     # tally the tasks
@@ -25,7 +23,6 @@ class JiraAdapter
     # assign due dates
     data.each do |ver, row|
       data[ver][:version] = ver
-      data[ver][:due] = DueDate.for_version ver
     end
     data
   end
@@ -55,7 +52,6 @@ class JiraAdapter
       line[:status] = issue.status.name
       line[:target] = target = issue.target_branch_name || issue.target_version_name
       line[:prs] = issue.pull_requests
-      line[:due] = DueDate.for_version target
       line[:parent] = issue.parent['key']
 
       issue_filter.push line
