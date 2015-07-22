@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150721212640) do
+ActiveRecord::Schema.define(version: 20150722000836) do
 
   create_table "code_freezes", force: :cascade do |t|
     t.string   "version",    limit: 100
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20150721212640) do
     t.string   "due",         limit: 255
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.integer  "due_ref_id",  limit: 4
   end
 
   add_index "due_dates", ["branch_name"], name: "index_due_dates_on_branch_name", unique: true, using: :btree

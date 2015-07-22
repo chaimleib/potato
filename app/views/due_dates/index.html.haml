@@ -17,7 +17,12 @@
     - @due_dates.each do |due_date|
       %tr
         %td= due_date.branch_name
-        %td= due_date.due
+        %td
+          - if due_date.due_ref.present?
+            .strong.grey
+              = "#{due_date.due_ref.branch_name}\u2192#{due_date.resolve}"
+          - else
+            = due_date.due
         %td= link_to 'Show', due_date
         %td= link_to 'Edit', edit_due_date_path(due_date)
         %td= link_to 'Destroy', due_date, :method => :delete, :data => { :confirm => 'Are you sure?' }

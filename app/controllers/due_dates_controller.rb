@@ -94,6 +94,13 @@ class DueDatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def due_date_params
-      params.require(:due_date).permit(:branch_name, :target_version, :due)
+      params.require(:due_date)
+      if params[:due_date].has_key? :due_ref_id
+        dd = params[:due_date].permit(:branch_name, :due_ref_id)
+        dd[:due] = nil
+        dd
+      else
+        params[:due_date].permit(:branch_name, :due)
+      end
     end
 end

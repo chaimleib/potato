@@ -7,7 +7,20 @@
       %td= @due_date.branch_name
     %tr
       %th Due:
-      %td= @due_date.due
+      %td
+        - if @due_date.due_ref.present?
+          .strong.grey
+            = "#{@due_date.due_ref.branch_name}\u2192#{@due_date.resolve}"
+        - else
+          = @due_date.due
+    %tr
+      %th Due reference:
+      %td
+        - if @due_date.due_ref.present?
+          = link_to @due_date.due_ref.branch_name, @due_date.due_ref
+        - else
+          .strong.grey Not set
+
 
 = link_to 'Edit', edit_due_date_path(@due_date)
 - if notice.present?
