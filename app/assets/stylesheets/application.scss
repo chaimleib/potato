@@ -20,13 +20,6 @@ a {
 a:visited   {color: $color-text-link-visited;}
 a:hover     {color: $color-text-link-hover;}
 
-div.icon-container {
-    display: inline-block;
-    img {
-        max-height: 24px;
-    }
-}
-
 // DATA TABLES
 .bootstrap-table {
     margin-top: 0.5em;
@@ -34,6 +27,11 @@ div.icon-container {
     .fixed-table-container {
         border: 1px solid $color-border;
         border-radius: 0;
+        .fixed-table-loading {
+            padding: 8px;
+            border-top: 2px solid #dddddd;
+            background-color: $color-background-shade;
+        }
     }
     .table.pretty {
         margin-top: 0;
@@ -244,3 +242,11 @@ input.form-control {
     color: $color-text;
 }
 
+.throbber {
+    height: 23px;
+}
+.table-throbber {
+    width: 32px;
+    height: 32px;
+    display: inline;
+}

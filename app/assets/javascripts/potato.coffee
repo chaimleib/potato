@@ -4,6 +4,20 @@
 
 root = this
 
+root.potato = new Object
+getThrobber = (id) ->
+  if root.potato.throbber
+    return root.potato.throbber
+  img = document.createElement('img')
+  img.setAttribute('src', '/assets/throbber.gif')
+  img.setAttribute('alt', 'loading...')
+  img.setAttribute('class', 'throbber')
+  root.potato.throbber = img
+  return root.potato.throbber
+$(-> getThrobber())
+$(document).on('pre-body.bs.table', (event)->
+	$('.fixed-table-loading').html('Loading, please wait...<img src="/assets/table-throbber.gif" style="display: inline; position: relative; bottom: 2px;">')
+)
 ### FORMATTERS ###
 root.formatters = new Object
 root.formatters.common = common = new Object

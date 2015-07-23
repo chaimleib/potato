@@ -1,21 +1,12 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
+root = this
 
 $(document).on('page:change', -> # page:change is for turbolinks
-  getThrobber = (id) ->
-    img = document.createElement('img')
-    img.setAttribute('src', '/assets/throbber.gif')
-    img.setAttribute('alt', 'loading...')
-    img_div = document.createElement('div')
-    img_div.setAttribute('id', id)
-    img_div.setAttribute('class', 'icon-container')
-    img_div.innerHTML = img.outerHTML
-    return img_div
-  throbber = getThrobber()
   $('#wiki-btn').mouseup(() -> 
     $(this).attr('disabled', 'disabled')
-    $(throbber).insertAfter(this)
+    $(root.potato.throbber).insertAfter(this)
     $('#mass-update-form').submit()
   )
 
