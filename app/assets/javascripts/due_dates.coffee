@@ -18,4 +18,24 @@ $(() ->
     $(throbber).insertAfter(this)
     $('#mass-update-form').submit()
   )
+
+  due_date_due = $('#due_date_due').val()
+  $('#due_date_due').change(->
+    due_date_due = $('#due_date_due').val()
+    $("#due_date_due_ref_id").val('')
+    false
+  )
+  $('#due_date_due_ref_id').change(->
+    if $('#due_date_due_ref_id').val()
+      due_date_due = $("#due_date_due").val()
+      $("#due_date_due").val('')
+      $("#due_date_due").attr('disabled', 'disabled')
+    else
+      $("#due_date_due").val(due_date_due)
+      $("#due_date_due").removeAttr('disabled')
+    false
+  )
+  if $('#due_date_due_ref_id').val()
+    $("#due_date_due").val('')
+    $("#due_date_due").attr('disabled', 'disabled')
 )
