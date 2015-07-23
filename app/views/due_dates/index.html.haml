@@ -4,25 +4,27 @@
 = link_to 'New due date', new_due_date_path
 \|
 = link_to 'Mass update...', due_dates_mass_update_path
-%table.table.table-condensed.pretty
+%table.table.table-condensed.pretty#due_dates-table
   %thead
     %tr
       %th{'data-sortable' => 'true'} Branch name
-      %th{'data-sortable' => 'true'} Due
+      %th{'data-sortable' => 'true', 'data-formatter' => 'formatters.due_dates.due'} Due
       %th
       %th
       %th
 
   %tbody
     - @due_dates.each do |due_date|
-      %tr
+      %tr{id: "due_date#{due_date.id}"}
         %td= due_date.branch_name
         %td
-          - if due_date.due_ref.present?
-            .strong.grey
-              = "#{due_date.due_ref.branch_name}\u2192#{due_date.resolve}"
-          - else
-            = due_date.due
+          - dt_resolve = due_date.resolve
+          - dt = Time.strptime dt_resolve, '%m/%d/%Y'
+          - due_ref = due_date.due_ref
+          - due_ref_name = due_ref.present? ? due_ref.branch_name : ''
+          - due_ref_link = due_ref.present? ? due_date_path(due_ref) : ''
+          %time{datetime: dt.strftime('%Y-%m-%d'), "data-ref-link" => due_ref_link, "data-ref-name" => due_ref_name}
+            = dt_resolve
         %td= link_to 'Show', due_date
         %td= link_to 'Edit', edit_due_date_path(due_date)
         %td= link_to 'Destroy', due_date, :method => :delete, :data => { :confirm => 'Are you sure?' }

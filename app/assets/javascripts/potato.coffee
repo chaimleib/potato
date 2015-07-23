@@ -3,19 +3,47 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 root = this
-root.formatters = new Object
-root.sorters = new Object
 
 ### FORMATTERS ###
+root.formatters = new Object
 root.formatters.common = common = new Object
 root.formatters.propagations = propagations = new Object
+root.formatters.due_dates = due_dates = new Object
 
 baseUri = location.protocol + '//' + location.host + location.pathname
 if document.context
 	jiraUriBase = document.context.jira_host
 	jiraIssueUriBase = jiraUriBase + '/browse/'
 	jiraSessionUri = jiraUriBase + '/rest/auth/1/session'
- 
+
+# common.show = (url) ->
+# 	if url[-5..] == '.json'
+# 		url = url[0...-5]
+# 	tag = document.createElement('a')
+# 	tag.setAttribute('href', url)
+# 	tag.innerHTML = 'Show'
+# 	return tag.outerHTML
+
+# common.edit = (url) ->
+# 	if url[-5..] == '.json'
+# 		url = url[0...-5]
+# 	url += '/edit'
+# 	tag = document.createElement('a')
+# 	tag.setAttribute('href', url)
+# 	tag.innerHTML = 'Edit'
+# 	return tag.outerHTML
+
+# common.destroy = (url) ->
+# 	# TODO: This is triggering the dialog twice under dev env
+# 	if url[-5..] == '.json'
+# 		url = url[0...-5]
+# 	tag = document.createElement('a')
+# 	tag.setAttribute('href', url)
+# 	tag.setAttribute('data-method', 'delete')
+# 	tag.setAttribute('data-confirm', 'Are you sure?')
+# 	tag.innerHTML = 'Destroy'
+# 	return tag.outerHTML
+
 common.relDueDate = (dateString) ->
 	if not dateString
 		return "N/A"
@@ -81,3 +109,27 @@ propagations.targetVersion = (version, row) ->
 	tag.setAttribute('class', 'urgent')
 	tag.innerHTML = version
 	return tag.outerHTML
+
+due_dates.due = (dueField) ->
+	$due = $(dueField)
+	$due.text($.trim($due.text()))
+	due_ref_name = $due.attr('data-ref-name')
+	if !due_ref_name
+		return $due.prop('outerHTML')
+	due_ref_link = $due.attr('data-ref-link')
+
+	$result = $('<div>', {class: "strong grey"})
+	$result.append($('<a>', {href: due_ref_link, text: due_ref_name}))
+	$result.append('&rarr;')
+	$result.append($due)
+	return $result.prop('outerHTML')
+
+### SORTERS ###
+# root.sorters = new Object
+# root.sorters.due_dates = due_dates = new Object
+# parseDate = (dateString) ->
+# 	parts = dateString.split('/')
+# 	new Date(parts[2] + '-' + parts[0] + '-' + parts[1])
+# dateRgx = new RegExp('')
+# due_dates.due = (a, b) ->
+# 	dateA = ''
