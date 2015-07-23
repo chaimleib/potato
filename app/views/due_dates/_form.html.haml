@@ -14,6 +14,10 @@
       .col-sm-2.field= f.label :due
       .col-sm-10.date
         = f.text_field :due, class: 'datepicker form-control'
-        .form-note OR
-        = f.collection_select(:due_ref_id, DueDate.all.sort_by(&:branch_name), :id, :branch_name, {prompt: 'Choose date to track...'})
+        / .form-note OR
+        - if @due_date.id.nil?
+          - due_refs = DueDate.where('branch_name like "\_%"').sort_by(&:branch_name)
+        - else
+          - due_refs = DueDate.where('branch_name like "\_%" and id != ?', @due_date.id).sort_by(&:branch_name)
+        = f.collection_select(:due_ref_id, due_refs, :id, :branch_name, {include_blank: "Use date above"})
     .row.form_buttons.actions.input-group= f.submit 'Save'
