@@ -1,21 +1,13 @@
 (function() {
+  var root;
+
+  root = this;
+
   $(document).on('page:change', function() {
-    var due_date_due, getThrobber, throbber;
-    getThrobber = function(id) {
-      var img, img_div;
-      img = document.createElement('img');
-      img.setAttribute('src', '/assets/throbber.gif');
-      img.setAttribute('alt', 'loading...');
-      img_div = document.createElement('div');
-      img_div.setAttribute('id', id);
-      img_div.setAttribute('class', 'icon-container');
-      img_div.innerHTML = img.outerHTML;
-      return img_div;
-    };
-    throbber = getThrobber();
+    var due_date_due;
     $('#wiki-btn').mouseup(function() {
       $(this).attr('disabled', 'disabled');
-      $(throbber).insertAfter(this);
+      $(root.potato.throbber).insertAfter(this);
       return $('#mass-update-form').submit();
     });
     due_date_due = $('#due_date_due').val();

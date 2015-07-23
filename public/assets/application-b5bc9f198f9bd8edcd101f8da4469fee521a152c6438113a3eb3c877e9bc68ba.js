@@ -18503,23 +18503,15 @@ $(function() {
 });
 
 (function() {
+  var root;
+
+  root = this;
+
   $(document).on('page:change', function() {
-    var due_date_due, getThrobber, throbber;
-    getThrobber = function(id) {
-      var img, img_div;
-      img = document.createElement('img');
-      img.setAttribute('src', '/assets/throbber.gif');
-      img.setAttribute('alt', 'loading...');
-      img_div = document.createElement('div');
-      img_div.setAttribute('id', id);
-      img_div.setAttribute('class', 'icon-container');
-      img_div.innerHTML = img.outerHTML;
-      return img_div;
-    };
-    throbber = getThrobber();
+    var due_date_due;
     $('#wiki-btn').mouseup(function() {
       $(this).attr('disabled', 'disabled');
-      $(throbber).insertAfter(this);
+      $(root.potato.throbber).insertAfter(this);
       return $('#mass-update-form').submit();
     });
     due_date_due = $('#due_date_due').val();
@@ -18547,9 +18539,32 @@ $(function() {
 
 }).call(this);
 (function() {
-  var baseUri, common, due_dates, jiraIssueUriBase, jiraSessionUri, jiraUriBase, propagations, root;
+  var baseUri, common, due_dates, getThrobber, jiraIssueUriBase, jiraSessionUri, jiraUriBase, propagations, root;
 
   root = this;
+
+  root.potato = new Object;
+
+  getThrobber = function(id) {
+    var img;
+    if (root.potato.throbber) {
+      return root.potato.throbber;
+    }
+    img = document.createElement('img');
+    img.setAttribute('src', '/assets/throbber.gif');
+    img.setAttribute('alt', 'loading...');
+    img.setAttribute('class', 'throbber');
+    root.potato.throbber = img;
+    return root.potato.throbber;
+  };
+
+  $(function() {
+    return getThrobber();
+  });
+
+  $(document).on('pre-body.bs.table', function(event) {
+    return $('.fixed-table-loading').html('Loading, please wait...<img src="/assets/table-throbber.gif" style="display: inline; position: relative; bottom: 2px;">');
+  });
 
 
   /* FORMATTERS */

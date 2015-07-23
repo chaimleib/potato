@@ -1,7 +1,30 @@
 (function() {
-  var baseUri, common, due_dates, jiraIssueUriBase, jiraSessionUri, jiraUriBase, propagations, root;
+  var baseUri, common, due_dates, getThrobber, jiraIssueUriBase, jiraSessionUri, jiraUriBase, propagations, root;
 
   root = this;
+
+  root.potato = new Object;
+
+  getThrobber = function(id) {
+    var img;
+    if (root.potato.throbber) {
+      return root.potato.throbber;
+    }
+    img = document.createElement('img');
+    img.setAttribute('src', '/assets/throbber.gif');
+    img.setAttribute('alt', 'loading...');
+    img.setAttribute('class', 'throbber');
+    root.potato.throbber = img;
+    return root.potato.throbber;
+  };
+
+  $(function() {
+    return getThrobber();
+  });
+
+  $(document).on('pre-body.bs.table', function(event) {
+    return $('.fixed-table-loading').html('Loading, please wait...<img src="/assets/table-throbber.gif" style="display: inline; position: relative; bottom: 2px;">');
+  });
 
 
   /* FORMATTERS */
