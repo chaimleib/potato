@@ -1,18 +1,18 @@
 (function() {
-  var baseUri, common, jiraIssueUriBase, jiraSessionUri, jiraUriBase, propagations, root;
+  var baseUri, common, due_dates, jiraIssueUriBase, jiraSessionUri, jiraUriBase, propagations, root;
 
   root = this;
-
-  root.formatters = new Object;
-
-  root.sorters = new Object;
 
 
   /* FORMATTERS */
 
+  root.formatters = new Object;
+
   root.formatters.common = common = new Object;
 
   root.formatters.propagations = propagations = new Object;
+
+  root.formatters.due_dates = due_dates = new Object;
 
   baseUri = location.protocol + '//' + location.host + location.pathname;
 
@@ -106,5 +106,29 @@
     tag.innerHTML = version;
     return tag.outerHTML;
   };
+
+  due_dates.due = function(dueField) {
+    var $due, $result, due_ref_link, due_ref_name;
+    $due = $(dueField);
+    $due.text($.trim($due.text()));
+    due_ref_name = $due.attr('data-ref-name');
+    if (!due_ref_name) {
+      return $due.prop('outerHTML');
+    }
+    due_ref_link = $due.attr('data-ref-link');
+    $result = $('<div>', {
+      "class": "strong grey"
+    });
+    $result.append($('<a>', {
+      href: due_ref_link,
+      text: due_ref_name
+    }));
+    $result.append('&rarr;');
+    $result.append($due);
+    return $result.prop('outerHTML');
+  };
+
+
+  /* SORTERS */
 
 }).call(this);
