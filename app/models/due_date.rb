@@ -9,6 +9,15 @@ class DueDate < ActiveRecord::Base
 
   belongs_to :due_ref, class_name: 'DueDate', foreign_key: :due_ref_id
   has_many :referencers, class_name: 'DueDate', foreign_key: :due_ref_id
+  
+  normalize :due do |val|
+    if val.present?
+      Time.strptime(val, '%m/%d/%Y').strftime('%m/%d/%Y')
+    else
+      nil
+    end
+  end
+
   validates :branch_name, 
     presence: true,
     uniqueness: true

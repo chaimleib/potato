@@ -42,7 +42,7 @@ gem 'bcrypt', '~> 3.1.10'     # password hashes
 gem 'jira-ruby'               # access to Jira and JQL (potato_core)
 gem 'nokogiri'                # parse and scrape HTML (potato_core)
 gem 'crummy', '~> 1.8.0'      # breadcrumbs in header
-
+gem 'normalize_attributes'
 # gem 'momentjs-rails', '>=2.9.0'                     # supports bootstrap3-datetimepicker
 # gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'  # nice DateTime picker
 # gem 'bootstrap_sortable_rails', '~> 1.8.0'          # nice tables
