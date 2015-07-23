@@ -157,6 +157,14 @@ table.hpretty {
     margin-top: 0.2em;
     margin-bottom: 0.2em;
 }
+
+#error-explanation {
+    @extend .red;
+    h1, h2, h3, h4, h5, h6 {
+        @extend .red;
+    }
+}
+
 // PAGE SECTIONS
 .header {
     margin: 0px;

@@ -2,8 +2,8 @@
 = form_for @user_permission do |f|
   .container-fluid
     - if @user_permission.errors.any?
-      .row#error_explanation
-        %h2= "#{pluralize(@user_permission.errors.count, "error")} prohibited this user_permission from being saved:"
+      .row#error-explanation
+        %h3= "#{pluralize(@user_permission.errors.count, "error")} prohibited this user_permission from being saved:"
         %ul
           - @user_permission.errors.full_messages.each do |msg|
             %li= msg

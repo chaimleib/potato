@@ -1,8 +1,8 @@
 = form_for @resource_update do |f|
   .container-fluid
     - if @resource_update.errors.any?
-      .row#error_explanation
-        %h2= "#{pluralize(@resource_update.errors.count, "error")} prohibited this resource_update from being saved:"
+      .row#error-explanation
+        %h3= "#{pluralize(@resource_update.errors.count, "error")} prohibited this resource_update from being saved:"
         %ul
           - @resource_update.errors.full_messages.each do |msg|
             %li= msg

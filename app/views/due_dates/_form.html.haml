@@ -1,8 +1,8 @@
 = form_for @due_date do |f|
   .container-fluid
     - if @due_date.errors.any?
-      .row#error_explanation
-        %h2= "#{pluralize(@due_date.errors.count, "error")} prohibited this due date from being saved:"
+      .row#error-explanation
+        %h3= "#{pluralize(@due_date.errors.count, "error")} prohibited this due date from being saved:"
         %ul
           - @due_date.errors.full_messages.each do |msg|
             %li= msg
