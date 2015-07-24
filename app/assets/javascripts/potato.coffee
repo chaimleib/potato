@@ -139,11 +139,21 @@ due_dates.due = (dueField) ->
 	return $result.prop('outerHTML')
 
 ### SORTERS ###
-# root.sorters = new Object
-# root.sorters.due_dates = due_dates = new Object
-# parseDate = (dateString) ->
-# 	parts = dateString.split('/')
-# 	new Date(parts[2] + '-' + parts[0] + '-' + parts[1])
-# dateRgx = new RegExp('')
-# due_dates.due = (a, b) ->
-# 	dateA = ''
+root.sorters = new Object
+root.sorters.due_dates = due_dates = new Object
+due_dates.due = (a, b) ->
+	$a = $('<div>').append(a).find('time')
+	$b = $('<div>').append(b).find('time')
+
+	dateA = $a.attr('datetime')
+	dateB = $b.attr('datetime')
+	if dateA > dateB then return 1
+	if dateA < dateB then return -1
+	nameA = $a.attr('data-ref-name')
+	nameB = $b.attr('data-ref-name')
+	if nameA && !nameB then return -1
+	if !nameA && nameB then return 1
+	if nameA > nameB then return 1
+	if nameA < nameB then return -1
+	if nameA != nameB then alert(a + "\n" + b)
+	return 0
