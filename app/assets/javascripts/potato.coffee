@@ -155,7 +155,30 @@ due_dates.due = (dueField) ->
 
 ### SORTERS ###
 root.potato.sorters = new Object
+root.potato.sorters.common = common = new Object
 root.potato.sorters.due_dates = due_dates = new Object
+cmp = (a, b) ->
+  if a > b then return 1
+  if a < b then return -1
+  return 0
+
+numeralizeRgx = /(\d+)|(\D+)/g
+naturalCmp = (a, b) ->
+  # Thanks, @georg on stackoverflow.com!
+  # http://stackoverflow.com/questions/15478954/sort-array-elements-string-with-numbers-natural-sort
+  ax = []
+  bx = []
+  a.replace(numeralizeRgx, (_, $1, $2) -> ax.push([$1 || Infinity, $2 || ""]) )
+  b.replace(numeralizeRgx, (_, $1, $2) -> bx.push([$1 || Infinity, $2 || ""]) )
+  while(ax.length && bx.length)
+    an = ax.shift()
+    bn = bx.shift()
+    nn = (an[0] - bn[0]) || an[1].localeCompare(bn[1])
+    if nn then return nn
+  return ax.length - bx.length
+
+common.branchName = naturalCmp
+
 due_dates.due = (a, b) ->
   $a = $('<div>').append(a).find('time')
   $b = $('<div>').append(b).find('time')
@@ -168,6 +191,4 @@ due_dates.due = (a, b) ->
   nameB = $b.attr('data-ref-name')
   if nameA && !nameB then return -1
   if !nameA && nameB then return 1
-  if nameA > nameB then return 1
-  if nameA < nameB then return -1
-  return 0
+  return cmp(nameA, nameB)

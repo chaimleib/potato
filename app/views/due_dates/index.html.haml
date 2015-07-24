@@ -7,8 +7,15 @@
 %table.table.table-condensed.pretty#due_dates-table{'data-sort-name' => 'branch_name'}
   %thead
     %tr
-      %th{'data-field' => 'branch_name', 'data-sortable' => 'true'} Branch name
-      %th{'data-field' => 'due', 'data-sortable' => 'true', 'data-formatter' => 'potato.formatters.due_dates.due', 'data-sorter' => 'potato.sorters.due_dates.due'} Due
+      %th{'data-field' => 'branch_name',
+        'data-sortable' => 'true',
+        'data-sorter' => 'potato.sorters.common.branchName'}
+        Branch name
+      %th{'data-field' => 'due',
+        'data-sortable' => 'true',
+        'data-formatter' => 'potato.formatters.due_dates.due',
+        'data-sorter' => 'potato.sorters.due_dates.due'}
+        Due
       %th
       %th
       %th

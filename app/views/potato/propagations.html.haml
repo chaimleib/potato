@@ -45,10 +45,12 @@
           'data-sortable' => 'true',
           'data-formatter' => 'potato.formatters.common.jiraIssue'}
           Propagation
-        %th{'data-field' => 'status', 'data-sortable' => 'true'}
+        %th{'data-field' => 'status',
+          'data-sortable' => 'true'}
           Status
         %th{'data-field' => 'target',
           'data-sortable' => 'true',
+          'data-sorter' => 'potato.sorters.common.branchName',
           'data-formatter' => 'potato.formatters.propagations.targetVersion'}
           Target
         %th{'data-field' => 'prs',
@@ -59,8 +61,11 @@
           'data-sortable' => 'true',
           'data-formatter' => 'potato.formatters.common.jiraIssue'}
           Parent
-        %th{'data-field' => 'parent_status', 'data-sortable' => 'true'}
+        %th{'data-field' => 'parent_status',
+          'data-sortable' => 'true'}
           Parent Status
-        %th{'data-field' => 'parent_target', 'data-sortable' => 'true'}
+        %th{'data-field' => 'parent_target',
+          'data-sortable' => 'true',
+          'data-sorter' => 'potato.sorters.common.branch_name'}
           Parent Target
     %tbody
