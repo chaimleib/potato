@@ -10,6 +10,7 @@ $(document).on('page:change', -> # page:change is for turbolinks
     $('#mass-update-form').submit()
   )
 
+  ## DueDate form
   due_date_due = $('#due_date_due').val()
   $('#due_date_due').change(->
     due_date_due = $('#due_date_due').val()

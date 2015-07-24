@@ -1,3 +1,12 @@
+- if @due_date.id.nil?
+  - due_refs = DueDate.where('branch_name like "\_%"').sort_by(&:branch_name)
+- else
+  - due_refs = DueDate.where('branch_name like "\_%" and id != ?', @due_date.id).sort_by(&:branch_name)
+- due_ref_options = due_refs.map { |dd|
+-   [ "#{dd.branch_name} \u2192 #{dd.resolve}",
+      dd.id,
+      {'data-date': dd.resolve}.merge(dd.id == @due_date.due_ref_id ? {selected: 'selected'} : {})
+-   ]}
 = form_for @due_date do |f|
   .container-fluid
     - if @due_date.errors.any?
@@ -14,10 +23,5 @@
       .col-sm-2.field= f.label :due
       .col-sm-10.date
         = f.text_field :due, class: 'datepicker form-control'
-        / .form-note OR
-        - if @due_date.id.nil?
-          - due_refs = DueDate.where('branch_name like "\_%"').sort_by(&:branch_name)
-        - else
-          - due_refs = DueDate.where('branch_name like "\_%" and id != ?', @due_date.id).sort_by(&:branch_name)
-        = f.collection_select(:due_ref_id, due_refs, :id, :branch_name, {include_blank: "Use date above"})
+        = f.select(:due_ref_id, options_for_select(due_ref_options), {include_blank: "Use date above"}, disabled: !due_ref_options.present?)
     .row.form_buttons.actions.input-group= f.submit 'Save'
