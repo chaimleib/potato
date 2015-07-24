@@ -14,7 +14,7 @@ class ResourceUpdate < ActiveRecord::Base
     presence: true
   
   def default_values
-    self.user ||= User.first
+    self.user ||= User.root_user
   end
 
   def unique_name
