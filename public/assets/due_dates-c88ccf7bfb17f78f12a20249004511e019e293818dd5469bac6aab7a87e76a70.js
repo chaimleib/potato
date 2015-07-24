@@ -7,7 +7,7 @@
     var due_date_due;
     $('#wiki-btn').mouseup(function() {
       $(this).attr('disabled', 'disabled');
-      $(root.potato.throbber).insertAfter(this);
+      $(root.potato.elements.throbber()).insertAfter(this);
       return $('#mass-update-form').submit();
     });
     due_date_due = $('#due_date_due').val();

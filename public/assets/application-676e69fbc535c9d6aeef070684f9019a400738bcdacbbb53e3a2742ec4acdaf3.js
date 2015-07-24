@@ -18511,7 +18511,7 @@ $(function() {
     var due_date_due;
     $('#wiki-btn').mouseup(function() {
       $(this).attr('disabled', 'disabled');
-      $(root.potato.throbber).insertAfter(this);
+      $(root.potato.elements.throbber()).insertAfter(this);
       return $('#mass-update-form').submit();
     });
     due_date_due = $('#due_date_due').val();
@@ -18539,43 +18539,57 @@ $(function() {
 
 }).call(this);
 (function() {
-  var baseUri, common, due_dates, getThrobber, jiraIssueUriBase, jiraSessionUri, jiraUriBase, propagations, root;
+  var baseUri, common, due_dates, elements, jiraIssueUriBase, jiraSessionUri, jiraUriBase, preload, propagations, root;
 
   root = this;
 
   root.potato = new Object;
 
-  getThrobber = function(id) {
+  root.potato.elements = elements = new Object;
+
+  elements.throbber = function() {
     var img;
-    if (root.potato.throbber) {
-      return root.potato.throbber;
-    }
-    img = document.createElement('img');
-    img.setAttribute('src', '/assets/throbber.gif');
-    img.setAttribute('alt', 'loading...');
-    img.setAttribute('class', 'throbber');
-    root.potato.throbber = img;
-    return root.potato.throbber;
+    img = $('<img>', {
+      src: '/assets/throbber.gif',
+      alt: 'loading...',
+      "class": 'throbber'
+    });
+    return img;
   };
 
-  $(function() {
-    return getThrobber();
+  elements.tableThrobber = function() {
+    var img;
+    img = $('<img>', {
+      src: '/assets/table-throbber.gif',
+      alt: 'loading...',
+      "class": 'table-throbber'
+    });
+    return img;
+  };
+
+  preload = $('body').append('<div>', {
+    id: "preload",
+    style: "display:none;"
+  }).append(elements.throbber()).append(elements.tableThrobber());
+
+  $(document).on('page:change', function() {
+    return preload.remove();
   });
 
   $(document).on('pre-body.bs.table', function(event) {
-    return $('.fixed-table-loading').html('Loading, please wait...<img src="/assets/table-throbber.gif" style="display: inline; position: relative; bottom: 2px;">');
+    return $('#content .fixed-table-loading').html(elements.tableThrobber());
   });
 
 
   /* FORMATTERS */
 
-  root.formatters = new Object;
+  root.potato.formatters = new Object;
 
-  root.formatters.common = common = new Object;
+  root.potato.formatters.common = common = new Object;
 
-  root.formatters.propagations = propagations = new Object;
+  root.potato.formatters.propagations = propagations = new Object;
 
-  root.formatters.due_dates = due_dates = new Object;
+  root.potato.formatters.due_dates = due_dates = new Object;
 
   baseUri = location.protocol + '//' + location.host + location.pathname;
 
@@ -18693,6 +18707,39 @@ $(function() {
 
 
   /* SORTERS */
+
+  root.potato.sorters = new Object;
+
+  root.potato.sorters.due_dates = due_dates = new Object;
+
+  due_dates.due = function(a, b) {
+    var $a, $b, dateA, dateB, nameA, nameB;
+    $a = $('<div>').append(a).find('time');
+    $b = $('<div>').append(b).find('time');
+    dateA = $a.attr('datetime');
+    dateB = $b.attr('datetime');
+    if (dateA > dateB) {
+      return 1;
+    }
+    if (dateA < dateB) {
+      return -1;
+    }
+    nameA = $a.attr('data-ref-name');
+    nameB = $b.attr('data-ref-name');
+    if (nameA && !nameB) {
+      return -1;
+    }
+    if (!nameA && nameB) {
+      return 1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+    if (nameA < nameB) {
+      return -1;
+    }
+    return 0;
+  };
 
 }).call(this);
 (function() {
