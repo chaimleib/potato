@@ -162,23 +162,24 @@ cmp = (a, b) ->
   if a < b then return -1
   return 0
 
-numeralizeRgx = /([0-9_]+)|([^0-9_]+)/g
+chunkRgx = /(_+)|([0-9]+)|([^0-9_]+)/g
 naturalCmp = (a, b) ->
   # Thanks, @georg on stackoverflow.com!
   # http://stackoverflow.com/questions/15478954/sort-array-elements-string-with-numbers-natural-sort
   ax = []
   bx = []
-  a.replace(numeralizeRgx, (_, $1, $2) -> ax.push([$1 || Infinity, $2 || ""]) )
-  b.replace(numeralizeRgx, (_, $1, $2) -> bx.push([$1 || Infinity, $2 || ""]) )
+  a.replace(chunkRgx, (_, $1, $2, $3) -> ax.push([$1 || "0", $2 || Infinity, $3 || ""]) )
+  b.replace(chunkRgx, (_, $1, $2, $3) -> bx.push([$1 || "0", $2 || Infinity, $3 || ""]) )
   while(ax.length && bx.length)
     an = ax.shift()
     bn = bx.shift()
-    nn = (an[0] - bn[0]) || an[1].localeCompare(bn[1])
+    nn = an[0].localeCompare(bn[0]) || (an[1] - bn[1]) || an[2].localeCompare(bn[2])
     if nn then return nn
   return ax.length - bx.length
 
-common.branchName = naturalCmp
-
+common.branchName = (a, b) ->
+  naturalCmp(a, b)
+  
 due_dates.due = (a, b) ->
   $a = $('<div>').append(a).find('time')
   $b = $('<div>').append(b).find('time')
