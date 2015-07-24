@@ -143,14 +143,12 @@ module VersionScraper
 
   def scrape_cell(cell)
     # This page was nice and enclosed dates in <time> elements
-    date = cell.at('time')
-    if date
-      date = date.attributes['datetime'].value
-      date = Time.parse(date)
-    else
-      # If there is no time here, no use looking further
-      return nil
-    end
+    dates = cell.search('time')
+    return nil unless dates
+    
+    date = dates.map{|d| 
+      Time.parse d.attributes['datetime'].value
+    }.max
 
     # This page also enclosed its labels about the dates in separate elements. Nice!
     tags = cell.css('.status-macro').map{|tag| html_strip tag.text }
