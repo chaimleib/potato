@@ -1,5 +1,5 @@
 (function() {
-  var baseUri, cmp, common, due_dates, elements, jiraIssueUriBase, jiraSessionUri, jiraUriBase, naturalCmp, numeralizeRgx, preload, propagations, root;
+  var baseUri, chunkRgx, cmp, common, due_dates, elements, jiraIssueUriBase, jiraSessionUri, jiraUriBase, naturalCmp, preload, propagations, root;
 
   root = this;
 
@@ -184,22 +184,22 @@
     return 0;
   };
 
-  numeralizeRgx = /([0-9_]+)|([^0-9_]+)/g;
+  chunkRgx = /(_+)|([0-9]+)|([^0-9_]+)/g;
 
   naturalCmp = function(a, b) {
     var an, ax, bn, bx, nn;
     ax = [];
     bx = [];
-    a.replace(numeralizeRgx, function(_, $1, $2) {
-      return ax.push([$1 || Infinity, $2 || ""]);
+    a.replace(chunkRgx, function(_, $1, $2, $3) {
+      return ax.push([$1 || "0", $2 || Infinity, $3 || ""]);
     });
-    b.replace(numeralizeRgx, function(_, $1, $2) {
-      return bx.push([$1 || Infinity, $2 || ""]);
+    b.replace(chunkRgx, function(_, $1, $2, $3) {
+      return bx.push([$1 || "0", $2 || Infinity, $3 || ""]);
     });
     while (ax.length && bx.length) {
       an = ax.shift();
       bn = bx.shift();
-      nn = (an[0] - bn[0]) || an[1].localeCompare(bn[1]);
+      nn = an[0].localeCompare(bn[0]) || (an[1] - bn[1]) || an[2].localeCompare(bn[2]);
       if (nn) {
         return nn;
       }
@@ -207,7 +207,9 @@
     return ax.length - bx.length;
   };
 
-  common.branchName = naturalCmp;
+  common.branchName = function(a, b) {
+    return naturalCmp(a, b);
+  };
 
   due_dates.due = function(a, b) {
     var $a, $b, dateA, dateB, nameA, nameB;
