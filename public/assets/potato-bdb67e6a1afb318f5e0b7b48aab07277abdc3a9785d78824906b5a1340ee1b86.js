@@ -1,5 +1,5 @@
 (function() {
-  var baseUri, common, due_dates, elements, jiraIssueUriBase, jiraSessionUri, jiraUriBase, preload, propagations, root;
+  var baseUri, cmp, common, due_dates, elements, jiraIssueUriBase, jiraSessionUri, jiraUriBase, naturalCmp, numeralizeRgx, preload, propagations, root;
 
   root = this;
 
@@ -170,7 +170,44 @@
 
   root.potato.sorters = new Object;
 
+  root.potato.sorters.common = common = new Object;
+
   root.potato.sorters.due_dates = due_dates = new Object;
+
+  cmp = function(a, b) {
+    if (a > b) {
+      return 1;
+    }
+    if (a < b) {
+      return -1;
+    }
+    return 0;
+  };
+
+  numeralizeRgx = /(\d+)|(\D+)/g;
+
+  naturalCmp = function(a, b) {
+    var an, ax, bn, bx, nn;
+    ax = [];
+    bx = [];
+    a.replace(numeralizeRgx, function(_, $1, $2) {
+      return ax.push([$1 || Infinity, $2 || ""]);
+    });
+    b.replace(numeralizeRgx, function(_, $1, $2) {
+      return bx.push([$1 || Infinity, $2 || ""]);
+    });
+    while (ax.length && bx.length) {
+      an = ax.shift();
+      bn = bx.shift();
+      nn = (an[0] - bn[0]) || an[1].localeCompare(bn[1]);
+      if (nn) {
+        return nn;
+      }
+    }
+    return ax.length - bx.length;
+  };
+
+  common.branchName = naturalCmp;
 
   due_dates.due = function(a, b) {
     var $a, $b, dateA, dateB, nameA, nameB;
@@ -192,13 +229,7 @@
     if (!nameA && nameB) {
       return 1;
     }
-    if (nameA > nameB) {
-      return 1;
-    }
-    if (nameA < nameB) {
-      return -1;
-    }
-    return 0;
+    return cmp(nameA, nameB);
   };
 
 }).call(this);
