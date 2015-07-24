@@ -184,7 +184,7 @@
     return 0;
   };
 
-  numeralizeRgx = /(\d+)|(\D+)/g;
+  numeralizeRgx = /([0-9_]+)|([^0-9_]+)/g;
 
   naturalCmp = function(a, b) {
     var an, ax, bn, bx, nn;
