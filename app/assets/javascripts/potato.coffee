@@ -162,7 +162,7 @@ cmp = (a, b) ->
   if a < b then return -1
   return 0
 
-numeralizeRgx = /(\d+)|(\D+)/g
+numeralizeRgx = /([0-9_]+)|([^0-9_]+)/g
 naturalCmp = (a, b) ->
   # Thanks, @georg on stackoverflow.com!
   # http://stackoverflow.com/questions/15478954/sort-array-elements-string-with-numbers-natural-sort
