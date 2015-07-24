@@ -4,11 +4,11 @@
 = link_to 'New due date', new_due_date_path
 \|
 = link_to 'Mass update...', due_dates_mass_update_path
-%table.table.table-condensed.pretty#due_dates-table
+%table.table.table-condensed.pretty#due_dates-table{'data-sort-name' => 'branch_name'}
   %thead
     %tr
-      %th{'data-sortable' => 'true'} Branch name
-      %th{'data-sortable' => 'true', 'data-formatter' => 'formatters.due_dates.due'} Due
+      %th{'data-field' => 'branch_name', 'data-sortable' => 'true'} Branch name
+      %th{'data-field' => 'due', 'data-sortable' => 'true', 'data-formatter' => 'formatters.due_dates.due'} Due
       %th
       %th
       %th
