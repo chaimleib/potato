@@ -21,7 +21,7 @@ a:visited   {color: $color-text-link-visited;}
 a:hover     {color: $color-text-link-hover;}
 
 // DATA TABLES
-.bootstrap-table {
+#content .bootstrap-table {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
     .fixed-table-container {
@@ -38,13 +38,10 @@ a:hover     {color: $color-text-link-hover;}
         margin-bottom: 0;
         border: none;
         padding: 0 !important;
-        tbody {
-            border: none;
-        }
     }
 }
 
-table.pretty {
+#content table.pretty {
     border-collapse: collapse;
     width: 100%;
     margin-top: 0.5em;
@@ -92,7 +89,7 @@ table.pretty {
     }
 }
 
-table.hpretty {
+#content table.hpretty {
     border-collapse: collapse;
     width: 0%;
     margin-right: auto;
@@ -214,11 +211,11 @@ ul {
 }
 
 // FORMS
-form .row {
+#content form .row {
     margin-top: 0.5em;
 }
 
-form .container-fluid {
+#content form .container-fluid {
     margin-bottom: 0.5em;
     margin-right: auto;
     margin-left: auto;
@@ -238,7 +235,7 @@ form .container-fluid {
     }
 }
 
-input.form-control {
+#content input.form-control {
     color: $color-text;
 }
 

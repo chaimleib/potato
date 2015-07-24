@@ -33,34 +33,34 @@
     'data-sort-order' => 'asc'}
     %thead
       %tr
-        %th{'data-field' => 'user', 
+        %th{'data-field' => 'user',
           'data-sortable' => 'true',
-          'data-formatter' => 'formatters.propagations.user'}
+          'data-formatter' => 'potato.formatters.propagations.user'}
           User
-        %th{'data-field' => 'due', 
+        %th{'data-field' => 'due',
           'data-sortable' => 'true',
-          'data-formatter' => 'formatters.common.relDueDate'}
+          'data-formatter' => 'potato.formatters.common.relDueDate'}
           Due
-        %th{'data-field' => 'key', 
+        %th{'data-field' => 'key',
           'data-sortable' => 'true',
-          'data-formatter' => 'formatters.common.jiraIssue'} 
+          'data-formatter' => 'potato.formatters.common.jiraIssue'}
           Propagation
-        %th{'data-field' => 'status', 'data-sortable' => 'true'} 
+        %th{'data-field' => 'status', 'data-sortable' => 'true'}
           Status
-        %th{'data-field' => 'target', 
+        %th{'data-field' => 'target',
           'data-sortable' => 'true',
-          'data-formatter' => 'formatters.propagations.targetVersion'} 
+          'data-formatter' => 'potato.formatters.propagations.targetVersion'}
           Target
-        %th{'data-field' => 'prs', 
+        %th{'data-field' => 'prs',
           'data-sortable' => 'true',
-          'data-formatter' => 'formatters.common.prs'} 
+          'data-formatter' => 'potato.formatters.common.prs'}
           PR#
-        %th.left-col-border{'data-field' => 'parent', 
+        %th.left-col-border{'data-field' => 'parent',
           'data-sortable' => 'true',
-          'data-formatter' => 'formatters.common.jiraIssue'} 
+          'data-formatter' => 'potato.formatters.common.jiraIssue'}
           Parent
-        %th{'data-field' => 'parent_status', 'data-sortable' => 'true'} 
+        %th{'data-field' => 'parent_status', 'data-sortable' => 'true'}
           Parent Status
-        %th{'data-field' => 'parent_target', 'data-sortable' => 'true'} 
+        %th{'data-field' => 'parent_target', 'data-sortable' => 'true'}
           Parent Target
     %tbody

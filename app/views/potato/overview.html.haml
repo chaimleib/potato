@@ -27,15 +27,15 @@
   %table.table.table-condensed.pretty{'data-url' => overview_path(@context[:user])}
     %thead
       %tr
-        %th{'data-field' => 'version', 
-          'data-sortable' => 'true', 
-          'data-formatter' => 'formatters.propagations.targetVersion'}
+        %th{'data-field' => 'version',
+          'data-sortable' => 'true',
+          'data-formatter' => 'potato.formatters.propagations.targetVersion'}
           Version
-        %th{'data-field' => 'tasks', 
+        %th{'data-field' => 'tasks',
           'data-sortable' => 'true'} 
           Tasks
-        %th{'data-field' => 'due', 
-          'data-sortable' => 'true', 
-          'data-formatter' => 'formatters.common.relDueDate'}
+        %th{'data-field' => 'due',
+          'data-sortable' => 'true',
+          'data-formatter' => 'potato.formatters.common.relDueDate'}
           Due
     %tbody

@@ -6,7 +6,7 @@ root = this
 $(document).on('page:change', -> # page:change is for turbolinks
   $('#wiki-btn').mouseup(() -> 
     $(this).attr('disabled', 'disabled')
-    $(root.potato.throbber).insertAfter(this)
+    $(root.potato.elements.throbber()).insertAfter(this)
     $('#mass-update-form').submit()
   )
 
