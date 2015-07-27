@@ -28,6 +28,7 @@ module PotatoHelper
     back = []
     middle = []
     data.each do |ver, line|
+      line[:due] = nil
       case ver
       when 'Unversioned'
         front.push line
