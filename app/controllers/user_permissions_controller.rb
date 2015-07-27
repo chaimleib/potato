@@ -78,6 +78,9 @@ class UserPermissionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_permission_params
-      params.require(:user_permission).permit(:user_id, :is_admin)
+      if params.require(:user_id) != @user_permission.user_id.to_s
+        raise "Read-only attribute: user_id"
+      end
+      params.require(:user_permission).permit(:is_admin)
     end
 end
