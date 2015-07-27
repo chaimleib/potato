@@ -1,9 +1,3 @@
-/ - now = Time.now
-/ - def jira_link(key)
-/   - return nil if key.nil?
-/   - uri = "#{@context[:jira_issue_uri_base]}/#{key}"
-/   - link_to key, uri
-
 - def propagations_path(user)
   - return nil unless user.present?
   - base_uri = controller.potato_propagations_path
