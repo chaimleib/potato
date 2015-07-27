@@ -7,7 +7,7 @@ module ApplicationHelper
   ALLOW_LINKS = {tags: %w(a wbr), attributes: %w(href)}
   ALLOW_WBR = {tags: %w(wbr)}
 
-  def breakable_uri(uri, breaker='<wbr>'.html_safe)
+  def breakable_uri(uri, breaker='<wbr/>'.html_safe)
     # given a uri, returns a displayabe uri which allows line
     # breaking between sections of the address.
     parts = []  # to be joined, sanitized and returned
@@ -36,7 +36,7 @@ module ApplicationHelper
     result
   end
   
-  def breakable_email(email, breaker='<wbr>'.html_safe)
+  def breakable_email(email, breaker='<wbr/>'.html_safe)
     # given an email, returns a displayable email which allows line
     # breaking between sections of the address.
 
