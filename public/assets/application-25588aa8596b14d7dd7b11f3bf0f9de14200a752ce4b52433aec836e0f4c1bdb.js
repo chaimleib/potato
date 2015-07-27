@@ -18655,7 +18655,7 @@ $(function() {
       }
       return 0;
     });
-    links = prs.map(common.pr).join(' ');
+    links = prs.map(potato.formatters.common.pr).join(' ');
     return links;
   };
 
