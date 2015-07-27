@@ -116,7 +116,7 @@ common.prs = (prs) ->
     return -1 if aDate < bDate
     return 1 if aDate > bDate
     return 0
-  links = prs.map(common.pr).join(' ')
+  links = prs.map(potato.formatters.common.pr).join(' ')
   return links
 
 propagations.user = (userString) ->
