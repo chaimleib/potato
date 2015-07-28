@@ -15,7 +15,7 @@
       %th User:
       %td
         - user = @resource_update.user
-        - name = "#{user.fname} #{user.lname}"
+        - name = breakable_email(user.human_email)
         = link_to name, @resource_update.user
 
 = link_to 'Edit', edit_resource_update_path(@resource_update)
