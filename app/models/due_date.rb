@@ -24,6 +24,9 @@ class DueDate < ActiveRecord::Base
   validates :due,
     allow_nil: true,
     format: {with: DATE_RGX, message: DATE_ERR}
+  validates :resolve,
+    presence: true
+    
   validate :has_no_circular_refs
 
   def self.for_version(version)
