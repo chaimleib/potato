@@ -2,19 +2,25 @@ require 'rails_helper'
 
 RSpec.describe "users/show", type: :view do
   before(:each) do
-    @user = assign(:user, User.create!(
-      :fname => "Fname",
-      :lname => "Lname",
-      :email => "Email",
-      :password_digest => "Password Digest"
-    ))
+    @user = assign :user, FactoryGirl.create(:user)
   end
 
-  it "renders attributes in <p>" do
+  it "renders attributes in table" do
     render
-    expect(rendered).to match(/Fname/)
-    expect(rendered).to match(/Lname/)
-    expect(rendered).to match(/Email/)
-    expect(rendered).to match(/Password Digest/)
+    assert_select "tr" do
+      assert_select "th", "First name:"
+      assert_select "td", @user.fname
+    end
+    assert_select "tr" do
+      assert_select "th", "Last name:"
+      assert_select "td", @user.lname
+    end
+    assert_select "tr" do
+      assert_select "th", "E-mail:"
+      assert_select "td", @user.email
+    end
+    assert_select "tr" do
+      assert_select "td[colspan=2]>a[href=?]", "Permissions", user_permissions_path(@user.user_permission)
+    end
   end
 end
