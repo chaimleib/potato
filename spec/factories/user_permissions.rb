@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :user_permission do
-    user nil
-is_admin ""
+    user FactoryGirl.create :user
+    is_admin false
   end
-
 end
